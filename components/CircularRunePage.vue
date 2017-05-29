@@ -3,15 +3,12 @@
     .bigCircle
       .smallCircle
       .summaryBox
-        table.table.table-sm
-          thead
-            tr
-              td.text-center(colspan='2')
-                b {{ $t('stats') }}
-          tbody
-            tr(v-for='stat in summaryStats')
-              td {{ stat.amount }}
-              td {{ stat.type | sentenceCase }}
+        .row.no-gutters
+          .col-12.mb-2.text-center
+            b {{ $t('stats') }}
+        .row.no-gutters.mt-2(v-for='stat in summaryStats')
+          .col-3 {{ stat.amount }}
+          .col-9 {{ stat.type | sentenceCase }}
       template(v-for='runes, type in runesSlots')
         div(v-for='rune, index in runes', :style='getRuneStyle(type, index)')
           rune-image(:image-name='rune.image.full')
@@ -161,13 +158,15 @@
 
     .summaryBox {
       width: 13em;
-      height: $big-circle-rad - 1em;
+      height: $big-circle-rad - .9em;
       position: absolute;
-      left: 8.5em;
-      top: 8em;
+      left: 8.9em;
+      top: 7.5em;
       overflow-y: auto;
 
-      table { font-size: 0.8em }
+      & > div {
+        font-size: 0.8em;
+      }
     }
 
     .bigCircle {
