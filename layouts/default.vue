@@ -9,6 +9,7 @@
       @change-summoner="handleOnChangeSummoner"
       @submit="handleOnSubmit"
     )
+    .navSpacer
     nuxt/
 </template>
 
@@ -72,3 +73,9 @@
     },
   };
 </script>
+
+<style media="screen">
+  .navSpacer {
+    height: 4em;
+  }
+</style>

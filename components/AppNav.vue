@@ -92,7 +92,12 @@
 @import '../assets/scss/mixins';
 
 nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   $navHeight: 4em;
+  z-index: 50;
 
   height: $navHeight;
   background-color: $color-primary;
