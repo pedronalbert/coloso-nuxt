@@ -54,8 +54,7 @@ export default {
           .then((response) => {
             const entities = normalize(response);
 
-            commit('entities/merge', entities, { root: true });
-            commit('fetchSuccess', { ids: response.data.map(proPlayer => proPlayer.id) });
+            commit('fetchSuccess', { ids: response.data.map(proPlayer => proPlayer.id), entities });
             resolve(response);
           })
           .catch((error) => {

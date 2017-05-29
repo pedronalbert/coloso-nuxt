@@ -107,8 +107,7 @@ export default {
           .then((response) => {
             const entities = normalize(response);
 
-            commit('entities/merge', entities, { root: true });
-            commit('fetchSuccess', { ids: response.data.map(proBuild => proBuild.id), meta: response.meta });
+            commit('fetchSuccess', { ids: response.data.map(proBuild => proBuild.id), meta: response.meta, entities });
 
             resolve();
           })

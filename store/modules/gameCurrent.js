@@ -77,8 +77,7 @@ export default {
           .then((response) => {
             const entities = normalize(response);
 
-            commit('entities/merge', entities, { root: true });
-            commit('fetchSuccess', { id: response.data.id, summonerId });
+            commit('fetchSuccess', { id: response.data.id, summonerId, entities });
             resolve(response);
           })
           .catch((error) => {
