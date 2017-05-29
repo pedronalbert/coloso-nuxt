@@ -9,6 +9,8 @@ export default {
     fetching: false,
     fetchError: false,
     errorMessage: '',
+    summonerName: '',
+    region: 'NA',
   },
 
   mutations: {
@@ -31,6 +33,10 @@ export default {
         fetchError: true,
         errorMessage: message,
       });
+    },
+
+    setParams(state, params) {
+      assign(state, params);
     },
   },
 
@@ -72,6 +78,10 @@ export default {
             reject(err);
           });
       });
+    },
+
+    setParams({ commit }, params) {
+      commit('setParams', params);
     },
   },
 };

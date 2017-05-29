@@ -1,5 +1,5 @@
 <template lang="pug">
-  .TooltipCard(ref='tooltip')
+  .TooltipCard.animated.fadeIn(ref='tooltip')
     slot
 </template>
 
@@ -70,6 +70,7 @@
     padding: 1em;
     z-index: 500;
     box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px rgba(0,0,0,.14), 0 1px 10px rgba(0,0,0,.12);
+    animation-duration: .3s;
 
     &>* {
       font-size: 0.8em;

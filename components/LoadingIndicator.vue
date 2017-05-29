@@ -12,7 +12,7 @@
     props: {
       theme: {
         type: String,
-        default: 'accent',
+        default: 'accent', // accent|white
       },
 
       size: {

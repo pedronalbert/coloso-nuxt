@@ -63,7 +63,7 @@
     .RegionSelector {
       flex: 0;
       width: 6em;
-      margin-top: 2.5em; // Centrar debido a margin de la libreria
+      margin-top: 2.5em; // Centrar debido a margin del vendor
       min-width: 6em;
 
       @include media-breakpoint-down(xs) {
@@ -111,22 +111,22 @@
       justify-content: center;
       padding: 0 0.5em;
       background-color: $color-accent;
+      border-radius: 0.3em;
 
-      .md-icon { color: white }
+      i { color: white !important }
     }
   }
 
   .SummonerInput.small {
     font-size: 0.8em;
 
-    .searchButton {
-      display: none;
+    .RegionSelector {
+      margin-top: 2.9em;
+      margin-left: .25em;
     }
 
-    .searchIconButton {
-      @include media-breakpoint-down(xs) {
-        display: none;
-      }
+    .searchButton {
+      display: none;
     }
   }
 

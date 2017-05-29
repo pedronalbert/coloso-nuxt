@@ -11,7 +11,7 @@
             loading-indicator(theme='white')
         template(v-else)
           form.formControls(@submit.prevent='handleOnSubmit')
-            summoner-input(:summoner='summoner', :region='region', @change-summoner='handleOnChangeSummoner', @change-region='handleOnChangeRegion', @submit='handleOnSubmit')
+            summoner-input(:summoner='summonerName', :region='region', @change-summoner='handleOnChangeSummoner', @change-region='handleOnChangeRegion', @submit='handleOnSubmit')
             .radiosContainer
               .radioRow.align-items-center
                 v-radio.radioButton(:light="true" v-model="searchType", :hide-details="true" value="PROFILE")
@@ -56,8 +56,8 @@
       if (process.BROWSER_BUILD) {
         getRiotRegionByUserIp()
           .then((region) => {
-            if (this.summoner === '') {
-              this.region = region;
+            if (this.summonerName === '') {
+              this.setParams({ region });
             }
           })
           .catch(() => {
@@ -68,8 +68,6 @@
 
     data() {
       return {
-        summoner: '',
-        region: 'NA',
         searchType: 'PROFILE',
       };
     },
@@ -78,6 +76,8 @@
       ...mapState({
         searchState: state => state.search,
         proBuildsState: state => state.proBuilds,
+        summonerName: state => state.search.summonerName,
+        region: state => state.search.region,
       }),
 
       ...mapGetters('proBuilds', {
@@ -91,19 +91,20 @@
         setBuildsFilters: 'proBuilds/setFilters',
         searchSummoner: 'search/searchSummoner',
         searchGame: 'search/searchGame',
+        setParams: 'search/setParams',
       }),
 
       handleOnChangeRegion(region) {
-        this.region = region;
+        this.setParams({ region });
       },
 
-      handleOnChangeSummoner(summoner) {
-        this.summoner = summoner;
+      handleOnChangeSummoner(summonerName) {
+        this.setParams({ summonerName });
       },
 
       handleOnSubmit() {
         if (this.searchType === 'PROFILE') {
-          this.searchSummoner({ summonerName: this.summoner, region: this.region })
+          this.searchSummoner({ summonerName: this.summonerName, region: this.region })
             .then(({ summonerId }) => {
               this.$router.push({ path: `/summoners/${summonerId}` });
             })
@@ -111,7 +112,7 @@
               showModal(message);
             });
         } else {
-          this.searchGame({ summonerName: this.summoner, region: this.region })
+          this.searchGame({ summonerName: this.summonerName, region: this.region })
             .then(({ summonerId }) => {
               this.$router.push({ path: `/game-current/${summonerId}` });
             })

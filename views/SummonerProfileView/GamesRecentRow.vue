@@ -120,7 +120,7 @@
       width: 10em;
 
       @include media-breakpoint-only(lg) {
-        width: 9em;
+        width: 8.5em;
       }
     }
 
