@@ -1,7 +1,6 @@
 import { assign } from 'lodash';
-import denormalize from '../../utils/denormalize';
-
-import { COLOSO_API_CALL, COLOSO_API_CALL_TYPES } from '../plugins/colosoApiPlugin';
+import normalize from 'json-api-normalizer';
+import { denormalize, ColosoApi } from '../../utils';
 
 export default {
   namespaced: true,
@@ -48,10 +47,21 @@ export default {
 
   actions: {
     fetch({ commit }) {
-      commit('fetch', {
-        [COLOSO_API_CALL]: {
-          callType: COLOSO_API_CALL_TYPES.PRO_PLAYERS,
-        },
+      return new Promise((resolve, reject) => {
+        commit('fetch');
+
+        ColosoApi.proPlayers.get()
+          .then((response) => {
+            const entities = normalize(response);
+
+            commit('entities/merge', entities, { root: true });
+            commit('fetchSuccess', { ids: response.data.map(proPlayer => proPlayer.id) });
+            resolve(response);
+          })
+          .catch((error) => {
+            commit('fetchFailure', { message: error.message });
+            reject(error);
+          });
       });
     },
   },

@@ -174,7 +174,7 @@ function getAndroidStatus() {
   });
 }
 
-function getGameById({ id }) {
+function getGameById(id) {
   return new Promise((resolve, reject) => {
     const url = `games/${id}`;
 
