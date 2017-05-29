@@ -173,8 +173,13 @@
     }
 
     .SearchControls {
+      height: 6.5em;
       margin-bottom: 1em;
       margin-top: 2em;
+
+      @include media-breakpoint-down(xs) {
+        height: 8.4em;
+      }
 
       .formControls {
         display: flex;
