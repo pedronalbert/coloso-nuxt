@@ -1,0 +1,47 @@
+.tabs__bar {
+  height: 3em;
+
+  .tabs__item {
+    color: white !important;
+    text-decoration: none;
+    font-size: 0.9em;
+  }
+
+  .tabs__slider {
+    background-color: $color-accent;
+  }
+}
+
+.tabs--light {
+  .tabs__bar {
+    background-color: rgba(0,0,0,0.08);
+
+    .tabs__item {
+      color: rgba(0,0,0,0.8) !important;
+    }
+  }
+}
+
+
+// Radios
+.input-group--light {
+  .icon--radio {
+    color: white !important;
+  }
+}
+
+// Buttons
+.btn--dark {
+  i {
+    color: white !important;
+  }
+
+  &.btn--raised {
+    &.primary {
+      background-color: $color-primary !important;
+    }
+    &.accent {
+      background-color: $color-accent !important;
+    }
+  }
+}

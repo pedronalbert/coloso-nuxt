@@ -1,0 +1,51 @@
+{
+  "name": "coloso-nuxt",
+  "version": "1.0.0",
+  "description": "Coloso Web",
+  "author": "Alberto Pedron <pedron.albert@gmail.com>",
+  "private": true,
+  "dependencies": {
+    "animate.css": "^3.5.2",
+    "axios": "^0.16.1",
+    "bootstrap": "4.0.0-alpha.6",
+    "jquery": "^3.2.1",
+    "json-api-normalizer": "^0.4.0",
+    "lodash": "^4.17.4",
+    "material-design-icons": "^3.0.1",
+    "moment": "^2.18.1",
+    "numeral": "^2.0.6",
+    "nuxt": "latest",
+    "qs": "^6.4.0",
+    "sweetalert2": "^6.6.4",
+    "vue": "^2.3.0",
+    "vue-analytics": "^4.1.2",
+    "vue-i18n": "^6.1.3",
+    "vue-router": "^2.3.1",
+    "vue-spinner": "^1.0.2",
+    "vuetify": "^0.12.2",
+    "vuex": "^2.3.1"
+  },
+  "scripts": {
+    "dev": "PORT=8080 nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint-plugin-promise": "^3.4.1",
+    "eslint-plugin-standard": "^2.0.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.3",
+    "eslint-friendly-formatter": "^2.0.7",
+    "eslint-import-resolver-webpack": "^0.8.1",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-html": "^2.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "node-sass": "^4.5.2",
+    "pug": "^2.0.0-rc.1",
+    "sass-loader": "^6.0.3"
+  }
+}

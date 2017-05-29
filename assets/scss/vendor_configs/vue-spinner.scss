@@ -1,0 +1,19 @@
+.v-spinner {
+  &-primary {
+    &>div  {
+      background-color: $color-primary !important;
+    }
+  }
+
+  &-accent {
+    &>div  {
+      background-color: $color-accent !important;
+    }
+  }
+
+  &-white {
+    &>div  {
+      background-color: white !important;
+    }
+  }
+}
