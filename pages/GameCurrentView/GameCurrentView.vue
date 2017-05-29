@@ -60,6 +60,7 @@
 </template>
 
 <script>
+  import moment from 'moment';
   import { filter, get } from 'lodash';
   import { mapState, mapGetters, mapActions } from 'vuex';
 
@@ -78,17 +79,34 @@
   import Participant from './Participant.vue';
   import TeamHeader from './TeamHeader.vue';
 
+  const CACHE_SECONDS = 200;
+
   export default {
     name: 'GameCurrentView',
 
     fetch({ params, store }) {
-      return store.dispatch('gameCurrent/fetchGame', params.summonerId)
-        .then(() => {
-          store.dispatch('proBuilds/setFilters', { championId: store.state.gameCurrent.focusChampionId });
+      return new Promise((resolve) => {
+        const gameCurrentState = store.state.gameCurrent;
 
-          return store.dispatch('proBuilds/fetchBuilds', { pageNumber: 1 });
-        })
-        .catch(() => false);
+        if (
+          gameCurrentState.fetched &&
+          params.summonerId === gameCurrentState.summonerId &&
+          moment().diff(gameCurrentState.fetchedAt, 'seconds') < CACHE_SECONDS
+        ) {
+          resolve();
+        } else {
+          store.dispatch('gameCurrent/fetchGame', params.summonerId)
+            .then(() => {
+              store.dispatch('proBuilds/setFilters', { championId: store.getters['gameCurrent/focusChampionId'] });
+
+              return store.dispatch('proBuilds/fetchBuilds', { pageNumber: 1 });
+            })
+            .then(resolve)
+            .catch(() => {
+              resolve();
+            });
+        }
+      });
     },
 
     data: () => ({

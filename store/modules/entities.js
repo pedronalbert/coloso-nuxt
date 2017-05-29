@@ -1,18 +1,24 @@
-import { merge as lodashMerge } from 'lodash';
+import { merge as lMerge } from 'lodash';
 
 export default {
   namespaced: true,
 
-  data: {
+  state: {
+    proBuild: {},
     proBuilds: {},
+    masteries: {},
+    gamesRecent: {},
+    leagueEntries: {},
+    championsMasteries: {},
     proPlayers: {},
     proSummoners: {},
     runes: {},
+    summoners: {},
   },
 
   mutations: {
     merge(state, entities) {
-      lodashMerge(state, entities);
+      lMerge(state, entities);
     },
   },
 };

@@ -1,4 +1,5 @@
-import { assign, clone, get } from 'lodash';
+import moment from 'moment';
+import { assign, clone, get, find } from 'lodash';
 import normalize from 'json-api-normalizer';
 import { denormalize, ColosoApi } from '../../utils';
 
@@ -7,6 +8,7 @@ const INITIAL_STATE = {
   summonerId: null,
   fetching: false,
   fetched: false,
+  fetchedAt: null,
   fetchError: false,
   errorMessage: '',
 };
@@ -31,6 +33,7 @@ export default {
         summonerId,
         fetching: false,
         fetched: true,
+        fetchedAt: moment().format(),
       });
     },
 
@@ -71,17 +74,17 @@ export default {
         commit('fetching');
 
         ColosoApi.summoners.gameCurrent({ summonerId })
-        .then((response) => {
-          const entities = normalize(response);
+          .then((response) => {
+            const entities = normalize(response);
 
-          commit('entities/merge', entities, { root: true });
-          commit('fetchSuccess', { id: response.data.id, summonerId });
-          resolve(response);
-        })
-        .catch((error) => {
-          commit('fetchFailure', { message: error.message });
-          reject(error);
-        });
+            commit('entities/merge', entities, { root: true });
+            commit('fetchSuccess', { id: response.data.id, summonerId });
+            resolve(response);
+          })
+          .catch((error) => {
+            commit('fetchFailure', { message: error.message });
+            reject(error);
+          });
       });
     },
 
