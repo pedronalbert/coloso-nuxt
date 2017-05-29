@@ -3,7 +3,7 @@
     .d-flex.flex-column.align-items-center
       poro-sticker(:name='poroName', :class='poroSize')
       .message.text-primary {{ message }}
-      md-button.md-accent(v-if='retryButton', @click.native='handleOnClickRetry')
+      v-btn.mt-2.accent(v-if='retryButton', :light="true", :flat="true", @click.native='handleOnClickRetry')
         | {{ $t('retry') }}
 </template>
 
@@ -37,7 +37,7 @@
 
     methods: {
       handleOnClickRetry() {
-        this.$emit('press-retry');
+        this.$emit('retry');
       },
     },
 
@@ -56,8 +56,8 @@
     }
 
     .PoroSticker {
-      width: 8em;
-      height: 8em;
+      width: 7em;
+      height: 7em;
     }
   }
 </style>

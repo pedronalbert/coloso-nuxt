@@ -42,6 +42,7 @@ export default {
   loadingData: 'Cargando Datos',
   resultsNotFound: 'No se han encontrado resultados',
   pageNotFound: 'No podemos encontrar la página solicitada',
+  noProBuildsResults: 'No hemos encontrado builds para el campeón o jugador seleccionado, pronto estarán disponibles',
   mapsIds: {
     1: 'La Grieta del Invocador',
     2: 'La Grieta del Invocador',

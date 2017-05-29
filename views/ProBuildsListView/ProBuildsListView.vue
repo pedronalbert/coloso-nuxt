@@ -16,8 +16,9 @@
             :players="proPlayers"
           )
 
-        loading-indicator.mb2(v-if="proBuildsState.fetching && proBuilds.length === 0")
-        error-view(v-else-if="proBuilds.length === 0" :message="$t('resultsNotFound')" :retry-button="false")
+        loading-indicator.mb2(v-if="proBuildsState.fetching && proBuildsState.length === 0")
+        error-view(v-else-if="proBuildsState.fetchError && proBuilds.length === 0" :message="proBuildsState.errorMessage" @retry="handleOnClickRetry")
+        error-view(v-else-if="proBuilds.length === 0 && proBuildsState.fetched" :message="$t('noProBuildsResults')" :retry-button="false")
         template(v-else)
           pro-builds-list(class="mb-4" :builds="proBuilds")
           loading-indicator(v-if="proBuildsState.fetching" class="m2")

@@ -41,7 +41,17 @@
       background-color: $color-primary !important;
     }
     &.accent {
+      border: none !important;
       background-color: $color-accent !important;
+    }
+  }
+}
+
+.btn--light {
+  &.btn--flat {
+    &.accent {
+      border: none !important;
+      color: $color-accent !important;
     }
   }
 }
