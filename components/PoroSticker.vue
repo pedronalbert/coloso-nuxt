@@ -10,7 +10,7 @@
 
     computed: {
       imageUrl() {
-        return `../assets/images/stickers/poro-${this.name}.png`;
+        return `/images/stickers/poro-${this.name}.png`;
       },
     },
   };
