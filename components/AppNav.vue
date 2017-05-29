@@ -1,5 +1,5 @@
 <template lang="pug">
-  nav.elevation-2
+  nav
     .container.h-100
       .d-flex.align-items-center.h-100
         button.hamburguerButton.hidden-md-up(@click='toggleMenu')
@@ -133,7 +133,6 @@ nav {
       padding-bottom: 1.5em;
       background-color: #3aa8ff;
       z-index: 100;
-      box-shadow: 0 2px -2px rgba(0,0,0,.2) !important;
     }
 
     .menuItem{

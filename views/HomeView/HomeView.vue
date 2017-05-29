@@ -143,8 +143,11 @@
   @import '../../assets/scss/mixins';
 
   .headerContainer {
-    background: $color-primary;
     padding: 1em;
+    background-color: $color-primary;
+    background-image: url('/images/background_shapes.png');
+    background-size: 330px;
+    background-repeat: repeat;
 
     .iconContainer {
       width: 9em;
