@@ -143,7 +143,7 @@
   @import '../../assets/scss/mixins';
 
   .headerContainer {
-    padding: 1em;
+    padding: .5em;
     background-color: $color-primary;
     background-image: url('/images/background_shapes.png');
     background-size: 330px;
@@ -173,13 +173,8 @@
     }
 
     .SearchControls {
-      height: 5.5em;
       margin-bottom: 1em;
       margin-top: 2em;
-
-      @include media-breakpoint-down(xs) {
-        height: 7em;
-      }
 
       .formControls {
         display: flex;
