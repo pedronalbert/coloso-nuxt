@@ -4,7 +4,7 @@
       champion-and-spells(:champion-id='participant.championId', :spell1-id='participant.spell1Id', :spell2-id='participant.spell2Id')
       .dataCol
         div
-          router-link(:to="{ name: 'SummonerProfile', params: { summonerId: participant.summonerId }}")
+          router-link(:to="`/summoners/${participant.summonerId}`")
             small.summonerName {{ participant.summonerName}}
         .text-secondary
           small {{ participant.champion.name }}

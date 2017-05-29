@@ -105,7 +105,7 @@
         if (this.searchType === 'PROFILE') {
           this.searchSummoner({ summonerName: this.summoner, region: this.region })
             .then(({ summonerId }) => {
-              this.$router.push({ name: 'SummonerProfile', params: { summonerId } });
+              this.$router.push({ path: `/summoners/${summonerId}` });
             })
             .catch(({ message }) => {
               showModal(message);
@@ -113,7 +113,7 @@
         } else {
           this.searchGame({ summonerName: this.summoner, region: this.region })
             .then(({ summonerId }) => {
-              this.$router.push({ name: 'GameCurrent', params: { summonerId } });
+              this.$router.push({ path: `/game-current/${summonerId}` });
             })
             .catch(({ message }) => {
               showModal(message);

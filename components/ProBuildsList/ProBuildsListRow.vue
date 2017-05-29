@@ -1,6 +1,6 @@
 <template lang="pug">
   .ProBuildsListRow(:class="build.stats.win ? 'victory' : 'defeat'")
-    router-link.styless(:to="{ name: 'ProBuild', params: { buildId: build.id } }")
+    router-link.styless(:to="`/pro-builds/${build.id}`")
       .chipsContainer
         pro-player-chip(:image-url='build.proSummoner.proPlayer.imageUrl', :name='build.proSummoner.proPlayer.name', :real-name='build.proSummoner.proPlayer.realName', :role='build.proSummoner.proPlayer.role')
         span.arrow-icon-container.hidden-sm-down

@@ -45,10 +45,6 @@ module.exports = {
       }
     },
 
-    babel: {
-      presets: ['stage-2'],
-    },
-
     vendor: ['vue-i18n', 'jquery', 'axios', 'moment', 'numeral'],
   },
 
@@ -58,30 +54,4 @@ module.exports = {
     { src: '~plugins/Vuetify.js' },
     { src: '~plugins/SweetAlert.js', ssr: false },
   ],
-
-  router: {
-    extendRoutes(routes, resolve) {
-      routes.push({
-        name: 'Home',
-        path: '/',
-        component: resolve(__dirname, 'pages/HomeView/HomeView.vue'),
-      }, {
-        name: 'ProBuild',
-        path: '/pro-builds/:buildId',
-        component: resolve(__dirname, 'pages/ProBuildView/ProBuildView.vue'),
-      }, {
-        name: 'SummonerProfile',
-        path: '/summoners/:summonerId',
-        component: resolve(__dirname, 'pages/SummonerProfileView/SummonerProfileView.vue'),
-      }, {
-        name: 'ProBuildsList',
-        path: '/pro-builds',
-        component: resolve(__dirname, 'pages/ProBuildsListView/ProBuildsListView.vue'),
-      }, {
-        name: 'GameCurrent',
-        path: '/game-current/:summonerId',
-        component: resolve(__dirname, 'pages/GameCurrentView/GameCurrentView.vue'),
-      });
-    },
-  },
 };

@@ -6,7 +6,7 @@
     div.col-4
       .bold-text Nick
     div.col-8
-      nuxt-link(:to="{ name: 'SummonerProfile', params: { summonerId: player.summonerId }}") {{ player.name }}
+      nuxt-link(:to="`/summoners/${player.summonerId}`") {{ player.name }}
   div.row.mb-3
     div.col-4
       .bold-text {{ $t('name') }}

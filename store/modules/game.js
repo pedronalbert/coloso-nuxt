@@ -55,7 +55,7 @@ export default {
             const entities = normalize(response);
 
             commit('entities/merge', entities, { root: true });
-            commit('fetchSuccess', { ids: response.data.id });
+            commit('fetchSuccess', { id: response.data.id });
             resolve(response);
           })
           .catch((error) => {

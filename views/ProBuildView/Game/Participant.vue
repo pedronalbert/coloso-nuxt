@@ -1,5 +1,5 @@
 <template lang="pug">
-  router-link.Participant.styless(:to="{ name: 'SummonerProfile', params: { summonerId: participant.summoner.summonerId } }")
+  router-link.Participant.styless(:to="`/summoners/${participant.summoner.summonerId}`")
     champion-avatar(:champion-id='participant.championId', :spell1-id='participant.spell1Id', :spell2-id='participant.spell2Id', :name='participant.summoner.summonerName', :title='participant.champion.name')
     .statsCol
       score(:kills='participant.stats.kills', :deaths='participant.stats.deaths', :assists='participant.stats.assists')

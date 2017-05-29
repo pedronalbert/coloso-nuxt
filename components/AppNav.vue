@@ -9,8 +9,8 @@
         class="container d-md-flex align-items-center"
         :class="{ 'hidden-xs-down': !menuIsOpen }"
       )
-        router-link.menuItem(:to='{ name: "Home" }') {{ $t('home') }}
-        router-link.menuItem(:to='{ name: "ProBuildsList" }') {{ $t('proBuilds') }}
+        router-link.menuItem(to='/') {{ $t('home') }}
+        router-link.menuItem(to='/pro-builds') {{ $t('proBuilds') }}
 </template>
 
 <script>
