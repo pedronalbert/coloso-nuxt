@@ -6,3 +6,4 @@ export { default as denormalize } from './denormalize';
 export { default as subTypeToQueueId } from './subTypeToQueueId';
 export { default as getLocale } from './getLocale';
 export { default as getRiotRegionByUserIp } from './getRiotRegionByUserIp';
+export { default as promiseReflector } from './promiseReflector';

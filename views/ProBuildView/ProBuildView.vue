@@ -1,7 +1,7 @@
 <template lang="pug">
   .ProBuildView.container
     loading-view(v-if='buildState.fetching')
-    error-view(v-else-if='buildState.fetchError', @press-retry='fetchBuild', :message='buildState.errorMessage')
+    error-view(v-else-if='buildState.fetchError', @retry='fetchBuild', :message='buildState.errorMessage')
     .row(v-else)
       .col-12.col-md-4.col-xl-3
         v-card.mb-4.animated.fadeIn
@@ -38,7 +38,7 @@
             v-tabs-content#game
               v-card-text
                 loading-indicator(v-if='!gameState.fetched')
-                error-view(v-else-if='gameState.fetchError', @press-retry='fetchGame', :message='gameState.errorMessage')
+                error-view(v-else-if='gameState.fetchError', @retry='fetchGame', :message='gameState.errorMessage')
                 game(v-else, :game='game')
 </template>
 
@@ -46,6 +46,7 @@
   import { get, assign } from 'lodash';
   import { mapActions, mapGetters, mapState } from 'vuex';
   import { LoadingIndicator, MasteryPage, RunePage, CircularRunePage, ErrorView, Adsense, LoadingView } from '../../components';
+  import { promiseReflector } from '../../utils';
   import ProPlayer from './ProPlayer.vue';
   import BuildSummary from './BuildSummary.vue';
   import SkillsOrder from './SkillsOrder.vue';
@@ -56,7 +57,7 @@
     name: 'ProBuildView',
 
     fetch({ store, params }) {
-      return store.dispatch('proBuild/fetchById', params.buildId);
+      return promiseReflector(store.dispatch('proBuild/fetchById', params.buildId));
     },
 
     data() {
@@ -94,12 +95,17 @@
     methods: {
       ...mapActions({
         fetchGameData: 'game/fetchById',
+        fetchBuildData: 'proBuild/fetchById',
       }),
 
       handleOnChangeTab(idx) {
         if (!this.gameState.fetching && (idx === 3)) {
           this.fetchGame(this.build.gameId);
         }
+      },
+
+      fetchBuild() {
+        this.fetchBuildData(this.$route.params.buildId);
       },
 
       fetchGame() {
