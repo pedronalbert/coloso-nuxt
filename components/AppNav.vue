@@ -96,6 +96,7 @@ $navHeight: 4em;
 
 .navContainer {
   height: $navHeight;
+  min-height: $navHeight;
 }
 
 nav {

@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  div.d-flex.flex-column.h-100
     app-nav(
       :summoner-name="summonerName",
       :region="region",
@@ -9,7 +9,7 @@
       @change-summoner="handleOnChangeSummoner"
       @submit="handleOnSubmit"
     )
-    nuxt/
+    nuxt.u-flexer/
     app-footer
 </template>
 
