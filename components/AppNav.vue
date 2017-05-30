@@ -106,6 +106,8 @@ nav {
   z-index: 50;
   height: $navHeight;
   background-color: $color-primary;
+  background-image: url('/images/background_shapes.png');
+  background-size: 306px 256px;
 
   .hamburguerButton {
     border: none;

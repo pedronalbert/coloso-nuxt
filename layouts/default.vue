@@ -10,15 +10,17 @@
       @submit="handleOnSubmit"
     )
     nuxt/
+    app-footer
 </template>
 
 <script>
   import { mapActions, mapState } from 'vuex';
-  import { AppNav } from '../components';
+  import { AppNav, AppFooter } from '../components';
 
   export default {
     components: {
       AppNav,
+      AppFooter,
     },
 
     computed: {

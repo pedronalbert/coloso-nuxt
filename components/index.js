@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 export { default as AppNav } from './AppNav.vue';
+export { default as AppFooter } from './AppFooter.vue';
 export { default as Icon } from './Icon.vue';
 export { default as SummonerInput } from './SummonerInput.vue';
 export { default as LoadingView } from './LoadingView.vue';
