@@ -84,6 +84,27 @@
       ]);
     },
 
+    head() {
+      let title = `${this.$t('summonerProfile')} | Coloso.net`;
+      let description = this.$t('viewsDescriptions.home');
+
+      if (this.summonerState.fetched) {
+        title = `${this.summoner.name} - ${this.summoner.region.toUpperCase()} | Coloso.net`;
+
+        description = this.$t('viewsDescriptions.summonerProfile', {
+          summonerName: this.summoner.name,
+          region: this.summoner.region.toUpperCase(),
+        });
+      }
+
+      return {
+        title,
+        meta: [
+          { hid: 'description', name: 'description', content: description },
+        ],
+      };
+    },
+
     data() {
       return {
         activeTab: 'history',

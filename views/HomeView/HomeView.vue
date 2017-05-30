@@ -33,7 +33,7 @@
   import { mapActions, mapGetters, mapState } from 'vuex';
 
   import { AppNav, SummonerInput, ErrorView, LoadingView, ProBuildsList, LoadingIndicator } from '../../components';
-  import { getRiotRegionByUserIp } from '../../utils';
+  import { getRiotRegionByUserIp, promiseReflector } from '../../utils';
 
   function showModal(message) {
     window.swal({
@@ -49,7 +49,16 @@
     name: 'HomeView',
 
     fetch({ store }) {
-      return store.dispatch('proBuilds/fetchBuilds', { pageNumber: 1 });
+      return promiseReflector(store.dispatch('proBuilds/fetchBuilds', { pageNumber: 1 }));
+    },
+
+    head() {
+      return {
+        title: `Coloso.net - ${this.$t('lolTools')}`,
+        meta: [
+          { hid: 'description', name: 'description', content: this.$t('viewsDescriptions.home') },
+        ],
+      };
     },
 
     created() {

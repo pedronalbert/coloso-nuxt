@@ -43,6 +43,15 @@
   export default {
     name: 'ProBuildsListView',
 
+    head() {
+      return {
+        title: `${this.$t('proBuilds')} | Coloso.net`,
+        meta: [
+          { hid: 'description', name: 'description', content: this.$t('viewsDescriptions.proBuildsList') },
+        ],
+      };
+    },
+
     created() {
       if (process.BROWSER_BUILD) {
         if (!this.proBuildsState.fetched) {

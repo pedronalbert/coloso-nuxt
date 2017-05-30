@@ -33,6 +33,7 @@ export default {
   retry: 'Retry',
   loadMore: 'Load More',
   proBuilds: 'Professional Builds',
+  proBuild: 'Professional Build',
   home: 'Home',
   summonerName: 'Summoner Name',
   search: 'Search',
@@ -44,6 +45,7 @@ export default {
   pageNotFound: 'Page not found',
   noProBuildsResults: 'We have not found builds for the champion or player selected, they will be available soon',
   masteryPieces: 'Mastery pieces',
+  lolTools: 'Herramientas para League of Legends',
   mapsIds: {
     1: 'Summoner\'s Rift',
     2: 'Summoner\'s Rift',
@@ -113,5 +115,14 @@ export default {
     TR: 'Turkey',
     RU: 'Russia',
     BR: 'Brazil',
+  },
+  viewsDescriptions: {
+    home: 'Coloso is a tool for League of Legends players, search for summoner profiles, real-time games, statistics and professional builds.',
+    proBuildsList: 'Find the ultimate professional build for your favorite League of Legends champion at Coloso.net.',
+    proBuild: 'Ultimate build for {championName} used by {proPlayerName} professional player of League of Legends available at Coloso.net.',
+    summonerProfile: 'Summoner profile of {summonerName} in League of Legends ({region}), runes, masteries, champions and more at Coloso.net.',
+  },
+  viewsTitles: {
+    proBuild: '{championName} build by {proPlayerName} | Coloso.net.',
   },
 };

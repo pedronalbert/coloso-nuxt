@@ -60,6 +60,30 @@
       return promiseReflector(store.dispatch('proBuild/fetchById', params.buildId));
     },
 
+    head() {
+      let title = `${this.$t('proBuild')} | Coloso.net`;
+      let description = this.$t('viewsDescriptions.home');
+
+      if (this.buildState.fetched) {
+        description = this.$t('viewsDescriptions.proBuild', {
+          championName: this.build.champion.name,
+          proPlayerName: this.build.proSummoner.proPlayer.name,
+        });
+
+        title = this.$t('viewsTitles.proBuild', {
+          championName: this.build.champion.name,
+          proPlayerName: this.build.proSummoner.proPlayer.name,
+        });
+      }
+
+      return {
+        title,
+        meta: [
+          { hid: 'description', name: 'description', content: description },
+        ],
+      };
+    },
+
     data() {
       return {
         activeTab: 'build',

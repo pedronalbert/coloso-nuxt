@@ -5,21 +5,21 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'starter',
+    title: 'Coloso.net - League of Legends Tools',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' },
+      { hid: 'description', name: 'description', content: 'Coloso.net' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/png', href: '/favicon.png' },
     ],
   },
 
   css: [
     'material-design-icons/iconfont/material-icons.css',
-    'sweetalert2/dist/sweetalert2.min.css',
-    'animate.css/animate.min.css',
+    'sweetalert2/dist/sweetalert2.css',
+    'animate.css/animate.css',
     'vuetify/dist/vuetify.min.css',
     join(__dirname, 'assets/scss/main.scss'),
   ],

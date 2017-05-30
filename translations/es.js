@@ -33,6 +33,7 @@ export default {
   retry: 'Reintentar',
   loadMore: 'Cargar Más',
   proBuilds: 'Builds Profesionales',
+  proBuild: 'Build Profesional',
   home: 'Inicio',
   summonerName: 'Nombre de Invocador',
   search: 'Buscar',
@@ -44,6 +45,7 @@ export default {
   pageNotFound: 'No podemos encontrar la página solicitada',
   noProBuildsResults: 'No hemos encontrado builds para el campeón o jugador seleccionado, pronto estarán disponibles',
   masteryPieces: 'Piezas de Maestría',
+  lolTools: 'Herramientas para League of Legends',
   mapsIds: {
     1: 'La Grieta del Invocador',
     2: 'La Grieta del Invocador',
@@ -113,5 +115,14 @@ export default {
     TR: 'Turquía',
     RU: 'Rusia',
     BR: 'Brasil',
+  },
+  viewsDescriptions: {
+    home: 'Coloso es una herramienta para jugadores de League of Legends, busca perfiles de invocador, juegos en tiempo real, estadísticas y builds profesionales.',
+    proBuildsList: 'Encuentra la build profesional definitiva para tu campeón favorito de League of Legends en Coloso.net.',
+    proBuild: 'Build definitva para {championName} usada por {proPlayerName} jugador profesional de League of Legends, disponible en Coloso.net.',
+    summonerProfile: 'Perfil de Invocador de {summonerName} en League of Legends({regionName}), runas, maestrías, campeones y más en Coloso.net.',
+  },
+  viewsTitles: {
+    proBuild: 'Build para {championName} de {proPlayerName} | Coloso.net.',
   },
 };

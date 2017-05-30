@@ -110,6 +110,12 @@
       });
     },
 
+    head() {
+      return {
+        title: `${this.$t('gameCurrent')} | Coloso.net`,
+      };
+    },
+
     data: () => ({
       runesSelected: null,
       masteriesSelected: null,
