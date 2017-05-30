@@ -45,7 +45,7 @@ export default {
   pageNotFound: 'Page not found',
   noProBuildsResults: 'We have not found builds for the champion or player selected, they will be available soon',
   masteryPieces: 'Mastery pieces',
-  lolTools: 'Herramientas para League of Legends',
+  lolTools: 'League of Legends Tools',
   mapsIds: {
     1: 'Summoner\'s Rift',
     2: 'Summoner\'s Rift',
