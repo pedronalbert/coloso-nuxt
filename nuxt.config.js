@@ -14,7 +14,7 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/png', href: '/favicon.png' },
       { rel: 'alternate', hreflang: 'es', href: 'https://es.coloso.net' },
-      { rel: 'alternate', hreflang: 'es', href: 'https://en.coloso.net' },
+      { rel: 'alternate', hreflang: 'en', href: 'https://en.coloso.net' },
     ],
   },
 
