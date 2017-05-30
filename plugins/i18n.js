@@ -3,15 +3,12 @@ import VueI18n from 'vue-i18n';
 
 import translations from '../translations';
 
-
-// TODO: set locale
 Vue.use(VueI18n);
 
-
-/* eslint-disable */
-export default ({ app, route, error }) => {
+/* eslint-disable no-param-reassign */
+export default ({ app, store }) => {
   app.i18n = new VueI18n({
-    locale: 'en',
+    locale: store.state.locale,
     messages: translations,
   });
 };

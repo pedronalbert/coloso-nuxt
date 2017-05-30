@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { omitBy, isNull, create } from 'lodash';
 import Qs from 'qs';
-import getLocale from './getLocale';
 
 let ENDPOINT = 'http://api.coloso.net';
 
@@ -17,15 +16,19 @@ const axiosClient = axios.create({
   responseType: 'json',
   headers: {
     common: {
-      'Accept-Language': getLocale(),
+      'Accept-Language': 'en',
       Accept: 'application/vnd.coloso.net; version=2',
     },
   },
   paramsSerializer: params => Qs.stringify(params, { arrayFormat: 'brackets' }),
 });
 
-axiosClient.interceptors.request.use(config => create(config, {
-  params: omitBy(config.params, isNull),
-}));
+axiosClient.interceptors.request.use((config) => {
+  const parsedConfig = create(config, {
+    params: omitBy(config.params, isNull),
+  });
+
+  return parsedConfig;
+});
 
 export default axiosClient;

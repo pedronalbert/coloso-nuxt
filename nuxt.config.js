@@ -47,7 +47,7 @@ module.exports = {
       }
     },
 
-    vendor: ['vue-i18n', 'jquery', 'axios', 'moment', 'numeral'],
+    vendor: ['vue-i18n', 'jquery', 'axios', 'moment', 'moment/locale/es', 'numeral'],
   },
 
   plugins: [
@@ -56,4 +56,8 @@ module.exports = {
     { src: '~plugins/Vuetify.js' },
     { src: '~plugins/SweetAlert.js', ssr: false },
   ],
+
+  router: {
+    middleware: 'i18n',
+  },
 };

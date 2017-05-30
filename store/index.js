@@ -6,4 +6,22 @@ import entitiesPlugin from './plugins/entitiesPlugin';
 
 Vue.use(Vuex);
 
-export default () => new Vuex.Store({ modules, plugins: [entitiesPlugin] });
+export default () => new Vuex.Store({
+  state: {
+    locales: ['en', 'es'],
+    locale: 'en',
+  },
+
+  modules,
+
+  plugins: [entitiesPlugin],
+
+  mutations: {
+    setLocale(state, locale) {
+      if (state.locales.includes(locale)) {
+        /* eslint-disable no-param-reassign */
+        state.locale = locale;
+      }
+    },
+  },
+});
