@@ -43,6 +43,7 @@ export default {
   resultsNotFound: 'Results not found',
   pageNotFound: 'Page not found',
   noProBuildsResults: 'We have not found builds for the champion or player selected, they will be available soon',
+  masteryPieces: 'Mastery pieces',
   mapsIds: {
     1: 'Summoner\'s Rift',
     2: 'Summoner\'s Rift',

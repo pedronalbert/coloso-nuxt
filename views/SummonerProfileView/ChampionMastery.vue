@@ -1,5 +1,5 @@
 <template lang="pug">
-  .ChampionMastery.elevation-2
+  .ChampionMastery.elevation-3
     .avatarContainer(:class="'level-' + mastery.championLevel")
       champion-image(:champion-id='mastery.championId')
       mastery-tier-image(:level='mastery.championLevel')
@@ -9,16 +9,16 @@
         b.text-primary {{ mastery.championData.name }}
       .championTitle.text-secondary {{ mastery.championData.title | sentenceCase }}
       .text-primary.mt-1 {{ $t('level') }} {{ mastery.championLevel }}
-      //- TODO: md-progress(:md-progress='progress', md-theme='gold')
+        v-progress-linear.progress-gold(:value="progress")
       .d-flex.text-primary
         span {{ mastery.championPoints | numeral('0,0') }}
         span.u-flexer
         span {{ nextLevelPoints | numeral('0,0')}}
-      .iconStatsRow.mt-1
-        span.u-flexer
-        span.d-flex.align-items-center(title='Piezas de Maestria')
-          span.mr-1 {{ mastery.tokensEarned }}
-          v-icon extension
+    .masteryPieces
+      span.u-flexer
+      span.d-flex.align-items-center(:title="$t('masteryPieces')")
+        span.mr-1 {{ mastery.tokensEarned }}
+        v-icon extension
 </template>
 
 <script>
@@ -63,6 +63,7 @@
     width: calc(50% - 1em);
     margin-bottom: 1em;
     padding: 0.5em;
+    position: relative;
 
     @include media-breakpoint-down(md) {
       width: 100%;
@@ -142,19 +143,23 @@
         overflow: hidden;
         white-space: nowrap;
       }
+    }
 
-      .md-progress-track { background-color: #8e6e1a !important }
+    .masteryPieces {
+      position: absolute;
+      top: .3em;
+      right: .3em;
+    }
+  }
+</style>
 
-      .iconStatsRow {
-        display: flex;
-        align-items: center;
+<style lang="scss">
+  .progress-gold {
+    margin: .25em 0;
+    height: .4em !important;
 
-        i {
-          font-size: 1.2em !important;
-          height: 1.1em !important;
-          min-height: 1.1em !important;
-        }
-      }
+    .progress-linear__bar__determinate {
+      background-color: #8e6e1a !important;
     }
   }
 </style>
