@@ -1,32 +1,33 @@
 <template lang="pug">
-  nav
-    .container.h-100
-      .d-flex.align-items-center.h-100
-        button.hamburguerButton.hidden-md-up(@click='toggleMenu')
-          icon(:name="menuIconName")
-        .title.hidden-md-up Coloso
-        .menuContainer(
-          ref="menu"
-          class="container d-md-flex align-items-center"
-          :class="{ 'hidden-sm-down': !menuIsOpen }"
-        )
-          router-link.menuItem(to='/') {{ $t('home') }}
-          router-link.menuItem(to='/pro-builds') {{ $t('proBuilds') }}
-          .u-flexer
-          a.mr-4.hidden-md-down(href="https://play.google.com/store/apps/details?id=com.pedronalbert.lolcena", taget="_blank")
-            v-icon.androidIcon android
-          template(v-if="renderForm")
-            .loadingContainer.d-flex.justify-content-center(v-if="fetching")
-              loading-indicator(theme="white")
-            form.searchInputs.animated.fadeIn(v-else, @submit.prevent="$emit('submit')")
-              summoner-input(
-                :summoner="summonerName",
-                :region="region",
-                @submit="submit => $emit('submit')"
-                @change-region="region => $emit('change-region', region)",
-                @change-summoner="summoner => $emit('change-summoner', summoner)",
-                size="small"
-            )
+  .navContainer
+    nav
+      .container.h-100
+        .d-flex.align-items-center.h-100
+          button.hamburguerButton.hidden-md-up(@click='toggleMenu')
+            icon(:name="menuIconName")
+          .title.hidden-md-up Coloso
+          .menuContainer(
+            ref="menu"
+            class="container d-md-flex align-items-center"
+            :class="{ 'hidden-sm-down': !menuIsOpen }"
+          )
+            router-link.menuItem(to='/') {{ $t('home') }}
+            router-link.menuItem(to='/pro-builds') {{ $t('proBuilds') }}
+            .u-flexer
+            a.mr-4.hidden-md-down(href="https://play.google.com/store/apps/details?id=com.pedronalbert.lolcena", taget="_blank")
+              v-icon.androidIcon android
+            template(v-if="renderForm")
+              .loadingContainer.d-flex.justify-content-center(v-if="fetching")
+                loading-indicator(theme="white")
+              form.searchInputs.animated.fadeIn(v-else, @submit.prevent="$emit('submit')")
+                summoner-input(
+                  :summoner="summonerName",
+                  :region="region",
+                  @submit="submit => $emit('submit')"
+                  @change-region="region => $emit('change-region', region)",
+                  @change-summoner="summoner => $emit('change-summoner', summoner)",
+                  size="small"
+              )
 </template>
 
 <script>
@@ -91,14 +92,18 @@
 @import '../assets/scss/colors';
 @import '../assets/scss/mixins';
 
+$navHeight: 4em;
+
+.navContainer {
+  height: $navHeight;
+}
+
 nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  $navHeight: 4em;
   z-index: 50;
-
   height: $navHeight;
   background-color: $color-primary;
 
