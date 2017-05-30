@@ -30,6 +30,10 @@
   bottom: 0;
 }
 
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
 ::-webkit-scrollbar
 {
   width: .5em;  /* for vertical scrollbars */

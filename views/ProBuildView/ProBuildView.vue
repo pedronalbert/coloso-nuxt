@@ -12,15 +12,15 @@
         v-card.mb-4.animated.fadeIn
           v-card-text
             build-summary(:build='build')
-        v-card.animated.fadeIn
+        v-card.animated.fadeIn.overflow-x-hidden
           v-tabs#probuild-tabs(v-model="activeTab", :light="true")
             v-tabs-bar(slot="activators")
               v-tabs-slider
-              v-tabs-item(:key="1" href="#build" ripple) {{ $t('build') }}
-              v-tabs-item(:key="2" href="#runes" ripple) {{ $t('runes') }}
-              v-tabs-item(:key="3" href="#masteries" ripple) {{ $t('masteries') }}
-              v-tabs-item(:key="4" href="#game" ripple) {{ $t('game') }}
-            v-tabs-content#build(:key="1")
+              v-tabs-item(href="#build" ripple) {{ $t('build') }}
+              v-tabs-item(href="#runes" ripple) {{ $t('runes') }}
+              v-tabs-item(href="#masteries" ripple) {{ $t('masteries') }}
+              v-tabs-item(href="#game" ripple) {{ $t('game') }}
+            v-tabs-content#build
               v-card-text
                 h6
                   strong.text-primary {{ $t('skills') }}
@@ -28,14 +28,14 @@
                 h6.my-4
                   strong.text-primary {{ $t('items') }}
                 items-order(:items='build.itemsOrder')
-            v-tabs-content#runes(:key="2")
+            v-tabs-content#runes
               v-card-text.d-flex.justify-content-center
                 rune-page.hidden-lg-up(:runes='build.runes')
                 circular-rune-page.hidden-md-down(:runes='build.runes')
-            v-tabs-content#masteries(:key="3")
+            v-tabs-content#masteries
               v-card-text
                 mastery-page(:masteries='build.masteries')
-            v-tabs-content#game(:key="4")
+            v-tabs-content#game
               v-card-text
                 loading-indicator(v-if='!gameState.fetched')
                 error-view(v-else-if='gameState.fetchError', @press-retry='fetchGame', :message='gameState.errorMessage')

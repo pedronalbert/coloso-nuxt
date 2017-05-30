@@ -22,33 +22,33 @@
         )
 
       div(class="col-md-7 col-lg-8")
-        v-card(class="animated fadeIn")
+        v-card.animated.fadeIn.overflow-x-hidden
           v-tabs#summoner-tabs(v-model="activeTab", :light="true")
             v-tabs-bar(slot="activators")
               v-tabs-slider
-              v-tabs-item(:key="1" href="#history" ripple) {{ $t('history') }}
-              v-tabs-item(:key="2" href="#champions" ripple) {{ $t('champions') }}
-              v-tabs-item(:key="3" href="#runes" ripple) {{ $t('runes') }}
-              v-tabs-item(:key="4" href="#masteries" ripple) {{ $t('masteries') }}
-            v-tabs-content#history(:key="1")
+              v-tabs-item(href="#history" ripple) {{ $t('history') }}
+              v-tabs-item(href="#champions" ripple) {{ $t('champions') }}
+              v-tabs-item(href="#runes" ripple) {{ $t('runes') }}
+              v-tabs-item(href="#masteries" ripple) {{ $t('masteries') }}
+            v-tabs-content#history
               v-card-text
                 loading-indicator(v-if="summonerState.gamesRecent.fetching")
                 error-view(v-else-if="summonerState.gamesRecent.fetchError" :message="summonerState.gamesRecent.errorMessage")
                 games-recent(v-else :games="gamesRecent.games")
 
-            v-tabs-content#champions(:key="1")
+            v-tabs-content#champions
               v-card-text
                 loading-indicator(v-if="summonerState.championsMasteries.fetching")
                 error-view(v-else-if="summonerState.championsMasteries.fetchError" :message="summonerState.championsMasteries.errorMessage")
                 champions-masteries(v-else :masteries="championsMasteries.masteries")
 
-            v-tabs-content#runes(:key="1")
+            v-tabs-content#runes
               v-card-text
                 loading-indicator(v-if="summonerState.runes.fetching")
                 error-view(v-else-if="summonerState.runes.fetchError" :message="summonerState.runes.errorMessage")
                 runes(v-else :pages="runes.pages")
 
-            v-tabs-content#masteries(:key="1")
+            v-tabs-content#masteries
               v-card-text
                 loading-indicator(v-if="summonerState.masteries.fetching")
                 error-view(v-else-if="summonerState.masteries.fetchError" :message="summonerState.masteries.errorMessage")
