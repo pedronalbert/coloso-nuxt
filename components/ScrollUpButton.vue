@@ -60,7 +60,7 @@
     position: fixed;
     bottom: 1em;
     right: 1.2em;
-    z-index: 100;
+    z-index: 2;
     border-radius: 50%;
 
   }

@@ -1,5 +1,5 @@
 <script>
-  import ProBuildsListView from '../../views/ProBuildsListView/ProBuildsListView.vue';
+  import GameCurrentView from '../../views/GameCurrentView/GameCurrentView.vue';
 
-  export default ProBuildsListView;
+  export default GameCurrentView;
 </script>

@@ -1,7 +1,6 @@
 <template lang="pug">
   .GameCurrentView.container
-    loading-view(v-if='gameCurrentState.fetching')
-    error-view(v-else-if='gameCurrentState.fetchError', :message='gameCurrentState.errorMessage', :retry-button='false')
+    error-view(v-if='gameCurrentState.fetchError', :message='gameCurrentState.errorMessage', :retry-button='false')
     v-card.animated.fadeIn(v-else)
       v-tabs#gamecurrent-tabs(v-model="activeTab", :light="true")
         v-tabs-bar(slot="activators")
@@ -10,9 +9,9 @@
           v-tabs-item(:key="2" href="#pro-builds" ripple) {{ $t('proBuilds') }}
         v-tabs-content#game(:key="1")
           v-card-text
-            div.d-flex.flex-column.align-items-center.flex-sm-row
+            div.d-flex.flex-column.flex-sm-row
               map-image.rounded.mr-3.mb-3(:map-id='gameCurrent.mapId')
-              div.gameData
+              div.text-nowrap
                 .row
                   .col-4
                     b {{ $t('map' )}}
@@ -45,17 +44,19 @@
                 champion-image.bannedChampionImage.rounded(:champion-id='ban.championId')
         v-tabs-content#pro-builds(:key="2")
           v-card-text
-            error-view(v-if='proBuildsState.fetchError', @press-retry='handleOnClickRetryBuilds', :message='proBuildsState.errorMessage')
-            error-view(v-else-if='proBuilds.length === 0', :message="$t('resultsNotFound')", :retry-button='false')
+            template(v-if="proBuilds.length === 0")
+              loading-indicator.mb2(v-if="proBuildsState.fetching")
+              error-view(v-else-if="proBuildsState.fetchError" :message="proBuildsState.errorMessage" @retry="handleOnRetryFetchBuilds")
+              error-view(v-else-if="proBuildsState.fetched" :message="$t('noProBuildsResults')" :retry-button="false")
             template(v-else)
-              pro-builds-list.mb-4(:builds='proBuilds')
-              loading-indicator.m2(v-if='proBuildsState.fetching')
-              load-more-button(v-else-if='hasMorePages', @click.native='loadMore')
-    v-dialog(:value="showDialog")
+              pro-builds-list(class="mb-4" :builds="proBuilds")
+              loading-indicator(v-if="proBuildsState.fetching" class="m2")
+              load-more-button(v-else-if="hasMorePages" @click.native="loadMore")
+    v-dialog(v-model="showDialog", :scrollable="true", width="auto")
       v-card
-        v-card-text
-          rune-page(v-if='runesSelected !== null', :runes='runesSelected')
-          mastery-page(v-if='masteriesSelected !== null', :masteries='masteriesSelected')
+        v-card-row.p-3
+          rune-page(v-if="runesSelected != null", :runes='runesSelected')
+          mastery-page(v-if='masteriesSelected != null', :masteries='masteriesSelected')
     scroll-up-button
 </template>
 
@@ -148,22 +149,27 @@
     methods: {
       ...mapActions({
         fetchBuilds: 'proBuilds/fetchBuilds',
-        setBuildsFilter: 'proBuilds/setFilters',
       }),
 
       handleOnClickRunes({ runes }) {
         this.masteriesSelected = null;
         this.runesSelected = runes;
-        this.showDialog = true;
+        // Se usa un timeout debido a un bug en vuetify
+        setTimeout(() => {
+          this.showDialog = true;
+        }, 100);
       },
 
       handleOnClickMasteries({ masteries }) {
         this.runesSelected = null;
         this.masteriesSelected = masteries;
-        this.showDialog = true;
+        // Se usa un timeout debido a un bug en vuetify
+        setTimeout(() => {
+          this.showDialog = true;
+        }, 100);
       },
 
-      handleOnClickRetryBuilds() {
+      handleOnRetryFetchBuilds() {
         this.fetchBuilds();
       },
 

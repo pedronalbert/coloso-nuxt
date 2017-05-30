@@ -36,8 +36,8 @@
         template(v-else='')
           .na N/A
     .buttonsCol
-      v-btn(:raised="true" @click.native='handleOnClickRunesButton') {{ $t('runes') }}
-      v-btn(:raised="true" @click.native='handleOnClickMasteriesButton') {{ $t('masteries') }}
+      v-btn(@click.native='handleOnClickRunesButton') {{ $t('runes') }}
+      v-btn(@click.native='handleOnClickMasteriesButton') {{ $t('masteries') }}
 </template>
 
 <script>
