@@ -2,7 +2,7 @@ import axios from 'axios';
 import { omitBy, isNull, create } from 'lodash';
 import Qs from 'qs';
 
-let ENDPOINT = 'http://api.coloso.net';
+let ENDPOINT = 'https://api.coloso.net';
 
 if (process.env.NODE_ENV === 'development') {
   ENDPOINT = 'http://localhost:3000';
