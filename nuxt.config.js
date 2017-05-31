@@ -1,5 +1,3 @@
-const { join } = require('path');
-
 module.exports = {
   /*
   ** Headers of the page
@@ -23,7 +21,7 @@ module.exports = {
     'sweetalert2/dist/sweetalert2.css',
     'animate.css/animate.css',
     'vuetify/dist/vuetify.min.css',
-    join(__dirname, 'assets/scss/main.scss'),
+    { src: '~assets/scss/main.scss', lang: 'scss' },
   ],
   /*
   ** Customize the progress-bar color
