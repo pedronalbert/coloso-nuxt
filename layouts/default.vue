@@ -9,7 +9,8 @@
       @change-summoner="handleOnChangeSummoner"
       @submit="handleOnSubmit"
     )
-    nuxt.u-flexer/
+    .routerContainer
+      nuxt/
     app-footer
 </template>
 
@@ -74,3 +75,12 @@
     },
   };
 </script>
+
+<style lang="scss">
+  .routerContainer {
+    flex: 1;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+</style>
