@@ -3,7 +3,7 @@
     v-btn.ScrollUpButton.accent(
       v-if='displayButton'
       @click.native='handleOnClickScrollUp'
-      :floating="true", :large="true"
+      :floating="true"
     )
       v-icon keyboard_arrow_up
 </template>
