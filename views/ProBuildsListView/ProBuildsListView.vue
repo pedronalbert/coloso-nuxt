@@ -17,9 +17,9 @@
           )
 
         template(v-if="proBuilds.length === 0")
-          loading-indicator.mb2(v-if="proBuildsState.fetching")
+          error-view(v-if="proBuildsState.fetched" :message="$t('noProBuildsResults')" :retry-button="false")
           error-view(v-else-if="proBuildsState.fetchError" :message="proBuildsState.errorMessage" @retry="handleOnRetryFetchBuilds")
-          error-view(v-else-if="proBuildsState.fetched" :message="$t('noProBuildsResults')" :retry-button="false")
+          loading-indicator.mb-2(v-else)
         template(v-else)
           pro-builds-list(class="mb-4" :builds="proBuilds")
           loading-indicator(v-if="proBuildsState.fetching" class="m2")
@@ -29,6 +29,7 @@
 
 <script>
   import { mapActions, mapState, mapGetters } from 'vuex';
+  import { isNull } from 'lodash';
   import {
     ProBuildsList,
     LoadingIndicator,
@@ -39,6 +40,24 @@
     ScrollUpButton,
     LoadingView,
   } from '../../components';
+  import { promiseReflector } from '../../utils';
+
+
+  function needsFetchProBuilds(state) {
+    if (state.fetched &&
+      state.pagination.currentPage >= 1 &&
+      isNull(state.filters.championId) &&
+      isNull(state.filters.proPlayerId)
+    ) {
+      return false;
+    }
+
+    return true;
+  }
+
+  function needsFetchProPlayers(state) {
+    return !state.fetched;
+  }
 
   export default {
     name: 'ProBuildsListView',
@@ -52,16 +71,18 @@
       };
     },
 
-    created() {
-      if (process.BROWSER_BUILD) {
-        if (!this.proBuildsState.fetched) {
-          this.fetchBuilds();
-        }
+    fetch({ store }) {
+      const fetchPromises = [];
 
-        if (!this.proPlayersState.fetched) {
-          this.fetchProPlayers();
-        }
+      if (needsFetchProBuilds(store.state.proBuilds)) {
+        fetchPromises.push(promiseReflector(store.dispatch('proBuilds/fetchBuilds', { pageNumber: 1 })));
       }
+
+      if (needsFetchProPlayers(store.state.proPlayers)) {
+        fetchPromises.push(promiseReflector(store.dispatch('proPlayers/fetch')));
+      }
+
+      return Promise.all(fetchPromises);
     },
 
     computed: {

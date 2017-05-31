@@ -9,6 +9,10 @@
   export default {
     name: 'LoadingIndicator',
 
+    components: {
+      SyncLoader,
+    },
+
     props: {
       theme: {
         type: String,
@@ -25,10 +29,6 @@
       getTheme() {
         return `v-spinner-${this.theme}`;
       },
-    },
-
-    components: {
-      SyncLoader,
     },
   };
 </script>

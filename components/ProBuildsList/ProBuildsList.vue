@@ -9,9 +9,14 @@
   export default {
     name: 'ProBuildList',
 
+    components: {
+      ProBuildsListRow,
+    },
+
     props: {
       builds: {
-        default: [],
+        type: Array,
+        required: true,
       },
     },
 
@@ -19,10 +24,6 @@
       handleOnClickRow(id) {
         this.$emit('click-row', id);
       },
-    },
-
-    components: {
-      ProBuildsListRow,
     },
   };
 </script>

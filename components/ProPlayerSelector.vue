@@ -8,6 +8,10 @@
   export default {
     name: 'ProPlayerSelector',
 
+    components: {
+      DropdownSelector,
+    },
+
     props: {
       value: {
         type: String,
@@ -16,7 +20,7 @@
 
       players: {
         type: Array,
-        default: () => [],
+        default: [],
       },
     },
 
@@ -34,10 +38,6 @@
           imageUrl,
         }));
       },
-    },
-
-    components: {
-      DropdownSelector,
     },
   };
 </script>
