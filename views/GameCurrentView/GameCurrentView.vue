@@ -45,9 +45,9 @@
         v-tabs-content#pro-builds(:key="2")
           v-card-text
             template(v-if="proBuilds.length === 0")
-              loading-indicator.mb2(v-if="proBuildsState.fetching")
+              error-view(v-if="proBuildsState.fetched" :message="$t('noProBuildsResults')" :retry-button="false")
               error-view(v-else-if="proBuildsState.fetchError" :message="proBuildsState.errorMessage" @retry="handleOnRetryFetchBuilds")
-              error-view(v-else-if="proBuildsState.fetched" :message="$t('noProBuildsResults')" :retry-button="false")
+                loading-indicator.mb-2
             template(v-else)
               pro-builds-list(class="mb-4" :builds="proBuilds")
               loading-indicator(v-if="proBuildsState.fetching" class="m2")
