@@ -13,6 +13,7 @@ module.exports = {
       { rel: 'icon', type: 'image/png', href: '/favicon.png' },
       { rel: 'alternate', hreflang: 'es', href: 'https://es.coloso.net' },
       { rel: 'alternate', hreflang: 'en', href: 'https://en.coloso.net' },
+      { rel: 'alternate', hreflang: 'x-default', href: 'https://www.coloso.net' },
     ],
   },
 
