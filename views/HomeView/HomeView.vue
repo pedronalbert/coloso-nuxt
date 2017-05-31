@@ -123,7 +123,7 @@
         } else {
           this.searchGame({ summonerName: this.summonerName, region: this.region })
             .then(({ summonerId }) => {
-              this.$router.push({ path: `/game-current/${summonerId}` });
+              this.$router.push({ path: `/current-game/${summonerId}` });
             })
             .catch(({ message }) => {
               showModal(message);
