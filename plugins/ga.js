@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'production') {
     /*
     ** We tell Google Analytic to add a page view
     */
-    ga('set', 'page', to.fullPath)
-    ga('send', 'pageview')
+    ga('set', 'page', to.path);
+    ga('send', 'pageview');
   })
 }
