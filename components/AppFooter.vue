@@ -8,7 +8,7 @@
         a.ml-2(href='https://twitter.com/pedronalbert', target='_blank') @pedronalbert
       .disclaimer.mt-2
         | Coloso isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.
-      .d-flex.mt-2
+      .d-flex.mt-2.miniFooter
         a.mr-3(href='https://en.coloso.net') {{ $t('langs.en') }}
         a.mr-3(href='https://es.coloso.net') {{ $t('langs.es') }}
         .u-flexer
@@ -44,6 +44,10 @@
       .disclaimer {
         font-size: 0.75em;
         line-height: 12px;
+      }
+
+      .miniFooter {
+        font-size: 0.8em;
       }
     }
   }
