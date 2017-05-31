@@ -46,7 +46,6 @@
   import { get, assign } from 'lodash';
   import { mapActions, mapGetters, mapState } from 'vuex';
   import { LoadingIndicator, MasteryPage, RunePage, CircularRunePage, ErrorView, Adsense, LoadingView } from '../../components';
-  import { promiseReflector } from '../../utils';
   import ProPlayer from './ProPlayer.vue';
   import BuildSummary from './BuildSummary.vue';
   import SkillsOrder from './SkillsOrder.vue';
@@ -57,7 +56,16 @@
     name: 'ProBuildView',
 
     fetch({ store, params }) {
-      return promiseReflector(store.dispatch('proBuild/fetchById', params.buildId));
+      return new Promise((resolve) => {
+        store.dispatch('proBuild/fetchById', params.buildId)
+          .then(() => {
+            const proBuild = store.getters['proBuild/data'];
+
+            return store.dispatch('game/fetchById', proBuild.gameId);
+          })
+          .then(resolve)
+          .catch(resolve);
+      });
     },
 
     head() {
@@ -122,12 +130,6 @@
         fetchBuildData: 'proBuild/fetchById',
       }),
 
-      handleOnChangeTab(idx) {
-        if (!this.gameState.fetching && (idx === 3)) {
-          this.fetchGame(this.build.gameId);
-        }
-      },
-
       fetchBuild() {
         this.fetchBuildData(this.$route.params.buildId);
       },
@@ -142,14 +144,6 @@
 
         if (validHashes.includes(hash)) {
           this.activeTab = hash;
-        }
-      },
-    },
-
-    watch: {
-      activeTab(name) {
-        if (name === 'game' && !this.gameState.fetching && this.build.gameId !== this.gameState.id) {
-          this.fetchGame();
         }
       },
     },
