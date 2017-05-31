@@ -1,6 +1,9 @@
 module.exports = {
   root: true,
   parser: 'babel-eslint',
+  parserOptions: {
+    sourceType: 'module'
+  },
   env: {
     browser: true,
     node: true
@@ -17,5 +20,7 @@ module.exports = {
       'vue': 'never'
     }]
   },
-  globals: {}
+  globals: {
+    ga: true,
+  }
 }
