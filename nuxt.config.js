@@ -53,6 +53,7 @@ module.exports = {
     { src: '~plugins/filters.js' },
     { src: '~plugins/Vuetify.js' },
     { src: '~plugins/SweetAlert.js', ssr: false },
+    { src: '~plugins/ga.js', ssr: false },
   ],
 
   router: {
