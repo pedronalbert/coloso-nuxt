@@ -148,7 +148,7 @@
 
     watch: {
       activeTab(name) {
-        if (name === 'game' && !this.gameState.fetched) {
+        if (name === 'game' && !this.gameState.fetching && this.build.gameId !== this.gameState.id) {
           this.fetchGame();
         }
       },
