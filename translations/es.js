@@ -29,7 +29,7 @@ export default {
   league: 'Liga',
   division: 'Division',
   progress: 'Progreso',
-  stats: 'Stats',
+  stats: 'Estadísticas',
   retry: 'Reintentar',
   loadMore: 'Cargar Más',
   proBuilds: 'Builds Profesionales',

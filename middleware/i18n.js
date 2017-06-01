@@ -26,10 +26,10 @@ export default ({ app, req, isServer, store }) => {
         store.commit('setLocale', langs[0].code);
       }
     }
-
-    /* eslint-disable no-param-reassign */
-    ColosoClient.defaults.headers.common['Accept-Language'] = store.state.locale;
-    moment.lang(store.state.locale);
-    app.i18n.locale = store.state.locale;
   }
+
+  /* eslint-disable no-param-reassign */
+  app.i18n.locale = store.state.locale;
+  moment.locale(store.state.locale);
+  ColosoClient.defaults.headers.common['Accept-Language'] = store.state.locale;
 };

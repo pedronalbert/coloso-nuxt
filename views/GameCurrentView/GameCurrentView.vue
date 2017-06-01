@@ -1,5 +1,6 @@
 <template lang="pug">
   .GameCurrentView.container
+    adsense.googleAd.mx-auto.mb-4(ad-style='display:block', ad-client='ca-pub-9850680385333731', ad-slot='3550650408', ad-format='horizontal')
     error-view(v-if='gameCurrentState.fetchError', :message='gameCurrentState.errorMessage', :retry-button='false')
     v-card.animated.fadeIn(v-else)
       v-tabs#gamecurrent-tabs(v-model="activeTab", :light="true")
@@ -76,6 +77,7 @@
     ErrorView,
     LoadMoreButton,
     LoadingView,
+    Adsense,
   } from '../../components';
   import Participant from './Participant.vue';
   import TeamHeader from './TeamHeader.vue';
@@ -84,6 +86,22 @@
 
   export default {
     name: 'GameCurrentView',
+
+    components: {
+      LoadingIndicator,
+      Participant,
+      TeamHeader,
+      ChampionImage,
+      MapImage,
+      RunePage,
+      MasteryPage,
+      ProBuildsList,
+      ScrollUpButton,
+      ErrorView,
+      LoadMoreButton,
+      LoadingView,
+      Adsense,
+    },
 
     fetch({ params, store }) {
       return new Promise((resolve) => {
@@ -112,7 +130,7 @@
 
     head() {
       return {
-        title: `${this.$t('gameCurrent')} | Coloso.net`,
+        title: `${this.$t('currentGame')} | Coloso.net`,
       };
     },
 
@@ -184,21 +202,6 @@
           this.fetchBuilds();
         }
       },
-    },
-
-    components: {
-      LoadingIndicator,
-      Participant,
-      TeamHeader,
-      ChampionImage,
-      MapImage,
-      RunePage,
-      MasteryPage,
-      ProBuildsList,
-      ScrollUpButton,
-      ErrorView,
-      LoadMoreButton,
-      LoadingView,
     },
   };
 </script>

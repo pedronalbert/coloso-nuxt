@@ -15,6 +15,9 @@ module.exports = {
       { rel: 'alternate', hreflang: 'en', href: 'https://en.coloso.net' },
       { rel: 'alternate', hreflang: 'x-default', href: 'https://www.coloso.net' },
     ],
+    script: [
+      { src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async: 'async' },
+    ],
   },
 
   css: [

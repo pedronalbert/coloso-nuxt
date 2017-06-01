@@ -15,8 +15,10 @@
 </template>
 
 <script>
+  import moment from 'moment';
   import { mapActions, mapState } from 'vuex';
   import { AppNav, AppFooter } from '../components';
+  import ColosoClient from '../utils/ColosoClient';
 
   export default {
     components: {
@@ -24,11 +26,17 @@
       AppFooter,
     },
 
+    created() {
+      moment.locale(this.locale);
+      ColosoClient.defaults.headers.common['Accept-Language'] = this.locale;
+    },
+
     computed: {
       ...mapState({
         summonerName: state => state.search.summonerName,
         region: state => state.search.region,
         fetching: state => state.search.fetching,
+        locale: state => state.locale,
       }),
 
       renderNavForm() {
