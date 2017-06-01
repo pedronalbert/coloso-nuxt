@@ -1,12 +1,13 @@
 import moment from 'moment';
+import langParser from 'accept-language-parser';
 import ColosoClient from '../utils/ColosoClient';
 
 function getDomainLocale(hostname) {
-  const subdomainRegexLocale = /^[a-z]{2}/;
+  const subdomainRegexLocale = /^[a-z]{2}\./g;
   const matches = hostname.match(subdomainRegexLocale);
 
-  if (matches.length > 0) {
-    return matches[0];
+  if (matches !== null) {
+    return matches[0].slice(0, 2);
   }
 
   return null;
@@ -19,9 +20,11 @@ export default ({ app, req, isServer, store }) => {
     if (domainlocale !== null) {
       store.commit('setLocale', domainlocale);
     } else {
-      const reqLocale = req.headers['accept-language'].slice(0, 2).toLowerCase();
+      const langs = langParser.parse(req.headers['accept-language']);
 
-      store.commit('setLocale', reqLocale);
+      if (langs.length > 0) {
+        store.commit('setLocale', langs[0].code);
+      }
     }
 
     /* eslint-disable no-param-reassign */
