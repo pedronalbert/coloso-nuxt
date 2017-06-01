@@ -57,7 +57,7 @@ export default {
       });
     },
 
-    searchGame({ commit }, { summonerName, region }) {
+    searchGame({ commit, dispatch }, { summonerName, region }) {
       let summonerId;
 
       commit('fetching');
@@ -67,7 +67,7 @@ export default {
           .then((response) => {
             summonerId = response.data.id;
 
-            return ColosoApi.summoners.gameCurrent({ summonerId });
+            return dispatch('gameCurrent/fetchGame', summonerId);
           })
           .then(() => {
             commit('fetchSuccess');
