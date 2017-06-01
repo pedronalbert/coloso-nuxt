@@ -2,7 +2,7 @@
   div.container
     loading-indicator(v-if="summonerState.fetching")
     error-view(v-else-if="summonerState.fetchError" :message="summonerState.errorMessage" @retry="handleOnRetryFetchAll")
-    div(v-else class="row")
+    div(v-else-if="summonerState.fetched" class="row")
       div(class="col-md-5 col-lg-4")
         v-card(class="mb-4 animated fadeIn")
           v-card-text
@@ -10,9 +10,9 @@
 
         v-card(class="mb-4 animated fadeIn")
           v-card-text
-            loading-indicator(v-if="summonerState.leagueEntries.fetching")
+            league-entries(v-if="summonerState.leagueEntries.fetched" :entries="leagueEntries.entries")
+            loading-indicator(v-else-if="summonerState.leagueEntries.fetching")
             error-view(v-else-if="summonerState.leagueEntries.fetchError" :message="summonerState.leagueEntries.errorMessage", @retry="handleOnRetryFetchLeagueEntries")
-            league-entries(v-else :entries="leagueEntries.entries")
 
         adsense(
           class="googleAd mx-auto mb-4"
@@ -33,27 +33,27 @@
               v-tabs-item(href="#masteries" ripple) {{ $t('masteries') }}
             v-tabs-content#history
               v-card-text
-                loading-indicator(v-if="summonerState.gamesRecent.fetching")
+                games-recent(v-if="summonerState.gamesRecent.fetched" :games="gamesRecent.games")
+                loading-indicator(v-else-if="summonerState.gamesRecent.fetching")
                 error-view(v-else-if="summonerState.gamesRecent.fetchError" :message="summonerState.gamesRecent.errorMessage", @retry="handleOnRetryFetchGamesRecent")
-                games-recent(v-else :games="gamesRecent.games")
 
             v-tabs-content#champions
               v-card-text
-                loading-indicator(v-if="summonerState.championsMasteries.fetching")
+                champions-masteries(v-if="summonerState.championsMasteries.fetched" :masteries="championsMasteries.masteries")
+                loading-indicator(v-else-if="summonerState.championsMasteries.fetching")
                 error-view(v-else-if="summonerState.championsMasteries.fetchError" :message="summonerState.championsMasteries.errorMessage", @retry="handleOnRetryFetchChampionsMasteries")
-                champions-masteries(v-else :masteries="championsMasteries.masteries")
 
             v-tabs-content#runes
               v-card-text
-                loading-indicator(v-if="summonerState.runes.fetching")
+                runes(v-if="summonerState.runes.fetched" :pages="runes.pages")
+                loading-indicator(v-else-if="summonerState.runes.fetching")
                 error-view(v-else-if="summonerState.runes.fetchError" :message="summonerState.runes.errorMessage", @retry="handleOnRetryFetchRunes")
-                runes(v-else :pages="runes.pages")
 
             v-tabs-content#masteries
               v-card-text
-                loading-indicator(v-if="summonerState.masteries.fetching")
+                masteries(v-if="summonerState.masteries.fetched" :pages="masteries.pages")
+                loading-indicator(v-else-if="summonerState.masteries.fetching")
                 error-view(v-else-if="summonerState.masteries.fetchError" :message="summonerState.masteries.errorMessage", @retry="handleOnRetryFetchMasteries")
-                masteries(v-else :pages="masteries.pages")
 </template>
 
 <script>
@@ -76,11 +76,8 @@
 
       return Promise.all([
         promiseReflector(store.dispatch('summoner/fetchById', summonerId)),
-        promiseReflector(store.dispatch('summoner/championsMasteries/fetchById', summonerId)),
         promiseReflector(store.dispatch('summoner/gamesRecent/fetchById', summonerId)),
         promiseReflector(store.dispatch('summoner/leagueEntries/fetchById', summonerId)),
-        promiseReflector(store.dispatch('summoner/masteries/fetchById', summonerId)),
-        promiseReflector(store.dispatch('summoner/runes/fetchById', summonerId)),
       ]);
     },
 
@@ -109,6 +106,10 @@
       return {
         activeTab: 'history',
       };
+    },
+
+    mounted() {
+      this.fetchInClientData();
     },
 
     computed: {
@@ -171,6 +172,20 @@
         this.handleOnRetryFetchRunes();
         this.handleOnRetryFetchMasteries();
         this.handleOnRetryFetchGamesRecent();
+      },
+
+      fetchInClientData() {
+        this.fetchChampionsMasteries(this.summonerId);
+        this.fetchRunes(this.summonerId);
+        this.fetchMasteries(this.summonerId);
+      },
+    },
+
+    watch: {
+      summonerId(newValue, oldValue) {
+        if (newValue !== oldValue) {
+          this.fetchInClientData();
+        }
       },
     },
 
