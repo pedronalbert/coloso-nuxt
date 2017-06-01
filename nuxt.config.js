@@ -16,7 +16,7 @@ module.exports = {
       { rel: 'alternate', hreflang: 'x-default', href: 'https://www.coloso.net' },
     ],
     script: [
-      { src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async: 'async' },
+      { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js' },
     ],
   },
 
