@@ -1,10 +1,10 @@
 <template lang="pug">
-//
-  <ins class="adsbygoogle"
-  :data-ad-client="adClient"
-  :data-ad-slot="adSlot"
-  :data-ad-format="adFormat"
-  :style="adStyle"></ins>
+  ins.adsbygoogle(
+    :data-ad-client="adClient",
+    :data-ad-slot="adSlot",
+    :data-ad-format="adFormat",
+    :style="adStyle"
+  )
 </template>
 
 <script>
@@ -31,7 +31,7 @@ export default {
   },
 
   mounted() {
-    // (window.adsbygoogle = window.adsbygoogle || []).push({});
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
   },
 };
 </script>
