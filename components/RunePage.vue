@@ -1,12 +1,14 @@
 <template lang="pug">
   .RunePage
-    .runeRow(v-for='rune in runes')
-      .imageContainer
-        rune-image(:image-name='rune.image.full')
-        .count {{ rune.rank || rune.count }}
-      .runeInfo
-        .text-primary {{ rune.name }}
-        .text-secondary {{ rune.description }}
+    template(v-if="runes.length > 0")
+      .runeRow(v-for='rune in runes')
+        .imageContainer
+          rune-image(:image-name='rune.image.full')
+          .count {{ rune.rank || rune.count }}
+        .runeInfo
+          .text-primary {{ rune.name }}
+          .text-secondary {{ rune.description }}
+    .emptyText.text-secondary(v-else) {{ $t('runesEmpty') }}
 </template>
 
 <script>
@@ -62,5 +64,9 @@
       }
     }
 
+    .emptyText {
+      font-size: 1.2em;
+      font-style: italic;
+    }
   }
 </style>

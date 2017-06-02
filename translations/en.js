@@ -46,6 +46,7 @@ export default {
   noProBuildsResults: 'We have not found builds for the champion or player selected, they will be available soon',
   masteryPieces: 'Mastery pieces',
   lolTools: 'League of Legends Tools',
+  runesEmpty: 'This page of runes is empty',
   langs: {
     en: 'English',
     es: 'Spanish',
