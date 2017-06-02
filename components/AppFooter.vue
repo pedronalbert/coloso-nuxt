@@ -1,9 +1,9 @@
 <template lang="pug">
   footer.mt-4
     .container
-      .mader.text-center
+      .mader.text-center.d-flex.justify-content-center.align-items-center
         | Made with
-        v-icon.text-defeat.mx-2.mt-2 favorite
+        v-icon.text-defeat.mx-2 favorite
         | by
         a.ml-2(href='https://twitter.com/pedronalbert', target='_blank') @pedronalbert
       .disclaimer.mt-2
