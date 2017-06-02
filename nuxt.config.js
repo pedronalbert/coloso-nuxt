@@ -1,3 +1,5 @@
+import webpack from 'webpack';
+
 module.exports = {
   /*
   ** Headers of the page
@@ -47,6 +49,10 @@ module.exports = {
         });
       }
     },
+
+    plugins: [
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    ],
 
     vendor: ['vue-i18n', 'jquery', 'axios', 'moment', 'moment/locale/es', 'numeral'],
   },
