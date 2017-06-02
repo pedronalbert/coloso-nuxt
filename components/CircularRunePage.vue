@@ -12,7 +12,7 @@
       template(v-for='runes, type in runesSlots')
         div(v-for='rune, index in runes', :style='getRuneStyle(type, index)')
           rune-image(:image-name='rune.image.full')
-          tooltip-card
+          tooltip-card(v-if="rune.name !== null")
             .text-primary {{ rune.name }}
             .text-secondary {{ rune.description }}
 </template>
@@ -47,9 +47,14 @@
     };
   }
 
-  function fillArrayNulls(array, amount) {
+  function fillWithEmptyRunes(array, amount) {
     for (let i = 0; i < amount; i += 1) {
-      array.push(null);
+      array.push({
+        name: null,
+        image: {
+          full: 'empty.png',
+        },
+      });
     }
 
     return array;
@@ -112,10 +117,10 @@
           });
         });
 
-        slots.red = fillArrayNulls(slots.red, 9 - slots.red.length);
-        slots.yellow = fillArrayNulls(slots.yellow, 9 - slots.yellow.length);
-        slots.blue = fillArrayNulls(slots.blue, 9 - slots.blue.length);
-        slots.black = fillArrayNulls(slots.black, 3 - slots.black.length);
+        slots.red = fillWithEmptyRunes(slots.red, 9 - slots.red.length);
+        slots.yellow = fillWithEmptyRunes(slots.yellow, 9 - slots.yellow.length);
+        slots.blue = fillWithEmptyRunes(slots.blue, 9 - slots.blue.length);
+        slots.black = fillWithEmptyRunes(slots.black, 3 - slots.black.length);
 
         return slots;
       },
