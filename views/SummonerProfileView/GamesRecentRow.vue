@@ -1,33 +1,39 @@
 <template lang="pug">
   .GamesRecentRow
-    .row.justify-content-around
-      .col-auto.mr-2
+    .row.no-gutters
+      .col-12.finalInfo.mb-2.ml-2
+        span.text-secondary
+          b {{ gameType }}
+          span.mx-2.hidden-md-down ♦
+          span.text-secondary.hidden-md-down {{ $t(`mapsIds[${this.game.mapId}]`) }}
+          span.mx-2 ♦
+          span.text-secondary {{ timeAgo | sentenceCase }}
+      .col-4.col-lg-2
         champion-avatar(:champion-id='game.championId', :spell1-id='game.spell1', :spell2-id='game.spell2')
-      .gameInfoContainer.col-auto.d-flex.flex-column.align-items-center.text-nowrap.flexer
-        div {{ gameType }}
-        .text-victory(v-if='game.stats.win')
+      .gameInfoContainer.col.col-lg-2.d-flex.flex-column.justify-content-center.align-items-center
+        .victoryText.text-victory(v-if='game.stats.win')
           b {{ $t('victory') }}
-        .text-defeat(v-else='')
+        .victoryText.text-defeat(v-else='')
           b {{ $t('defeat') }}
-        .d-flex.align-items-center
+        .multiKillBadge.mx-auto.mt-1(v-if='game.stats.largestMultiKill > 1', :class='multiKillType')
+          | {{ multiKillType }} Kill
+        .d-flex.justify-content-center.align-items-center.mt-1
           v-icon.uiIcon timer
           span.text-secondary {{ gameDuration }}
-      .scoreInfoContainer.col-auto
+      .scoreInfoContainer.col.col-lg-2
         score(:kills='game.stats.championsKilled', :deaths='game.stats.numDeaths', :assists='game.stats.assists')
         .text-secondary.text-nowrap
           | KDA:
           kda(:kills='game.stats.championsKilled', :deaths='game.stats.numDeaths', :assists='game.stats.assists')
-        .multiKillBadge(v-if='game.stats.largestMultiKill > 1', :class='multiKillType')
-          | {{ multiKillType }} Kill
-      .statsContainer.col-12.mt-1.col-lg-auto.mt-lg-0
-        .row.no-gutters.h-100
-          .col.d-flex.justify-content-around.col-lg-auto.mr-lg-2.flex-lg-column.justify-content-lg-center
+      .statsContainer.col-12.col-lg.ml-2.d-flex.flex-column.justify-content-center
+        .row.no-gutters
+          .col.d-flex.flex-lg-column.justify-content-around
             minions(:amount='game.stats.minionsKilled')
             gold(:amount='game.stats.goldEarned', :abbr="true")
-          .col.d-flex.justify-content-around.col-lg-auto.flex-lg-column.justify-content-lg-center
+          .col.d-flex.flex-lg-column.justify-content-around
             wards(:amount='game.stats.wardPlaced')
             span.text-secondary.text-nowrap IP: +{{game.ipEarned}}
-      .col-auto
+      .col-12.col-lg-auto
         compact-final-items.hidden-md-down(:items-ids='finalItems')
         final-items.mt-1.hidden-lg-up(:items-ids='finalItems')
 </template>
@@ -84,6 +90,10 @@
 
         return this.$t(`queuesIds.${queueId}`);
       },
+
+      timeAgo() {
+        return moment(this.game.createDate).add(this.game.stats.timePlayed, 'seconds').fromNow();
+      },
     },
 
     components: {
@@ -116,6 +126,10 @@
       line-height: 1.7em;
     }
 
+    .victoryText {
+      font-size: 1.2em;
+    }
+
     .gameInfoContainer {
       width: 10em;
 
@@ -130,15 +144,16 @@
       align-items: center;
       justify-content: center;
 
-        .multiKillBadge {
-          background-color: $color-accent;
-          line-height: 1.5em;
-          width: 6em;
-          border-radius: 0.5em;
-          text-transform: capitalize;
-          color: white;
-          text-align: center;
-        }
+    }
+
+    .multiKillBadge {
+      background-color: $color-accent;
+      line-height: 1.5em;
+      width: 6em;
+      border-radius: 0.5em;
+      text-transform: capitalize;
+      color: white;
+      text-align: center;
     }
 
     .statsContainer {
@@ -158,6 +173,10 @@
       min-height: 1em !important;
       margin: 0;
       margin-right: 0.25em;
+    }
+
+    .finalInfo {
+      font-size: 0.8em;
     }
   }
 </style>
