@@ -1,7 +1,7 @@
 <template lang="pug">
   footer.mt-4
     .container
-      .mader.text-center
+      .mader.text-center.d-flex.justify-content-center.align-items-center
         | Made with
         v-icon.text-defeat.mx-2 favorite
         | by

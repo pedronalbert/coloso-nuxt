@@ -4,7 +4,7 @@
       .container.h-100
         .d-flex.align-items-center.h-100
           button.hamburguerButton.hidden-md-up(@click='toggleMenu')
-            icon(:name="menuIconName")
+            v-icon {{ menuIconName }}
           .title.hidden-md-up Coloso
           .menuContainer(
             ref="menu"
@@ -31,7 +31,6 @@
 </template>
 
 <script>
-  import Icon from './Icon.vue';
   import SummonerInput from './SummonerInput.vue';
   import LoadingIndicator from './LoadingIndicator.vue';
 
@@ -81,7 +80,6 @@
     },
 
     components: {
-      Icon,
       SummonerInput,
       LoadingIndicator,
     },

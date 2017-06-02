@@ -1,6 +1,6 @@
 {
   "name": "coloso-nuxt",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Coloso Web",
   "author": "Alberto Pedron <pedron.albert@gmail.com>",
   "private": true,
@@ -12,7 +12,6 @@
     "jquery": "^3.2.1",
     "json-api-normalizer": "^0.4.0",
     "lodash": "^4.17.4",
-    "material-design-icons": "^3.0.1",
     "moment": "^2.18.1",
     "numeral": "^2.0.6",
     "nuxt": "^1.0.0-alpha2",
@@ -24,7 +23,8 @@
     "vue-router": "^2.3.1",
     "vue-spinner": "^1.0.2",
     "vuetify": "^0.12.2",
-    "vuex": "^2.3.1"
+    "vuex": "^2.3.1",
+    "webpack": "^2.6.1"
   },
   "scripts": {
     "dev": "PORT=8080 nuxt",

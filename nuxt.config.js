@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
   /*
   ** Headers of the page
@@ -21,7 +23,6 @@ module.exports = {
   },
 
   css: [
-    'material-design-icons/iconfont/material-icons.css',
     'sweetalert2/dist/sweetalert2.css',
     'animate.css/animate.css',
     'vuetify/dist/vuetify.min.css',
@@ -48,6 +49,10 @@ module.exports = {
         });
       }
     },
+
+    plugins: [
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    ],
 
     vendor: ['vue-i18n', 'jquery', 'axios', 'moment', 'moment/locale/es', 'numeral'],
   },

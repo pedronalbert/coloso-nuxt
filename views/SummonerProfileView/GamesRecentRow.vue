@@ -16,14 +16,15 @@
         .victoryText.text-defeat(v-else='')
           b {{ $t('defeat') }}
         .multiKillBadge.mx-auto.mt-1(v-if='game.stats.largestMultiKill > 1', :class='multiKillType')
-          | {{ multiKillType }} Kill
+          v-icon.mr-1 whatshot
+          | {{ multiKillType }}
         .d-flex.justify-content-center.align-items-center.mt-1
           v-icon.uiIcon timer
           span.text-secondary {{ gameDuration }}
       .scoreInfoContainer.col.col-lg-2
         score(:kills='game.stats.championsKilled', :deaths='game.stats.numDeaths', :assists='game.stats.assists')
         .text-secondary.text-nowrap
-          | KDA:
+          span.mr-1 KDA:
           kda(:kills='game.stats.championsKilled', :deaths='game.stats.numDeaths', :assists='game.stats.assists')
       .statsContainer.col-12.col-lg.ml-2.d-flex.flex-column.justify-content-center
         .row.no-gutters
@@ -147,6 +148,7 @@
     }
 
     .multiKillBadge {
+      display: flex;
       background-color: $color-accent;
       line-height: 1.5em;
       width: 6em;
@@ -154,6 +156,12 @@
       text-transform: capitalize;
       color: white;
       text-align: center;
+      justify-content: center;
+
+      i {
+        color: white;
+        font-size: 1.4em;
+      }
     }
 
     .statsContainer {
