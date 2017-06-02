@@ -37,13 +37,27 @@
         const tooltipRect = tooltip.getBoundingClientRect();
         const parentRect = parent.getBoundingClientRect();
 
+        let tooltipActualLeft = parentRect.left;
+
         // Center position
         const top = ((bodyRect.top * -1) + parentRect.top) - tooltipRect.height;
-        const left = (parentRect.left - (tooltipRect.width / 2)) +
+        let leftToStyle = (parentRect.left - (tooltipRect.width / 2)) +
           (parentRect.width / 2);
 
+        tooltipActualLeft = leftToStyle;
+
+        // Avoid outside
+
+        if (bodyRect.left > tooltipActualLeft) {
+          leftToStyle += (bodyRect.left - tooltipActualLeft) + 8;
+        }
+
+        if (bodyRect.right < tooltipActualLeft + tooltipRect.width) {
+          leftToStyle -= ((tooltipActualLeft + tooltipRect.width) - bodyRect.right) + 8;
+        }
+
         tooltip.style.top = `${top}px`;
-        tooltip.style.left = `${left}px`;
+        tooltip.style.left = `${leftToStyle}px`;
       },
 
       removeTooltip() {
