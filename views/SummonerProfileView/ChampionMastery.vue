@@ -14,7 +14,7 @@
         span {{ mastery.championPoints | numeral('0,0') }}
         span.u-flexer
         span {{ nextLevelPoints | numeral('0,0')}}
-    .masteryPieces
+    .masteryPieces.text-secondary
       span.u-flexer
       span.d-flex.align-items-center(:title="$t('masteryPieces')")
         span.mr-1 {{ mastery.tokensEarned }}
@@ -160,6 +160,14 @@
 
     .progress-linear__bar__determinate {
       background-color: #8e6e1a !important;
+    }
+  }
+
+  .masteryPieces {
+    font-size: 0.6em;
+
+    i {
+      font-size: 1.7em !important;
     }
   }
 </style>
