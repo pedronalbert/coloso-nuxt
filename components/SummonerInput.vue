@@ -7,12 +7,11 @@
     v-btn.searchButton(primary @click.native='handleOnSubmit')
       | {{ $t('search') }}
     .searchIconButton(@click='handleOnSubmit')
-      icon(name="search")
+      v-icon search
 </template>
 
 <script>
   import RegionSelector from './RegionSelector.vue';
-  import Icon from './Icon.vue';
 
   export default {
     name: 'SummonerInput',
@@ -42,7 +41,6 @@
 
     components: {
       RegionSelector,
-      Icon,
     },
   };
 </script>

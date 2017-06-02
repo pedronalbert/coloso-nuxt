@@ -3,7 +3,7 @@
     .container
       .mader.text-center
         | Made with
-        v-icon.text-defeat.mx-2 favorite
+        v-icon.text-defeat.mx-2.mt-2 favorite
         | by
         a.ml-2(href='https://twitter.com/pedronalbert', target='_blank') @pedronalbert
       .disclaimer.mt-2

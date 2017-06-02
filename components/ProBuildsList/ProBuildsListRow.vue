@@ -4,7 +4,7 @@
       .chipsContainer
         pro-player-chip(:image-url='build.proSummoner.proPlayer.imageUrl', :name='build.proSummoner.proPlayer.name', :real-name='build.proSummoner.proPlayer.realName', :role='build.proSummoner.proPlayer.role')
         span.arrow-icon-container.hidden-sm-down
-          icon(name="keyboard_arrow_right")
+          v-icon keyboard_arrow_right
         champion-avatar(:champion-id='build.champion.id', :spell1-id='build.spell1Id', :spell2-id='build.spell2Id', :name='build.champion.name', :title='build.champion.title')
       .statsRow
         span.win-status.text-victory.hidden-md-down(v-if='build.stats.win') {{ $t('victory') }}
@@ -14,7 +14,7 @@
         minions.hidden-sm-down(:amount='build.stats.totalMinionsKilled')
         final-items.hidden-sm-down(:items-ids='finalItemsIds')
         .time-ago
-          icon.time-icon.text-secondary(name="access_time")
+          v-icon.time-icon.text-secondary access_time
           span.text-time-ago.text-secondary {{ timeAgo }}
 </template>
 
@@ -28,7 +28,6 @@
   import Gold from '../Gold.vue';
   import Minions from '../Minions.vue';
   import FinalItems from '../FinalItems.vue';
-  import Icon from '../Icon.vue';
 
   export default {
     name: 'ProBuildsListRow',
@@ -67,7 +66,6 @@
       Gold,
       Minions,
       FinalItems,
-      Icon,
     },
   };
 </script>
