@@ -47,6 +47,7 @@ export default {
   masteryPieces: 'Piezas de Maestría',
   lolTools: 'Herramientas para League of Legends',
   runesEmpty: 'Esta página de runas está vacía',
+  playing: 'Jugando',
   langs: {
     en: 'Ingles',
     es: 'Español',

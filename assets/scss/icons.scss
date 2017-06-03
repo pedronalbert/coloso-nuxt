@@ -26,13 +26,16 @@
 }
 
 .icon-access_time:before {
-  content: "\accf";
+  content: "\e191";
 }
 .icon-add:before {
-  content: "\acce";
+  content: "\e145";
 }
 .icon-android:before {
   content: "\e859";
+}
+.icon-arrow_drop_down:before {
+  content: "\e5c5";
 }
 .icon-check:before {
   content: "\e5ca";
@@ -46,26 +49,17 @@
 .icon-favorite:before {
   content: "\e87d";
 }
+.icon-fiber_manual_record:before {
+  content: "\e061";
+}
 .icon-keyboard_arrow_right:before {
   content: "\e315";
 }
 .icon-keyboard_arrow_up:before {
   content: "\e316";
 }
-.icon-remove:before {
-  content: "\e15b";
-}
-.icon-timer:before {
-  content: "\e425";
-}
-.icon-whatshot:before {
-  content: "\e80e";
-}
-.icon-arrow_drop_down:before {
-  content: "\e5c5";
-}
 .icon-menu:before {
-  content: "\e5d2";
+  content: "\70";
 }
 .icon-radio_button_unchecked:before {
   content: "\e836";
@@ -73,6 +67,15 @@
 .icon-radio_button_checked:before {
   content: "\e837";
 }
+.icon-remove:before {
+  content: "\e15b";
+}
 .icon-search:before {
   content: "\e8b6";
+}
+.icon-timer:before {
+  content: "\e425";
+}
+.icon-whatshot:before {
+  content: "\e80e";
 }
