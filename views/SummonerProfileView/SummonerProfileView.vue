@@ -6,7 +6,7 @@
       div(class="col-md-5 col-lg-4")
         v-card(class="mb-4 animated fadeIn")
           v-card-text
-            summoner-data(:summoner="summoner")
+            summoner-data(:summoner="summoner", :playing="summonerState.gameCurrentStatus.playing", @click-game-current="goToCurrentGame")
 
         v-card(class="mb-4 animated fadeIn")
           v-card-text
@@ -139,6 +139,7 @@
         fetchRunes: 'summoner/runes/fetchById',
         fetchMasteries: 'summoner/masteries/fetchById',
         fetchGamesRecent: 'summoner/gamesRecent/fetchById',
+        checkGameCurrentStatus: 'summoner/gameCurrentStatus/check',
       }),
 
       handleOnRetryFetchSummoner() {
@@ -174,10 +175,17 @@
         this.handleOnRetryFetchGamesRecent();
       },
 
+      goToCurrentGame() {
+        this.$router.push({
+          path: `/current-game/${this.summonerId}`,
+        });
+      },
+
       fetchInClientData() {
         this.fetchChampionsMasteries(this.summonerId);
         this.fetchRunes(this.summonerId);
         this.fetchMasteries(this.summonerId);
+        this.checkGameCurrentStatus(this.summonerId);
       },
     },
 

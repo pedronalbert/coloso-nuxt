@@ -7,6 +7,7 @@ import championsMasteries from './championsMasteries';
 import runes from './runes';
 import masteries from './masteries';
 import gamesRecent from './gamesRecent';
+import gameCurrentStatus from './gameCurrentStatus';
 
 export default {
   namespaced: true,
@@ -77,5 +78,6 @@ export default {
     runes,
     masteries,
     gamesRecent,
+    gameCurrentStatus,
   },
 };
