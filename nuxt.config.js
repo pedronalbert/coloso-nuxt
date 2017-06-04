@@ -23,6 +23,7 @@ module.exports = {
   },
 
   css: [
+    'material-design-icons/iconfont/material-icons.css',
     'sweetalert2/dist/sweetalert2.css',
     'animate.css/animate.css',
     'vuetify/dist/vuetify.min.css',
