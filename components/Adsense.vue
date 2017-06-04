@@ -31,7 +31,7 @@ export default {
   },
 
   mounted() {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    // (window.adsbygoogle = window.adsbygoogle || []).push({});
   },
 };
 </script>
