@@ -1,17 +1,18 @@
 <template lang="pug">
-  div.d-flex.flex-column.h-100
-    app-nav(
-      :summoner-name="summonerName",
-      :region="region",
-      :fetching="fetching"
-      :render-form="renderNavForm"
-      @change-region="handleOnChangeRegion"
-      @change-summoner="handleOnChangeSummoner"
-      @submit="handleOnSubmit"
-    )
-    .routerContainer
-      nuxt/
-    app-footer
+  v-app.h-100
+    div.d-flex.flex-column.h-100
+      app-nav(
+        :summoner-name="summonerName",
+        :region="region",
+        :fetching="fetching"
+        :render-form="renderNavForm"
+        @change-region="handleOnChangeRegion"
+        @change-summoner="handleOnChangeSummoner"
+        @submit="handleOnSubmit"
+      )
+      .routerContainer
+        nuxt/
+      app-footer
 </template>
 
 <script>
