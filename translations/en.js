@@ -42,11 +42,12 @@ export default {
   noEnoughGamesForLeague: 'This summoner has not played the enough ranked games for assign it a position',
   loadingData: 'Loading Data',
   resultsNotFound: 'Results not found',
-  pageNotFound: 'Page not found',
+  pageNotFound: 'We think you\'re lost, we could not find the page you\'re looking for',
   noProBuildsResults: 'We have not found builds for the champion or player selected, they will be available soon',
   masteryPieces: 'Mastery pieces',
   lolTools: 'League of Legends Tools',
   runesEmpty: 'This page of runes is empty',
+  somethingWrong: 'Ha ocurrido un error inesperado',
   playing: 'Playing',
   langs: {
     en: 'English',
