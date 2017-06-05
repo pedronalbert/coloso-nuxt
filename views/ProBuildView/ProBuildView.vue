@@ -1,13 +1,5 @@
 <template lang="pug">
-  preload-page(
-    v-if="buildState.fetching || buildState.fetchError"
-    :fetching="buildState.fetching"
-    :fetchError="buildState.fetchError"
-    :message="buildState.errorMessage"
-    :retryButton="true",
-    @retry="fetchBuild"
-  )
-  .ProBuildView.container(v-else-if="buildState.fetched")
+  .ProBuildView.container
     .row
       .col-12.col-md-4.col-xl-3
         v-card.mb-4.animated.fadeIn
@@ -22,10 +14,10 @@
           v-tabs#probuild-tabs(v-model="activeTab", :light="true")
             v-tabs-bar(slot="activators")
               v-tabs-slider
-              v-tabs-item(href="#build" ripple) {{ $t('build') }}
-              v-tabs-item(href="#runes" ripple) {{ $t('runes') }}
-              v-tabs-item(href="#masteries" ripple) {{ $t('masteries') }}
-              v-tabs-item(href="#game" ripple) {{ $t('game') }}
+              v-tabs-item(href="#build", :ripple="true") {{ $t('build') }}
+              v-tabs-item(href="#runes", :ripple="true") {{ $t('runes') }}
+              v-tabs-item(href="#masteries", :ripple="true") {{ $t('masteries') }}
+              v-tabs-item(href="#game", :ripple="true") {{ $t('game') }}
             v-tabs-content#build
               v-card-text
                 h6
@@ -78,17 +70,15 @@
       PreloadPage,
     },
 
-    fetch({ store, params }) {
-      return new Promise((resolve) => {
-        store.dispatch('proBuild/fetchById', params.buildId)
-          .then(() => {
-            const proBuild = store.getters['proBuild/data'];
-
-            return store.dispatch('game/fetchById', proBuild.gameId);
-          })
-          .then(resolve)
-          .catch(resolve);
-      });
+    asyncData({ store, params }, cb) {
+      store.dispatch('proBuild/fetchById', params.buildId)
+        .then(() => cb(null, {}))
+        .catch((err) => {
+          cb({
+            statusCode: err.code,
+            message: err.message,
+          });
+        });
     },
 
     head() {
@@ -123,6 +113,7 @@
 
     mounted() {
       this.setTabByHash();
+      this.fetchGame();
     },
 
     computed: {

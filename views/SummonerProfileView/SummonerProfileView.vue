@@ -1,13 +1,5 @@
 <template lang="pug">
-  preload-page(
-    v-if="summonerState.fetching || summonerState.fetchError"
-    :fetching="summonerState.fetching"
-    :fetchError="summonerState.fetchError"
-    :message="summonerState.errorMessage"
-    :retryButton="true",
-    @retry="handleOnRetryFetchAll"
-  )
-  div.container(v-else-if="summonerState.fetched")
+  div.container
     div.row
       div(class="col-12 col-md-5 col-lg-4")
         v-card(class="mb-4 animated fadeIn")
@@ -66,7 +58,6 @@
   import { mapState, mapGetters, mapActions } from 'vuex';
   import { LoadingIndicator, Adsense, LoadingView, ErrorView } from '../../components';
   import PreloadPage from '../../components/PreloadPage.vue';
-  import { promiseReflector } from '../../utils';
 
   import SummonerData from './SummonerData.vue';
   import LeagueEntries from './LeagueEntries.vue';
@@ -92,14 +83,20 @@
       PreloadPage,
     },
 
-    fetch({ params, store }) {
+    asyncData({ params, store }, cb) {
       const summonerId = params.summonerId;
 
       return Promise.all([
-        promiseReflector(store.dispatch('summoner/fetchById', summonerId)),
-        promiseReflector(store.dispatch('summoner/gamesRecent/fetchById', summonerId)),
-        promiseReflector(store.dispatch('summoner/leagueEntries/fetchById', summonerId)),
-      ]);
+        store.dispatch('summoner/fetchById', summonerId),
+        store.dispatch('summoner/gamesRecent/fetchById', summonerId),
+        store.dispatch('summoner/leagueEntries/fetchById', summonerId),
+      ]).then(() => cb(null, {}))
+        .catch((err) => {
+          cb({
+            statusCode: err.code,
+            message: err.message,
+          });
+        });
     },
 
     head() {

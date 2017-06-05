@@ -42,7 +42,6 @@ export default {
   noEnoughGamesForLeague: 'This summoner has not played the enough ranked games for assign it a position',
   loadingData: 'Loading Data',
   resultsNotFound: 'Results not found',
-  pageNotFound: 'We think you\'re lost, we could not find the page you\'re looking for',
   noProBuildsResults: 'We have not found builds for the champion or player selected, they will be available soon',
   masteryPieces: 'Mastery pieces',
   lolTools: 'League of Legends Tools',
@@ -51,6 +50,7 @@ export default {
   playing: 'Playing',
   errors: {
     noConnectServer: 'Can\'t connect to the server, please try again later',
+    pageNotFound: 'We think you\'re lost, we could not find the page you\'re looking for',
   },
   langs: {
     en: 'English',

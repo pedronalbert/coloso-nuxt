@@ -42,7 +42,6 @@ export default {
   noEnoughGamesForLeague: 'Este invocador no ha jugado los sufientes juegos clasificatorios para asignarle una posición en la liga',
   loadingData: 'Cargando Datos',
   resultsNotFound: 'No se han encontrado resultados',
-  pageNotFound: 'Creemos que te perdiste, No pudimos encontrar la página solicitada',
   noProBuildsResults: 'No hemos encontrado builds para el campeón o jugador seleccionado, pronto estarán disponibles',
   masteryPieces: 'Piezas de Maestría',
   lolTools: 'Herramientas para League of Legends',
@@ -51,6 +50,7 @@ export default {
   somethingWrong: 'Something wrong has happened',
   errors: {
     noConnectServer: 'No se ha podido conectar con el servidor, intente nuevamente más tarde',
+    pageNotFound: 'Creemos que te perdiste, No pudimos encontrar la página solicitada',
   },
   langs: {
     en: 'Ingles',

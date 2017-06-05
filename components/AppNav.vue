@@ -160,7 +160,7 @@
           color: white !important
 
         &.nuxt-link-exact-active
-          border-bottom: 0.2em solid $color-accent
+          border-bottom: 0.2em solid colors.accent
 
           +media-breakpoint-down(sm)
             border-bottom: none
