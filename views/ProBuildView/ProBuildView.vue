@@ -1,8 +1,14 @@
 <template lang="pug">
-  .ProBuildView.container
-    loading-view(v-if='buildState.fetching')
-    error-view(v-else-if='buildState.fetchError', @retry='fetchBuild', :message='buildState.errorMessage')
-    .row(v-else)
+  preload-page(
+    v-if="buildState.fetching || buildState.fetchError"
+    :fetching="buildState.fetching"
+    :fetchError="buildState.fetchError"
+    :message="buildState.errorMessage"
+    retryButton,
+    @retry="fetchBuild"
+  )
+  .ProBuildView.container(v-else-if="buildState.fetched")
+    .row
       .col-12.col-md-4.col-xl-3
         v-card.mb-4.animated.fadeIn
           v-card-text
@@ -46,6 +52,7 @@
   import { get, assign } from 'lodash';
   import { mapActions, mapGetters, mapState } from 'vuex';
   import { LoadingIndicator, MasteryPage, RunePage, CircularRunePage, ErrorView, Adsense, LoadingView } from '../../components';
+  import PreloadPage from '../../components/PreloadPage.vue';
   import ProPlayer from './ProPlayer.vue';
   import BuildSummary from './BuildSummary.vue';
   import SkillsOrder from './SkillsOrder.vue';
@@ -54,6 +61,22 @@
 
   export default {
     name: 'ProBuildView',
+
+    components: {
+      LoadingIndicator,
+      ProPlayer,
+      BuildSummary,
+      SkillsOrder,
+      ItemsOrder,
+      MasteryPage,
+      RunePage,
+      CircularRunePage,
+      Game,
+      ErrorView,
+      Adsense,
+      LoadingView,
+      PreloadPage,
+    },
 
     fetch({ store, params }) {
       return new Promise((resolve) => {
@@ -146,21 +169,6 @@
           this.activeTab = hash;
         }
       },
-    },
-
-    components: {
-      LoadingIndicator,
-      ProPlayer,
-      BuildSummary,
-      SkillsOrder,
-      ItemsOrder,
-      MasteryPage,
-      RunePage,
-      CircularRunePage,
-      Game,
-      ErrorView,
-      Adsense,
-      LoadingView,
     },
   };
 </script>

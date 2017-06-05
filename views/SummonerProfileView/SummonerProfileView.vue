@@ -1,8 +1,14 @@
 <template lang="pug">
-  div.container
-    loading-indicator(v-if="summonerState.fetching")
-    error-view(v-else-if="summonerState.fetchError" :message="summonerState.errorMessage" @retry="handleOnRetryFetchAll")
-    div(v-else-if="summonerState.fetched" class="row")
+  preload-page(
+    v-if="summonerState.fetching || summonerState.fetchError"
+    :fetching="summonerState.fetching"
+    :fetchError="summonerState.fetchError"
+    :message="summonerState.errorMessage"
+    retryButton,
+    @retry="handleOnRetryFetchAll"
+  )
+  div.container(v-else-if="summonerState.fetched")
+    div.row
       div(class="col-12 col-md-5 col-lg-4")
         v-card(class="mb-4 animated fadeIn")
           v-card-text
@@ -59,6 +65,7 @@
 <script>
   import { mapState, mapGetters, mapActions } from 'vuex';
   import { LoadingIndicator, Adsense, LoadingView, ErrorView } from '../../components';
+  import PreloadPage from '../../components/PreloadPage.vue';
   import { promiseReflector } from '../../utils';
 
   import SummonerData from './SummonerData.vue';
@@ -70,6 +77,20 @@
 
   export default {
     name: 'SummonerProfileview',
+
+    components: {
+      LoadingIndicator,
+      SummonerData,
+      LeagueEntries,
+      ChampionsMasteries,
+      Runes,
+      Masteries,
+      GamesRecent,
+      Adsense,
+      LoadingView,
+      ErrorView,
+      PreloadPage,
+    },
 
     fetch({ params, store }) {
       const summonerId = params.summonerId;
@@ -195,19 +216,6 @@
           this.fetchInClientData();
         }
       },
-    },
-
-    components: {
-      LoadingIndicator,
-      SummonerData,
-      LeagueEntries,
-      ChampionsMasteries,
-      Runes,
-      Masteries,
-      GamesRecent,
-      Adsense,
-      LoadingView,
-      ErrorView,
     },
   };
 </script>
