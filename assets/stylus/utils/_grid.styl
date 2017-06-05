@@ -36,6 +36,10 @@ containerWidths = {
       padding-left: 0
       padding-right: 0
 
+.col
+  flex: 1 0 0
+  max-width: 100%
+
 for n in (1..12)
   .col-{n}
     colSize = (n * 100%) / 12
@@ -45,12 +49,18 @@ for n in (1..12)
     padding-right: 1rem
 
 for screen, breakpoint in gridBreakpoints
-  for n in (1..12)
-    .col-{screen}-{n}
-      colSize = (n * 100%) / 12
-      padding-left: 1rem
-      padding-right: 1rem
+  @media (min-width: breakpoint)
+    .col-{screen}-auto
+      flex: 0 0 auto
 
-      @media (min-width: breakpoint)
+    .col-{screen}
+      flex: 1 0 0
+      max-width: 100%
+
+    for n in (1..12)
+      .col-{screen}-{n}
+        colSize = (n * 100%) / 12
+        padding-left: 1rem
+        padding-right: 1rem
         flex: 0 0 colSize
         max-width: colSize

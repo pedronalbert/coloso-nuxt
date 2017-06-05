@@ -1,14 +1,14 @@
 <template lang="pug">
   .GamesRecentRow
     .row.no-gutters
-      .col-12.finalInfo.mb-2.ml-2
+      .col-12.finalInfo.mb-1.ml-2
         span.text-secondary
           b {{ gameType }}
           span.mx-2.hidden-md-down ♦
           span.text-secondary.hidden-md-down {{ $t(`mapsIds[${this.game.mapId}]`) }}
           span.mx-2 ♦
           span.text-secondary {{ timeAgo | sentenceCase }}
-      .col-4.col-lg-2
+      .col-4.col-lg-2.d-flex.align-items-center
         champion-avatar(:champion-id='game.championId', :spell1-id='game.spell1', :spell2-id='game.spell2')
       .gameInfoContainer.col.col-lg-2.d-flex.flex-column.justify-content-center.align-items-center
         .victoryText.text-victory(v-if='game.stats.win')
@@ -26,7 +26,7 @@
         .text-secondary.text-nowrap
           span.mr-1 KDA:
           kda(:kills='game.stats.championsKilled', :deaths='game.stats.numDeaths', :assists='game.stats.assists')
-      .statsContainer.col-12.col-lg.ml-2.d-flex.flex-column.justify-content-center
+      .statsContainer.col-xs-12.col-lg.ml-2.d-flex.flex-column.justify-content-center
         .row.no-gutters
           .col.d-flex.flex-lg-column.justify-content-around
             minions(:amount='game.stats.minionsKilled')

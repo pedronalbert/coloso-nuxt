@@ -96,7 +96,7 @@
         height: 3.5em
         position: absolute
         top: championImageSize * 0.75
-        left: (championImageSize - flagSize) / 2
+        left: ((championImageSize - flagSize) / 2)
         z-index: -1
 
         &:after
@@ -107,8 +107,8 @@
           width: 0
           height: 0
           border-bottom: 0.3em solid white
-          border-left: flagSize / 2 solid transparent
-          border-right: flagSize / 2 solid transparent
+          border-left: (flagSize / 2) solid transparent
+          border-right: (flagSize / 2) solid transparent
 
       &.level-6
         flagColor = #791670
