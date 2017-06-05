@@ -56,9 +56,8 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .pageSelector {
-    width: 12em;
-    padding-left: 1.5em;
-  }
+<style lang="stylus" scoped>
+  .pageSelector
+    width: 12em
+    padding-left: 1.5em
 </style>

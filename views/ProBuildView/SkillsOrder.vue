@@ -100,31 +100,24 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../assets/scss/colors';
+<style lang="stylus" scoped>
+  .SkillsOrder
+    rowSeparation = 0.6em
 
-  .SkillsOrder {
-    $row-separation: 0.6em;
+    display: flex
 
-    display: flex;
+    .skillsCol
+      padding-top: 2em
+      display: flex
+      flex-direction: column
 
-    .skillsCol {
-      padding-top: 2em;
-      display: flex;
-      flex-direction: column;
+      .ChampionSkill
+        margin-bottom: rowSeparation
 
-      .ChampionSkill {
-        margin-bottom: $row-separation;
-      }
-    }
+    .timelinesCol
+      padding-top: 2em
+      overflow-x: scroll
 
-    .timelinesCol {
-      padding-top: 2em;
-      overflow-x: scroll;
-
-      .SkillTimeline {
-        margin-bottom: $row-separation;
-      }
-    }
-  }
+      .SkillTimeline
+        margin-bottom: rowSeparation
 </style>

@@ -28,9 +28,8 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .MapImage {
-    width: 6em;
-    height: 6em;
-  }
+<style lang="stylus" scoped>
+  .MapImage
+    width: 6em
+    height: 6em
 </style>

@@ -32,35 +32,31 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../assets/scss/colors';
+<style lang="stylus" scoped>
+  @require '../assets/stylus/colors'
 
-  .ChampionAndSpells {
-    $size: 4em;
+  .ChampionAndSpells
+    size = 4em
 
-    display: flex;
+    display: flex
 
-    .championImage {
-      width: $size;
-      height: $size;
-      min-width: $size;
-      min-height: $size;
-      border: 3px solid $color-primary;
-      border-radius: 50%;
-    }
+    .championImage
+      width: size
+      height: size
+      min-width: size
+      min-height: size
+      border: 3px solid colors.primary
+      border-radius: 50%
 
-    .spellsCol {
-      margin-left: -0.5em;
-      width: ($size / 2);
+    .spellsCol
+      margin-left: -0.5em
+      width: (size / 2)
 
-      .spellImage {
-        width: $size / 2;
-        height: $size / 2;
-        min-width: $size / 2;
-        min-height: $size / 2;
-        border-radius: 50%;
-        border: 3px solid $color-primary;
-      }
-    }
-  }
+      .spellImage
+        width: size / 2
+        height: size / 2
+        min-width: size / 2
+        min-height: size / 2
+        border-radius: 50%
+        border: 3px solid colors.primary
 </style>

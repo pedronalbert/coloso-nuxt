@@ -34,9 +34,8 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .icon {
-    width: 1em;
-    margin-right: 0.25em;
-  }
+<style lang="stylus" scoped>
+  .icon
+    width: 1em
+    margin-right: 0.25em
 </style>

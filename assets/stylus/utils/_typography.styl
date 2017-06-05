@@ -1,0 +1,41 @@
+@require '../_variables'
+@require '../colors'
+
+.text-victory
+  color: colors.victory
+.text-defeat
+  color: colors.defeat
+.text-secondary
+  color: colors.text.secondary
+.text-primary
+  color: colors.text.primary !important
+.text-accent
+  color: colors.accent
+.text-tier-unranked
+  color: colors.tiers.unranked
+.text-tier-silver
+  color: colors.tiers.silver
+.text-tier-bronze
+  color: colors.tiers.bronze
+.text-tier-gold
+  color: colors.tiers.gold
+.text-tier-platinum
+  color: colors.tiers.platinum
+.text-tier-diamond
+  color: colors.tiers.diamond
+.text-tier-master
+  color: colors.tiers.master
+.text-tier-challenger
+  color: colors.tiers.challenger
+  
+.text-center
+  text-align: center
+
+for screen, breakpoint in gridBreakpoints
+  .text-{screen}-center
+    @media (min-width: breakpoint)
+      text-align: center !important
+
+  .text-{screen}-left
+    @media (min-width: breakpoint)
+      text-align: left !important

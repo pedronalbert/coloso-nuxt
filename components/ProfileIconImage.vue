@@ -16,11 +16,10 @@
   };
 </script>
 
-<style lang="scss">
-  .ProfileIconImage {
-    width: 5em;
-    height: 5em;
-    min-width: 5em;
-    min-height: 5em;
-  }
+<style lang="stylus">
+  .ProfileIconImage
+    width: 5em
+    height: 5em
+    min-width: 5em
+    min-height: 5em
 </style>

@@ -17,9 +17,8 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .icon {
-    width: 18px;
-    margin-right: 0.25em;
-  }
+<style lang="stylus" scoped>
+  .icon
+    width: 18px
+    margin-right: 0.25em
 </style>

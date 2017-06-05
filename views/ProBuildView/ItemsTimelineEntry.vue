@@ -50,55 +50,51 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../assets/scss/colors';
+<style lang="stylus" scoped>
+  @require '../../assets/stylus/colors'
 
-  .ItemsTimelineEntry {
-    background-color: $color-primary;
-    border-radius: 0.25em;
-    padding: 0.25em;
-    margin-bottom: 1.25em;
-    position: relative;
+  .ItemsTimelineEntry
+    background-color: colors.primary
+    border-radius: 0.25em
+    padding: 0.25em
+    margin-bottom: 1.25em
+    position: relative
 
-    .itemImageContainer {
-      width: 2.5em;
-      height: 2.5em;
-      margin-right: 0.25em;
-      position: relative;
+    .itemImageContainer
+      width: 2.5em
+      height: 2.5em
+      margin-right: 0.25em
+      position: relative
 
-      .ItemImage {
-        width: 2.5em;
-        height: 2.5em;
-      }
+      .ItemImage
+        width: 2.5em
+        height: 2.5em
 
-      &:last-child { margin-right: 0em }
+      &:last-child
+        margin-right: 0em
 
-      .itemCount {
-        width: 1.2em;
-        height: 1.2em;
-        background-color: black;
-        line-height: 1.2em;
-        text-align: center;
-        font-size: 0.8em;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        color: white;
-      }
-    }
+      .itemCount
+        width: 1.2em
+        height: 1.2em
+        background-color: black
+        line-height: 1.2em
+        text-align: center
+        font-size: 0.8em
+        position: absolute
+        bottom: 0
+        right: 0
+        color: white
 
-    .timestamp {
-      font-size: 0.7em;
-      line-height: 1.6em;
-      color: white;
-      position: absolute;
-      bottom: -1.4em;
-      left: 50%;
-      padding: 0 0.25em;
-      transform: translateX(-50%);
-      background-color: #757575;
-      border-radius: 0.25em;
-      white-space: nowrap;
-    }
-  }
+    .timestamp
+      font-size: 0.7em
+      line-height: 1.6em
+      color: white
+      position: absolute
+      bottom: -1.4em
+      left: 50%
+      padding: 0 0.25em
+      transform: translateX(-50%)
+      background-color: #757575
+      border-radius: 0.25em
+      white-space: nowrap
 </style>

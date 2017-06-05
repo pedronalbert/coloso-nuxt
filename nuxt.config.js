@@ -27,7 +27,7 @@ module.exports = {
     'sweetalert2/dist/sweetalert2.css',
     'animate.css/animate.css',
     'vuetify/dist/vuetify.min.css',
-    { src: '~assets/scss/main.scss', lang: 'scss' },
+    { src: '~assets/stylus/index.styl', lang: 'stylus' },
   ],
   /*
   ** Customize the progress-bar color

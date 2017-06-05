@@ -206,18 +206,17 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .GameCurrentView {
-    .gameInfoTable {
-      margin-top: -0.25em;
+<style lang="stylus" scoped>
+  .GameCurrentView
+    .gameInfoTable
+      margin-top: -0.25em
 
-      tr:first-child {
-        td, th { border-top: none }
-      }
-    }
-    .bannedChampionImage {
-      width: 2em !important;
-      height: 2em !important;
-    }
-  }
+      tr:first-child
+        td
+        th
+          border-top: none
+
+    .bannedChampionImage
+      width: 2em !important
+      height: 2em !important
 </style>

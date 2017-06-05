@@ -1,0 +1,38 @@
+@require '../_variables'
+
+.d-flex
+  display: flex
+
+.flex-column
+  flex-direction: column
+
+.flex-wrap
+  flex-wrap: wrap
+
+.align-items-center
+  align-items: center
+
+.flex-column
+  flex-direction: column
+
+.justify-content-center
+  justify-content: center
+
+.justify-content-around
+  justify-content: space-around
+
+.justify-content-between
+  justify-content: space-between
+
+for screen, breakpoint in gridBreakpoints
+  .d-{screen}-flex
+    @media (min-width: gridBreakpoints[screen])
+      display: flex
+
+  .align-items-{screen}-center
+    @media (min-width: gridBreakpoints[screen])
+      align-items: center
+
+  .flex-{screen}-column
+    @media (min-width: gridBreakpoints[screen])
+      flex-direction: column

@@ -29,18 +29,14 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .TeamHeader {
-    margin-top: 1em;
-    color: white;
-    padding: 0.10em 1em;
+<style lang="stylus" scoped>
+  .TeamHeader
+    margin-top: 1em
+    color: white
+    padding: 0.10em 1em
 
-    &.blue {
-      background-color: #5C6BC0;
-    }
-
-    &.red {
-      background-color: #D32F2F;
-    }
-  }
+    &.blue
+      background-color: #5C6BC0
+    &.red
+      background-color: #D32F2F
 </style>

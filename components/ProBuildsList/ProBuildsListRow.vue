@@ -70,85 +70,84 @@
   };
 </script>
 
-<style lang="scss">
-  @import '../../assets/scss/mixins';
-  @import '../../assets/scss/colors';
+<style lang="stylus">
+  @require '../../assets/stylus/mixins'
+  @require '../../assets/stylus/colors'
 
-  .ProBuildsListRow {
-    cursor: pointer;
-    padding: 10px 16px;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+  .ProBuildsListRow
+    cursor: pointer
+    padding: 10px 16px
+    border-bottom: 1px solid rgba(0,0,0,0.2)
 
-    &:hover { background-color: #EEEEEE }
-    &:active { @include active-shadow() }
+    &:hover
+      background-color: #EEEEEE
 
+    +media-breakpoint-down(md)
+      &.victory
+        border-left: 6px solid colors.victory
 
-    @include media-breakpoint-down(md) {
-      &.victory {
-        border-left: 6px solid $color-victory;
-      }
+      &.defeat
+        border-left: 6px solid colors.defeat
 
-      &.defeat {
-        border-left: 6px solid $color-defeat;
-      }
-    }
+    &:last-child
+      border-bottom: none
 
-    &:last-child { border-bottom: none }
+    .chipsContainer
+      display: flex
 
-    .chipsContainer {
-      display: flex;
+      .ProPlayerChip
+        width: 200px
 
-      .ProPlayerChip { width: 200px }
+      +media-breakpoint-down(sm)
+        display: block
 
-      @include media-breakpoint-down(sm) {
-        display: block;
-      }
-    }
+    .statsRow
+      display: flex
+      align-items: center
+      justify-content: space-around
+      font-size: 14px
+      margin-top: 8px
 
-    .statsRow {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      font-size: 14px;
-      margin-top: 8px;
+      .win-status
+        width: 110px
+        font-weight: bold
 
-      .win-status {
-        width: 110px;
-        font-weight: bold;
-      }
-      .score { width: 130px }
-      .gold { width: 120px }
-      .minions { width: 110px }
-      .time-ago { width: 140px }
+      .score
+        width: 130px
+      .gold
+        width: 120px
+      .minions
+        width: 110px
+      .time-ago
+        width: 140px
 
-      @include media-breakpoint-down(lg) {
-        .win-status { width: 100px }
-        .score { width: 120px }
-        .gold { width: 110px }
-        .minions { width: 110px }
-        .time-ago { width: 140px }
-      }
+      +media-breakpoint-down(lg)
+        .win-status
+          width: 100px
+        .score
+          width: 120px
+        .gold
+          width: 110px
+        .minions
+          width: 110px
+        .time-ago
+          width: 140px
 
-      @include media-breakpoint-down(sm) {
-        .time-ago { width: auto }
-      }
-    }
+      +media-breakpoint-down(sm)
+        .time-ago
+          width: auto
 
-    .time-icon {
-      margin-right: 3px;
-      width: 18px;
-      height: 18px;
-      min-height: 18px;
-      min-width: 18px;
-      font-size: 18px;
-    }
+    .time-icon
+      margin-right: 3px
+      width: 18px
+      height: 18px
+      min-height: 18px
+      min-width: 18px
+      font-size: 18px
 
-    .arrow-icon-container {
-      margin: auto 8px auto 8px;
-    }
+    .arrow-icon-container
+      margin: auto 8px auto 8px
 
-    .ChampionAvatar {
-      margin: 8px 0 0 12px;
-    }
-  }
+    .ChampionAvatar
+      margin: 8px 0 0 12px
 </style>

@@ -1,0 +1,19 @@
+@require '../_variables'
+
+for screen, breakpoint in gridBreakpoints
+  if screen != 'xl'
+    .hidden-{screen}-down
+      @media (max-width: nextBreakpoint[screen] - 1)
+        display: none !important
+
+    .hidden-{screen}-up
+      @media (min-width: gridBreakpoints[screen])
+        display: none !important
+
+    .d-{screen}-block
+      @media (min-width: gridBreakpoints[screen])
+        display: block !important
+
+.mx-auto
+  margin-left: auto
+  margin-right: auto

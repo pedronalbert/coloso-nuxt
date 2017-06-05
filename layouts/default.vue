@@ -85,11 +85,10 @@
   };
 </script>
 
-<style lang="scss">
-  .routerContainer {
-    flex: 1;
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-  }
+<style lang="stylus">
+  .routerContainer
+    flex: 1
+    width: 100%
+    min-width: 100%
+    max-width: 100%
 </style>

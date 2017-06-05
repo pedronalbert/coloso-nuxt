@@ -110,81 +110,69 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../assets/scss/colors';
-  @import '../../assets/scss/mixins';
+<style lang="stylus" scoped>
+  @require '../../assets/stylus/colors'
+  @require '../../assets/stylus/mixins'
 
-  .GamesRecentRow {
-    padding: 0.5em;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+  .GamesRecentRow
+    padding: 0.5em
+    border-bottom: 1px solid rgba(0,0,0,0.2)
 
-    &:last-child { border-bottom: none }
+    &:last-child
+      border-bottom: none
 
-    .gameInfoContainer,
-    .statsContainer,
-    .scoreInfoContainer {
-      font-size: 0.8em;
-      line-height: 1.7em;
-    }
+    .gameInfoContainer
+    .statsContainer
+    .scoreInfoContainer
+      font-size: 0.8em
+      line-height: 1.7em
 
-    .victoryText {
-      font-size: 1.2em;
-    }
+    .victoryText
+      font-size: 1.2em
 
-    .gameInfoContainer {
-      width: 10em;
+    .gameInfoContainer
+      width: 10em
 
-      @include media-breakpoint-only(lg) {
-        width: 8.5em;
-      }
-    }
+      +media-breakpoint-only(lg)
+        width: 8.5em
 
-    .scoreInfoContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    .scoreInfoContainer
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
 
-    }
+    .multiKillBadge
+      display: flex
+      background-color: colors.accent
+      line-height: 1.5em
+      width: 6em
+      border-radius: 0.5em
+      text-transform: capitalize
+      color: white
+      text-align: center
+      justify-content: center
 
-    .multiKillBadge {
-      display: flex;
-      background-color: $color-accent;
-      line-height: 1.5em;
-      width: 6em;
-      border-radius: 0.5em;
-      text-transform: capitalize;
-      color: white;
-      text-align: center;
-      justify-content: center;
+      i
+        color: white
+        font-size: 1.4em
 
-      i {
-        color: white;
-        font-size: 1.4em;
-      }
-    }
+    .statsContainer
+      position: relative
+      width: 12em
 
-    .statsContainer {
-      position: relative;
-      width: 12em;
+      +media-breakpoint-down(md)
+        width: 6em
 
-      @include media-breakpoint-down(md) {
-        width: 6em;
-      }
-    }
+    .uiIcon
+      font-size: 1.2em
+      width: 1em !important
+      height: 1em !important
+      min-width: 1em !important
+      min-height: 1em !important
+      margin: 0
+      margin-right: 0.25em
 
-    .uiIcon {
-      font-size: 1.2em;
-      width: 1em !important;
-      height: 1em !important;
-      min-width: 1em !important;
-      min-height: 1em !important;
-      margin: 0;
-      margin-right: 0.25em;
-    }
-
-    .finalInfo {
-      font-size: 0.8em;
-    }
-  }
+    .finalInfo
+      font-size: 0.8em
 </style>

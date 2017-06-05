@@ -63,34 +63,29 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../../assets/scss/colors';
-  @import '../../../assets/scss/mixins';
+<style lang="stylus" scoped>
+  @require '../../../assets/stylus/colors'
+  @require '../../../assets/stylus/mixins'
 
-  .TeamHeader {
-    display: flex;
-    color: white;
-    font-size: 0.9em;
+  .TeamHeader
+    display: flex
+    color: white
+    font-size: 0.9em
 
-    @include media-breakpoint-down(sm) {
-      flex-direction: column;
-    }
+    +media-breakpoint-down(sm)
+      flex-direction: column
 
-    .block {
-      padding: 0.25em 1em;
-      background: #EEEEEE;
-    }
+    .block
+      padding: 0.25em 1em
+      background: #EEEEEE
 
-    .teamName {
-      background-color: $color-primary;
-    }
+    .teamName
+      background-color: colors.primary
 
-    .victory {
-      background-color: $color-victory;
-    }
+    .victory
+      background-color: colors.victory
 
-    .defeat {
-      background-color: $color-defeat;
-    }
-  }
+    .defeat
+      background-color: colors.defeat
+
 </style>

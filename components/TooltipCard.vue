@@ -72,22 +72,20 @@
   };
 </script>
 
-<style lang="scss">
-  .TooltipCard {
-    background-color: white;
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    width: 15em;
-    height: auto;
-    padding: 1em;
-    z-index: 500;
-    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px rgba(0,0,0,.14), 0 1px 10px rgba(0,0,0,.12);
-    animation-duration: .3s;
+<style lang="stylus">
+  .TooltipCard
+    background-color: white
+    position: absolute
+    display: block
+    top: 0
+    left: 0
+    width: 15em
+    height: auto
+    padding: 1em
+    z-index: 500
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px rgba(0,0,0,.14), 0 1px 10px rgba(0,0,0,.12)
+    animation-duration: .3s
 
-    &>* {
-      font-size: 0.8em;
-    }
-  }
+    &>*
+      font-size: 0.8em
 </style>

@@ -1,0 +1,13 @@
+@require '_variables'
+
+media-breakpoint-down(screen)
+  @media (max-width: nextBreakpoint[screen] - 1)
+    {block}
+
+media-breakpoint-up(screen)
+  @media (min-width: gridBreakpoints[screen])
+    {block}
+
+media-breakpoint-only(screen)
+  @media (min-width: gridBreakpoints[screen]), (max-width: nextBreakpoint[screen] - 1)
+    {block}

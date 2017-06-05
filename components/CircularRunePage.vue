@@ -153,50 +153,43 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../assets/scss/colors';
-  $big-circle-rad: 15em;
-  $small-circle-rad: 11em;
+<style lang="stylus" scoped>
+  @require '../assets/stylus/colors'
+  bigCircleRad = 15em
+  smallCircleRad = 11em
 
-  .CircularRunePage {
-    margin: 1em;
+  .CircularRunePage
+    margin: 1em
 
-    .summaryBox {
-      width: 13em;
-      height: $big-circle-rad - .9em;
-      position: absolute;
-      left: 8.9em;
-      top: 7.5em;
-      overflow-y: auto;
+    .summaryBox
+      width: 13em
+      height: bigCircleRad - .9em
+      position: absolute
+      left: 8.9em
+      top: 7.5em
+      overflow-y: auto
 
-      & > div {
-        font-size: 0.8em;
-      }
-    }
+      & > div
+        font-size: 0.8em
 
-    .bigCircle {
-      width: $big-circle-rad * 2;
-      height: $big-circle-rad * 2;
-      position: relative;
-      border: 0.20em solid $color-primary;
-      border-radius: 50%;
-      box-sizing: content-box;
+    .bigCircle
+      width: bigCircleRad * 2
+      height: bigCircleRad * 2
+      position: relative
+      border: 0.20em solid colors.primary
+      border-radius: 50%
+      box-sizing: content-box
 
-      .runeInner {
-        position: relative;
-      }
+      .runeInner
+        position: relative
 
-      .smallCircle {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: $small-circle-rad * 2;
-        height: $small-circle-rad * 2;
-        border: 0.20em solid $color-primary;
-        border-radius: 50%;
-
-      }
-    }
-  }
+      .smallCircle
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
+        width: smallCircleRad * 2
+        height: smallCircleRad * 2
+        border: 0.20em solid colors.primary
+        border-radius: 50%
 </style>
