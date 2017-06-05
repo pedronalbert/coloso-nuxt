@@ -51,12 +51,14 @@
     .spellsCol
       margin-left: -0.5em
       width: (size / 2)
+      display: flex
+      flex-direction: column
 
       .spellImage
-        width: size / 2
-        height: size / 2
-        min-width: size / 2
-        min-height: size / 2
+        width: (size / 2)
+        height: (size / 2)
+        min-width: (size / 2)
+        min-height: (size / 2)
         border-radius: 50%
         border: 3px solid colors.primary
 </style>

@@ -122,7 +122,7 @@
 
       i
         color: white
-        font-size: 4em
+        font-size: 32px
 
     .title
       color: white

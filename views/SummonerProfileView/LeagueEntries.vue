@@ -81,23 +81,24 @@
       margin-bottom: 0.5em
 
     .RankedTierImage
-      +media-breakpoint-only(lg)
-        font-size: 0.8em
 
       +media-breakpoint-only(sm)
         font-size: 1em
         margin-left: 1.25em
+
+      +media-breakpoint-only(lg)
+        font-size: 0.8em
 
     .dataContainer
       margin-left: 0.5em
       font-size: 0.8em
       flex: 1
 
-      +media-breakpoint-down(lg)
-        font-size: 0.75em
-
       +media-breakpoint-down(md)
         margin-left: 1em
+
+      +media-breakpoint-down(lg)
+        font-size: 0.75em
 
       .textTier
         text-transform: uppercase

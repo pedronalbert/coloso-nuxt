@@ -9,5 +9,5 @@ media-breakpoint-up(screen)
     {block}
 
 media-breakpoint-only(screen)
-  @media (min-width: gridBreakpoints[screen]), (max-width: nextBreakpoint[screen] - 1)
+  @media (min-width: gridBreakpoints[screen]) and (max-width: nextBreakpoint[screen] - 1)
     {block}

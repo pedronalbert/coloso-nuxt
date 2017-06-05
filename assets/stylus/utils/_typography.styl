@@ -27,15 +27,15 @@
   color: colors.tiers.master
 .text-tier-challenger
   color: colors.tiers.challenger
-  
+
 .text-center
   text-align: center
 
 for screen, breakpoint in gridBreakpoints
-  .text-{screen}-center
+  if screeen != 'xs'
     @media (min-width: breakpoint)
-      text-align: center !important
+      .text-{screen}-center
+          text-align: center !important
 
-  .text-{screen}-left
-    @media (min-width: breakpoint)
-      text-align: left !important
+      .text-{screen}-left
+          text-align: left !important

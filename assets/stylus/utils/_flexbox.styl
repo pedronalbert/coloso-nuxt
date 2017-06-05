@@ -25,14 +25,19 @@
   justify-content: space-between
 
 for screen, breakpoint in gridBreakpoints
-  .d-{screen}-flex
-    @media (min-width: gridBreakpoints[screen])
-      display: flex
+  if screeen != 'xs'
+    @media (min-width: breakpoint)
+      .d-{screen}-flex
+        display: flex
 
-  .align-items-{screen}-center
-    @media (min-width: gridBreakpoints[screen])
-      align-items: center
+      .d-{screen}-block
+        display: block
 
-  .flex-{screen}-column
-    @media (min-width: gridBreakpoints[screen])
-      flex-direction: column
+      .align-items-{screen}-center
+          align-items: center
+
+      .flex-{screen}-column
+          flex-direction: column
+
+      .flex-{screen}-row
+          flex-direction: row
