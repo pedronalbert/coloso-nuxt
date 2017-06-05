@@ -107,7 +107,7 @@
     display: flex
 
     .skillsCol
-      padding-top: 2em
+      padding-top: 1em
       display: flex
       flex-direction: column
 
@@ -115,7 +115,7 @@
         margin-bottom: rowSeparation
 
     .timelinesCol
-      padding-top: 2em
+      padding-top: 1em
       overflow-x: scroll
 
       .SkillTimeline
