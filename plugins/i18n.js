@@ -11,4 +11,11 @@ export default ({ app, store }) => {
     locale: store.state.locale,
     messages: translations,
   });
+
+
+  if (process.BROWSER_BUILD) {
+    window.i18n = app.i18n;
+  } else {
+    global.i18n = app.i18n;
+  }
 };

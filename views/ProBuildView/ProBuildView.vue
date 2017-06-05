@@ -4,7 +4,7 @@
     :fetching="buildState.fetching"
     :fetchError="buildState.fetchError"
     :message="buildState.errorMessage"
-    retryButton,
+    :retryButton="true",
     @retry="fetchBuild"
   )
   .ProBuildView.container(v-else-if="buildState.fetched")

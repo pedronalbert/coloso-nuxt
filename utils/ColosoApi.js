@@ -4,11 +4,15 @@ import ColosoClient from './ColosoClient';
 
 function handleErrors(reject, error) {
   if (has(error, ['response', 'data', 'message'])) {
-    reject({ message: error.response.data.message });
-  } else if (error.message === 'Network Error') {
-    reject({ message: 'No se ha podido establecer conexión con el servidor' });
+    reject({
+      code: error.response.status,
+      message: error.response.data.message,
+    });
   } else {
-    reject({ message: 'Algo ha salido mal' });
+    reject({
+      code: null,
+      message: i18n.t('errors.noConnectServer'),
+    });
   }
 }
 

@@ -4,7 +4,7 @@
     :fetching="summonerState.fetching"
     :fetchError="summonerState.fetchError"
     :message="summonerState.errorMessage"
-    retryButton,
+    :retryButton="true",
     @retry="handleOnRetryFetchAll"
   )
   div.container(v-else-if="summonerState.fetched")

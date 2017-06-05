@@ -22,5 +22,6 @@ module.exports = {
   },
   globals: {
     ga: true,
+    i18n: true,
   }
 }

@@ -49,6 +49,9 @@ export default {
   runesEmpty: 'Esta página de runas está vacía',
   playing: 'Jugando',
   somethingWrong: 'Something wrong has happened',
+  errors: {
+    noConnectServer: 'No se ha podido conectar con el servidor, intente nuevamente más tarde',
+  },
   langs: {
     en: 'Ingles',
     es: 'Español',

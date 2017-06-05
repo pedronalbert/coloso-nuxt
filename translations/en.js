@@ -49,6 +49,9 @@ export default {
   runesEmpty: 'This page of runes is empty',
   somethingWrong: 'Ha ocurrido un error inesperado',
   playing: 'Playing',
+  errors: {
+    noConnectServer: 'Can\'t connect to the server, please try again later',
+  },
   langs: {
     en: 'English',
     es: 'Spanish',
