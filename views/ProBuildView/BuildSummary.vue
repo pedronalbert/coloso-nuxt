@@ -70,31 +70,25 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../assets/scss/mixins';
+<style lang="stylus" scoped>
+  .BuildSummary
+    .FinalItems
+      font-size: 1.25em
 
-  .BuildSummary {
+    .timeAgoContainer
+      font-size: 0.9em
 
-    .FinalItems {
-      font-size: 1.25em;
-    }
+    .statsRow
+      display: flex
+      justify-content: space-around
+      flex-wrap: wrap
+      align-items: center
+      margin-top: 0.30em
+      margin-left: 0.50em
+      margin-right: 0.50em
+      margin-bottom: -0.50em
+      font-size: 0.9em
 
-    .timeAgoContainer {
-      font-size: 0.9em;
-    }
-
-    .statsRow {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 0.30em;
-      margin-left: 0.50em;
-      margin-right: 0.50em;
-      margin-bottom: -0.50em;
-      font-size: 0.9em;
-
-      &>* { padding: 4px 14px }
-    }
-  }
+      &>*
+        padding: 4px 14px
 </style>

@@ -16,9 +16,8 @@
   };
 </script>
 
-<style lang="scss">
-  .RankedTierImage {
-    width: 5em;
-    height: 5em;
-  }
+<style lang="stylus">
+  .RankedTierImage
+    width: 5em
+    height: 5em
 </style>

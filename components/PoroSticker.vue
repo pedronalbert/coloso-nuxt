@@ -16,9 +16,8 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .PoroSticker {
-    width: 5em;
-    height: 5em;
-  }
+<style lang="stylus" scoped>
+  .PoroSticker
+    width: 5em
+    height: 5em
 </style>

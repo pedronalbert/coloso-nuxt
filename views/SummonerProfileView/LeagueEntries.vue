@@ -62,78 +62,68 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../assets/scss/colors';
-  @import '../../assets/scss/mixins';
+<style lang="stylus" scoped>
+  @require '../../assets/stylus/colors'
+  @require '../../assets/stylus/mixins'
 
-  .EntryContainer {
-    border-bottom: 1px solid rgba(0,0,0,0.15);
-    padding: 0.8em 0;
+  .EntryContainer
+    border-bottom: 1px solid rgba(0,0,0,0.15)
+    padding: 0.8em 0
 
-    &:first-child { padding-top: 0 }
-    &:last-child { border-bottom: none; padding-bottom: 0 }
+    &:first-child
+      padding-top: 0
+    &:last-child
+      border-bottom: none
+      padding-bottom: 0
 
-    .queue {
-      font-size: 0.9em;
-      margin-bottom: 0.5em;
-    }
+    .queue
+      font-size: 0.9em
+      margin-bottom: 0.5em
 
-    .RankedTierImage {
-      @include media-breakpoint-only(lg) {
-        font-size: 0.8em;
-      }
+    .RankedTierImage
 
-      @include media-breakpoint-only(sm) {
-        font-size: 1em;
-        margin-left: 1.25em;
-      }
-    }
+      +media-breakpoint-only(sm)
+        font-size: 1em
+        margin-left: 1.25em
 
-    .dataContainer {
-      margin-left: 0.5em;
-      font-size: 0.8em;
-      flex: 1;
+      +media-breakpoint-only(lg)
+        font-size: 0.8em
 
-      @include media-breakpoint-down(lg) {
-        font-size: 0.75em;
-      }
+    .dataContainer
+      margin-left: 0.5em
+      font-size: 0.8em
+      flex: 1
 
-      @include media-breakpoint-down(md) {
-        margin-left: 1em;
-      }
+      +media-breakpoint-down(md)
+        margin-left: 1em
 
-      .textTier {
-        text-transform: uppercase;
-        font-weight: bold;
-      }
+      +media-breakpoint-down(lg)
+        font-size: 0.75em
 
-      .victories {
-        font-size: 1.2em;
-        color: $color-victory;
-        font-weight: bold;
-      }
+      .textTier
+        text-transform: uppercase
+        font-weight: bold
 
-      .defeats {
-        @extend .victories;
-        color: $color-defeat;
-      }
+      .victories
+        font-size: 1.2em
+        color: colors.victory
+        font-weight: bold
 
-      .progressRow {
-        display: flex;
-        justify-content: center;
+      .defeats
+        font-size: 1.2em
+        font-weight: bold
+        color: colors.defeat
 
-        @include media-breakpoint-down(xs) {
-          justify-content: flex-start;
-        }
+      .progressRow
+        display: flex
+        justify-content: center
 
-        .RankedMiniseries {
-          max-width: 8.5em;
-        }
-      }
-    }
-  }
+        +media-breakpoint-down(xs)
+          justify-content: flex-start
 
-  .noEntries {
-    font-size: 0.9em;
-  }
+        .RankedMiniseries
+          max-width: 8.5em
+
+  .noEntries
+    font-size: 0.9em
 </style>

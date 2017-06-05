@@ -33,10 +33,9 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .LoadingIndicator {
-    height: auto;
-    width: auto;
-    margin: 0.75em auto;
-  }
+<style lang="stylus" scoped>
+  .LoadingIndicator
+    height: auto
+    width: auto
+    margin: 0.75em auto
 </style>

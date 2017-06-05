@@ -84,114 +84,99 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../assets/scss/mixins';
+<style lang="stylus" scoped>
+  @require '../../assets/stylus/mixins'
 
-  .Participant {
-    margin: 0 0.5em;
-    padding: 0.5em 0em;
-    border-bottom: 1px solid #BDBDBD;
+  .Participant
+    margin: 0 0.5em
+    padding: 0.5em 0em
+    border-bottom: 1px solid #BDBDBD
 
-    .championInfoCol {
-      width: 15em;
-      display: flex;
-      align-items: center;
+    .championInfoCol
+      width: 15em
+      display: flex
+      align-items: center
 
-      .dataCol {
-        margin-left: 0.5em;
-        overflow: hidden;
-        flex: 1;
+      .dataCol
+        margin-left: 0.5em
+        overflow: hidden
+        flex: 1
 
-        .summonerName {
-          font-size: 0.9em;
-          font-weight: bold;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-      }
+        .summonerName
+          font-size: 0.9em
+          font-weight: bold
+          overflow: hidden
+          text-overflow: ellipsis
 
-      @include media-breakpoint-down(lg) {
-        width: 14em;
-      }
-    }
+      +media-breakpoint-down(lg)
+        width: 14em
 
-    .rankedTierCol {
-      width: 4em;
-      margin-left: 1em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .rankedTierCol
+      width: 4em
+      margin-left: 1em
+      display: flex
+      justify-content: center
+      align-items: center
 
-      @include media-breakpoint-down(lg) {
-        width: 4em;
-      }
+      +media-breakpoint-down(lg)
+        width: 4em
 
-      .rankedTierContainer {
-        position: relative;
-        display: inline-block;
-        height: 3.5em;
+      .rankedTierContainer
+        position: relative
+        display: inline-block
+        height: 3.5em
 
-        .RankedTierImage {
-          width: 3.5em;
-          height: 3.5em;
-        }
+        .RankedTierImage
+          width: 3.5em
+          height: 3.5em
 
-        .division {
-          color: white;
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          background-color: rgba(0,0,0,0.8);
-          font-size: 0.7em;
-          width: 1.5em;
-          height: 1.5em;
-          line-height: 1.5em;
-          text-align: center;
-          border-radius: 50%;
-        }
-      }
-    }
+        .division
+          color: white
+          position: absolute
+          bottom: 0
+          right: 0
+          background-color: rgba(0,0,0,0.8)
+          font-size: 0.7em
+          width: 1.5em
+          height: 1.5em
+          line-height: 1.5em
+          text-align: center
+          border-radius: 50%
 
-    .rankedStatsCol {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .rankedStats {
-        display: inline-block;
-        .leaguePoints {
-          font-size: 0.9em;
-          text-align: center;
-        }
+    .rankedStatsCol
+      flex: 1
+      display: flex
+      justify-content: center
+      align-items: center
 
-        .RankedMiniseries {
-          font-size: 0.8em;
-        }
-      }
-    }
+      .rankedStats
+        display: inline-block
+        .leaguePoints
+          font-size: 0.9em
+          text-align: center
 
-    .championStatsCol {
-      @extend .rankedStatsCol;
+        .RankedMiniseries
+          font-size: 0.8em
 
-      .championStats {
-        display: inline-block;
-        .kda {
-          font-size: 0.9em;
-          text-align: center;
-        }
-      }
-    }
+    .championStatsCol
+      flex: 1
+      display: flex
+      justify-content: center
+      align-items: center
 
-    .buttonsCol {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+      .championStats
+        display: inline-block
+        .kda
+          font-size: 0.9em
+          text-align: center
 
-    .na {
-      width: 9.5em;
-      text-align: center;
-    }
-  }
+    .buttonsCol
+      flex: 1
+      display: flex
+      justify-content: center
+      align-items: center
+
+    .na
+      width: 9.5em
+      text-align: center
 </style>

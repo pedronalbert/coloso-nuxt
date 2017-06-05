@@ -3,9 +3,9 @@
     img.icon(src='//static.coloso.net/images/icons/score.png')
     .statsText
       span.text-victory.text-nowrap {{ kills || 0 }}
-      |  /
+      |  /&nbsp
       span.text-defeat {{ deaths || 0 }}
-      |  /
+      |  /&nbsp
       span.text-secondary {{ assists || 0 }}
 </template>
 
@@ -32,21 +32,18 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../assets/scss/colors';
+<style lang="stylus" scoped>
+  @require '../assets/stylus/colors'
 
-  .Score {
-    display: flex;
-    align-items: center;
-    color: $color-text-primary;
+  .Score
+    display: flex
+    align-items: center
+    color: colors.text.primary
 
-    .icon {
-      width: 1em;
-      margin-right: 0.25em;
-    }
+    .icon
+      width: 1em
+      margin-right: 0.25em
 
-    .statsText {
-      white-space: nowrap;
-    }
-  }
+    .statsText
+      white-space: nowrap
 </style>

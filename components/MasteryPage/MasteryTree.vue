@@ -82,69 +82,60 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../assets/scss/colors';
+<style lang="stylus" scoped>
+  @require '../../assets/stylus/colors'
 
-  .MasteryTree {
-    padding: 1em;
-    background-color: red;
-    width: 13em;
-    border-radius: 0.5em;
-    margin-bottom: 1em;
-    margin-right: 0.5em;
+  .MasteryTree
+    padding: 1em
+    background-color: red
+    width: 13em
+    border-radius: 0.5em
+    margin-bottom: 1em
+    margin-right: 0.5em
 
-    &.ferocity {
-      background-color: rgba(255,0,0,0.2);
-      border: 0.25em solid red;
-    }
-
-    &.resolve {
-      background-color: rgba(0,255,0,0.2);
-      border: 0.25em solid green;
-    }
-
-    &.cunning {
-      background-color: rgba(0,0,255,0.2);
-      border: 0.25em solid blue;
-    }
-
-    .masteriesRow {
-      display: flex;
-      justify-content: space-around;
-      margin-bottom: 0.5em;
-
-      .masteryContainer {
-        position: relative;
-
-        .masteryImage {
-          width: 3em;
-          height: 3em;
-          border-radius: 0.25em;
-          border: 3px solid black;
-
-          &.rounded {
-            border-radius: 50%;
-          }
-
-          &.active {
-            border-color: $color-accent;
-          }
-        }
+    &.ferocity
+      background-color: rgba(255,0,0,0.2)
+      border: 0.25em solid red
 
 
-        .count {
-          width: 1em;
-          line-height: 1.2em;
-          font-size: 0.8em;
-          color: white;
-          background-color: black;
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          text-align: center;
-        }
-      }
-    }
+    &.resolve
+      background-color: rgba(0,255,0,0.2)
+      border: 0.25em solid green
 
-  }
+
+    &.cunning
+      background-color: rgba(0,0,255,0.2)
+      border: 0.25em solid blue
+
+
+    .masteriesRow
+      display: flex
+      justify-content: space-around
+      margin-bottom: 0.5em
+
+      .masteryContainer
+        position: relative
+
+        .masteryImage
+          width: 3em
+          height: 3em
+          border-radius: 0.25em
+          border: 3px solid black
+
+          &.rounded
+            border-radius: 50%
+
+          &.active
+            border-color: colors.accent
+
+        .count
+          width: 1em
+          line-height: 1.2em
+          font-size: 0.8em
+          color: white
+          background-color: black
+          position: absolute
+          right: 0
+          bottom: 0
+          text-align: center
 </style>

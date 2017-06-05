@@ -1,14 +1,14 @@
 <template lang="pug">
   .GamesRecentRow
     .row.no-gutters
-      .col-12.finalInfo.mb-2.ml-2
+      .col-12.finalInfo.mb-1.ml-2
         span.text-secondary
           b {{ gameType }}
           span.mx-2.hidden-md-down ♦
           span.text-secondary.hidden-md-down {{ $t(`mapsIds[${this.game.mapId}]`) }}
           span.mx-2 ♦
           span.text-secondary {{ timeAgo | sentenceCase }}
-      .col-4.col-lg-2
+      .col-4.col-lg-2.d-flex.align-items-center
         champion-avatar(:champion-id='game.championId', :spell1-id='game.spell1', :spell2-id='game.spell2')
       .gameInfoContainer.col.col-lg-2.d-flex.flex-column.justify-content-center.align-items-center
         .victoryText.text-victory(v-if='game.stats.win')
@@ -26,7 +26,7 @@
         .text-secondary.text-nowrap
           span.mr-1 KDA:
           kda(:kills='game.stats.championsKilled', :deaths='game.stats.numDeaths', :assists='game.stats.assists')
-      .statsContainer.col-12.col-lg.ml-2.d-flex.flex-column.justify-content-center
+      .statsContainer.col-xs-12.col-lg.ml-2.d-flex.flex-column.justify-content-center
         .row.no-gutters
           .col.d-flex.flex-lg-column.justify-content-around
             minions(:amount='game.stats.minionsKilled')
@@ -110,81 +110,69 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../assets/scss/colors';
-  @import '../../assets/scss/mixins';
+<style lang="stylus" scoped>
+  @require '../../assets/stylus/colors'
+  @require '../../assets/stylus/mixins'
 
-  .GamesRecentRow {
-    padding: 0.5em;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+  .GamesRecentRow
+    padding: 0.5em
+    border-bottom: 1px solid rgba(0,0,0,0.2)
 
-    &:last-child { border-bottom: none }
+    &:last-child
+      border-bottom: none
 
-    .gameInfoContainer,
-    .statsContainer,
-    .scoreInfoContainer {
-      font-size: 0.8em;
-      line-height: 1.7em;
-    }
+    .gameInfoContainer
+    .statsContainer
+    .scoreInfoContainer
+      font-size: 0.8em
+      line-height: 1.7em
 
-    .victoryText {
-      font-size: 1.2em;
-    }
+    .victoryText
+      font-size: 1.2em
 
-    .gameInfoContainer {
-      width: 10em;
+    .gameInfoContainer
+      width: 10em
 
-      @include media-breakpoint-only(lg) {
-        width: 8.5em;
-      }
-    }
+      +media-breakpoint-only(lg)
+        width: 8.5em
 
-    .scoreInfoContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    .scoreInfoContainer
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
 
-    }
+    .multiKillBadge
+      display: flex
+      background-color: colors.accent
+      line-height: 1.5em
+      width: 6em
+      border-radius: 0.5em
+      text-transform: capitalize
+      color: white
+      text-align: center
+      justify-content: center
 
-    .multiKillBadge {
-      display: flex;
-      background-color: $color-accent;
-      line-height: 1.5em;
-      width: 6em;
-      border-radius: 0.5em;
-      text-transform: capitalize;
-      color: white;
-      text-align: center;
-      justify-content: center;
+      i
+        color: white
+        font-size: 1.4em
 
-      i {
-        color: white;
-        font-size: 1.4em;
-      }
-    }
+    .statsContainer
+      position: relative
+      width: 12em
 
-    .statsContainer {
-      position: relative;
-      width: 12em;
+      +media-breakpoint-down(md)
+        width: 6em
 
-      @include media-breakpoint-down(md) {
-        width: 6em;
-      }
-    }
+    .uiIcon
+      font-size: 1.2em
+      width: 1em !important
+      height: 1em !important
+      min-width: 1em !important
+      min-height: 1em !important
+      margin: 0
+      margin-right: 0.25em
 
-    .uiIcon {
-      font-size: 1.2em;
-      width: 1em !important;
-      height: 1em !important;
-      min-width: 1em !important;
-      min-height: 1em !important;
-      margin: 0;
-      margin-right: 0.25em;
-    }
-
-    .finalInfo {
-      font-size: 0.8em;
-    }
-  }
+    .finalInfo
+      font-size: 0.8em
 </style>

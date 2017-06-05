@@ -32,47 +32,51 @@
   };
 </script>
 
-<style lang="scss">
-  @import '../assets/scss/colors';
+<style lang="stylus">
+  @require '../assets/stylus/colors'
 
-  .WinRate {
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .WinRate
+    color: white
+    display: flex
+    align-items: center
+    justify-content: center
 
-    .wins {
-      background-color: $color-victory;
-      width: 3.4em;
-      height: 1.5em;
-      line-height: 1.5em;
-      text-align: center;
-      border-radius: 0.25em;
-      position: relative;
-      font-weight: bold;
-    }
+    .wins
+      background-color: colors.victory
+      width: 3.4em
+      height: 1.5em
+      line-height: 1.5em
+      text-align: center
+      border-radius: 0.25em
+      position: relative
+      font-weight: bold
 
-    .rate {
-      $size: 2.5em;
+    .rate
+      size = 2.5em
 
-      color: rgba(0,0,0,0.5);
-      width: $size;
-      height: $size;
-      line-height: $size;
-      background-color: #EFEFEF;
-      border-radius: 50%;
-      text-align: center;
-      position: relative;
-      margin: 0 -0.25em;
-      z-index: 3;
+      color: rgba(0,0,0,0.5)
+      width: size
+      height: size
+      line-height: size
+      background-color: #EFEFEF
+      border-radius: 50%
+      text-align: center
+      position: relative
+      margin: 0 -0.25em
+      z-index: 3
 
-      &.good { color: $color-victory }
-      &.bad { color: $color-defeat }
-    }
+      &.good
+        color: colors.victory
+      &.bad
+        color: colors.defeat
 
-    .losses {
-      @extend .wins;
-      background-color: $color-defeat;
-    }
-  }
+    .losses
+      width: 3.4em
+      height: 1.5em
+      line-height: 1.5em
+      text-align: center
+      border-radius: 0.25em
+      position: relative
+      font-weight: bold
+      background-color: colors.defeat
 </style>

@@ -24,26 +24,21 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .CompactFinalItems {
-    $items-separation: 0.15em;
+<style lang="stylus" scoped>
+  .CompactFinalItems
+    itemsSeparation = 0.15em
 
-    display: flex;
+    display: flex
 
-    .itemsRow {
-      .ItemImage {
-        margin-right: $items-separation;
-        margin-bottom: $items-separation;
-      }
+    .itemsRow
+      .ItemImage
+        margin-right: itemsSeparation
+        margin-bottom: itemsSeparation
 
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
+      &:last-child
+        margin-bottom: 0
 
-    .trinketContainer {
-      display: flex;
-      align-items: center;
-    }
-  }
+    .trinketContainer
+      display: flex
+      align-items: center
 </style>

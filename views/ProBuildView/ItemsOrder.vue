@@ -54,8 +54,7 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .arrowIconContainer {
-    margin-top: -1em;
-  }
+<style lang="stylus" scoped>
+  .arrowIconContainer
+    margin-top: -1em
 </style>

@@ -1,0 +1,67 @@
+@require '../_variables'
+
+
+containerWidths = {
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+}
+
+.container
+  position: relative
+  margin-left: auto
+  margin-right: auto
+
+  for screen, breakpoint in gridBreakpoints
+    if screen != 'xs'
+      @media (min-width: breakpoint)
+        padding-left: 1rem;
+        padding-right: 1rem;
+        max-width: 100%
+        width: containerWidths[screen]
+
+.row
+  display: flex
+  margin-left: -1rem
+  margin-right: -1rem
+  flex-wrap: wrap
+
+  &.no-gutters
+    margin-left: 0
+    margin-right: 0
+
+    & >.col
+    & > [class*="col-"]
+      padding-left: 0
+      padding-right: 0
+
+.col
+  flex: 1 0 0
+  max-width: 100%
+
+for n in (1..12)
+  .col-{n}
+    colSize = (n * 100%) / 12
+    flex: 0 0 colSize
+    max-width: colSize
+    padding-left: 1rem
+    padding-right: 1rem
+
+for screen, breakpoint in gridBreakpoints
+  if screeen != 'xs'
+    @media (min-width: breakpoint)
+      .col-{screen}-auto
+        flex: 0 0 auto
+
+      .col-{screen}
+        flex: 1 0 0
+        max-width: 100%
+
+      for n in (1..12)
+        .col-{screen}-{n}
+          colSize = (n * 100%) / 12
+          padding-left: 1rem
+          padding-right: 1rem
+          flex: 0 0 colSize
+          max-width: colSize

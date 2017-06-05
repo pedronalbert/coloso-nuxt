@@ -1,6 +1,12 @@
 <template lang="pug">
-  router-link.Participant.styless(:to="`/summoners/${participant.summoner.summonerId}`")
-    champion-avatar(:champion-id='participant.championId', :spell1-id='participant.spell1Id', :spell2-id='participant.spell2Id', :name='participant.summoner.summonerName', :title='participant.champion.name')
+  .Participant
+    champion-and-spells(:champion-id='participant.championId', :spell1-id='participant.spell1Id', :spell2-id='participant.spell2Id')
+    .championNameCol
+      div
+        router-link(:to="`/summoners/${participant.summoner.summonerId}`")
+          | {{ participant.summoner.summonerName }}
+      .text-secondary
+        small {{ participant.champion.name }}
     .statsCol
       score(:kills='participant.stats.kills', :deaths='participant.stats.deaths', :assists='participant.stats.assists')
       minions(:amount='participant.stats.totalMinionsKilled')
@@ -9,7 +15,7 @@
 </template>
 
 <script>
-  import { FinalItems, ChampionAvatar, Score, Gold, Minions } from '../../../components';
+  import { FinalItems, ChampionAndSpells, Score, Gold, Minions } from '../../../components';
 
   export default {
     name: 'Pariticpant',
@@ -30,7 +36,7 @@
 
     components: {
       FinalItems,
-      ChampionAvatar,
+      ChampionAndSpells,
       Score,
       Gold,
       Minions,
@@ -38,77 +44,57 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../../assets/scss/mixins';
+<style lang="stylus" scoped>
+  @require '../../../assets/stylus/mixins'
 
-  .Participant {
-    display: flex;
-    align-items: center;
-    padding: 0.5em 0;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-    cursor: pointer;
+  .Participant
+    padding: 0.5em 0
+    border-bottom: 1px solid rgba(0,0,0,0.2)
+    display: flex
+    align-items: center
+    flex-wrap: wrap
 
-    &:hover { background-color: #EEEEEE }
-    &:active { @include active-shadow() }
+    .championNameCol
+      width: 11em
+      display: flex
+      flex-direction: column
+      justify-content: center
+      margin-left: .75em
 
-      @include media-breakpoint-down(md) {
-        flex-wrap: wrap;
-      }
+      +media-breakpoint-down(lg)
+        width: 7em
 
-    .ChampionAvatar {
-      width: 17em;
+      +media-breakpoint-down(md)
+        width: 5em
 
-      @include media-breakpoint-down(lg) {
-        width: 14em;
-        font-size: 0.9em;
-      }
+    .FinalItems
+      font-size: 1.2em
 
-      @include media-breakpoint-down(md) {
-        width: 50%;
-      }
+      +media-breakpoint-down(lg)
+        font-size: 0.9em
 
-      @include media-breakpoint-down(xs) {
-        width: 100%;
-      }
-    }
-
-    .FinalItems {
-      font-size: 1.2em;
-
-      @include media-breakpoint-down(lg) {
-        font-size: 0.9em;
-      }
-
-      @include media-breakpoint-down(md) {
-        width: 100%;
-        margin-top: 0.5em;
-        font-size: 1em;
-        justify-content: center
-      }
-
-      @include media-breakpoint-down(xs) {
-        font-size: 0.8em
-      }
-    }
-
-    .statsCol {
-      width: 10em;
-      font-size: 0.9em;
-
-      @include media-breakpoint-down(lg) {
-        width: 7em;
-      }
-
-      @include media-breakpoint-down(md) {
-        display: flex;
-        justify-content: space-around;
-        width: 50%;
-        margin-top: 0.5em
-      }
-
-      @include media-breakpoint-down(xs) {
+      +media-breakpoint-down(md)
         width: 100%
-      }
-    }
-  }
+        margin-top: 0.5em
+        font-size: 1em
+        justify-content: center
+
+      +media-breakpoint-down(xs)
+        font-size: 0.8em
+
+    .statsCol
+      width: 10em
+      font-size: 0.9em
+
+      +media-breakpoint-down(lg)
+        width: 7em
+
+      +media-breakpoint-down(md)
+        display: flex
+        justify-content: space-around
+        width: 50%
+        margin-top: 0.5em
+
+      +media-breakpoint-down(xs)
+        width: 100%
 </style>

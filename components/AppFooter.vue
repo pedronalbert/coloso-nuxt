@@ -21,34 +21,30 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../assets/scss/colors';
+<style lang="stylus" scoped>
+  @require '../assets/stylus/colors';
 
-  footer {
-    background-color: $color-primary;
-    color: white;
-    box-shadow: 0 2px 2px rgba(0,0,0,.14);
-    background-image: url('/images/background_shapes.png');
-    background-size: 306px 256px;
+  footer
+    background-color: colors.primary
+    color: white
+    box-shadow: 0 2px 2px rgba(0,0,0,.14)
+    background-image: url('/images/background_shapes.png')
+    background-size: 306px 256px
 
-    .container {
+    .container
       padding: 0.5em;
 
-      a {
+      a
         color: white;
         text-decoration: underline;
 
-        &:hover { color: $color-accent }
-      }
+        &:hover
+          color: colors.accent
 
-      .disclaimer {
-        font-size: 0.75em;
-        line-height: 12px;
-      }
+      .disclaimer
+        font-size: 0.75em
+        line-height: 12px
 
-      .miniFooter {
-        font-size: 0.8em;
-      }
-    }
-  }
+      .miniFooter
+        font-size: 0.8em
 </style>

@@ -24,61 +24,57 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../assets/scss/colors';
+<style lang="stylus" scoped>
+  @require '../../assets/stylus/colors'
 
-  .SkillTimelineLevelup {
-    width: 1.8em;
-    height: 1.8em;
-    background-color: $color-accent;
-    border-radius: 50%;
-    border: 4px solid $color-primary;
-    position: relative;
-    color: white;
+  .SkillTimelineLevelup
+    width: 1.8em
+    height: 1.8em
+    background-color: colors.accent
+    border-radius: 50%
+    border: 4px solid colors.primary
+    position: relative
+    color: white
 
-    .addIcon {
-      display: block;
-      text-align: center;
-      font-size: 1.3em;
-      line-height: 1.1em;
-      width: 1em;
-      min-width: 1em;
-      height: 1em;
-      min-height: 1em;
-      color: white;
-      margin: 0 auto;
-    }
+    .addIcon
+      display: block
+      text-align: center
+      font-size: 1.3em
+      line-height: 1.1em
+      width: 1em
+      min-width: 1em
+      height: 1em
+      min-height: 1em
+      color: white
+      margin: 0 auto
 
-    .timeline-tooltip {
-      $bg-color: rgba(0,0,0,0.40);
+    .timeline-tooltip
+      bgColor = rgba(0,0,0,0.40)
 
-      position: absolute;
-      font-size: 0.7em;
-      background-color: $bg-color;
-      border-radius: 0.25em;
-      white-space: nowrap;
-      min-width: 5em;
-      text-align: center;
-      left: 50%;
-      bottom: 70%;
-      transform: translateX(-50%) translateY(-100%);
+      position: absolute
+      font-size: 0.7em
+      background-color: bgColor
+      border-radius: 0.25em
+      white-space: nowrap
+      min-width: 5em
+      text-align: center
+      left: 50%
+      bottom: 70%
+      transform: translateX(-50%) translateY(-100%)
 
-      .inner {
-        position: relative;
+      .inner
+        position: relative
 
-        &::before {
-          content: "";
-          position: absolute;
-          width: 0;
-          height: 0;
-          transform: translateX(-50%);
-          left: 50%;
-          top: 100%;
-          border-left: 6px solid transparent;
-          border-right: 6px solid transparent;
-          border-top: 5px solid $bg-color;
-        }
-      }
-    }
-  }
+        &::before
+          content: ""
+          position: absolute
+          width: 0
+          height: 0
+          transform: translateX(-50%)
+          left: 50%
+          top: 100%
+          border-left: 6px solid transparent
+          border-right: 6px solid transparent
+          border-top: 5px solid bgColor
+
 </style>

@@ -1,0 +1,43 @@
+@require '../_variables'
+
+.d-flex
+  display: flex
+
+.flex-column
+  flex-direction: column
+
+.flex-wrap
+  flex-wrap: wrap
+
+.align-items-center
+  align-items: center
+
+.flex-column
+  flex-direction: column
+
+.justify-content-center
+  justify-content: center
+
+.justify-content-around
+  justify-content: space-around
+
+.justify-content-between
+  justify-content: space-between
+
+for screen, breakpoint in gridBreakpoints
+  if screeen != 'xs'
+    @media (min-width: breakpoint)
+      .d-{screen}-flex
+        display: flex
+
+      .d-{screen}-block
+        display: block
+
+      .align-items-{screen}-center
+          align-items: center
+
+      .flex-{screen}-column
+          flex-direction: column
+
+      .flex-{screen}-row
+          flex-direction: row
