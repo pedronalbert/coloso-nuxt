@@ -112,23 +112,25 @@
         width: 110px
         font-weight: bold
 
-      .score
-        width: 130px
-      .gold
+      .Score
         width: 120px
-      .minions
+      .Gold
+        width: 120px
+      .Minions
         width: 110px
       .time-ago
         width: 140px
+      .FinalItems
+        width: 16em
 
       +media-breakpoint-down(lg)
         .win-status
           width: 100px
-        .score
+        .Score
           width: 120px
-        .gold
+        .Gold
           width: 110px
-        .minions
+        .Minions
           width: 110px
         .time-ago
           width: 140px
