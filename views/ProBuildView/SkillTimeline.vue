@@ -21,23 +21,20 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../assets/scss/colors';
+<style lang="stylus" scoped>
+  @require '../../assets/stylus/colors'
 
-  .SkillTimeline {
-    display: flex;
-    height: 3em;
+  .SkillTimeline
+    display: flex
+    height: 3em
 
-    .timeline {
-      display: flex;
-      align-items: center;
+    .timeline
+      display: flex
+      align-items: center
 
-      .conector {
-        background-color: $color-primary;
-        height: 6px;
-        width: 1.8em;
+      .conector
+        background-color: colors.primary
+        height: 6px
+        width: 1.8em
         margin: 0 -0.01em
-      }
-    }
-  }
 </style>

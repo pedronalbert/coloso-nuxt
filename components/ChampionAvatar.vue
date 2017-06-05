@@ -37,55 +37,49 @@
   };
 </script>
 
-<style lang="scss">
-  @import '../assets/scss/colors';
+<style lang="stylus">
+  @require '../assets/stylus/colors'
 
+  .ChampionAvatar
+    size = 4em
 
-  .ChampionAvatar {
-    $size: 4em;
+    display: flex
 
-    display: flex;
+    .championImage
+      width: size
+      height: size
+      min-width: size
+      min-height: size
+      border: 3px solid colors.primary
+      border-radius: 50%
 
-    .championImage {
-      width: $size;
-      height: $size;
-      min-width: $size;
-      min-height: $size;
-      border: 3px solid $color-primary;
-      border-radius: 50%;
-    }
+    .spells-col
+      margin-left: -0.5em
+      width: (size / 2)
+      display: flex
+      flex-direction: column
 
-    .spells-col {
-      margin-left: -0.5em;
-      width: ($size / 2);
+      .spell-image
+        width: (size / 2)
+        height: (size / 2)
+        border-radius: 50%
+        border: 3px solid colors.primary
 
-      .spell-image {
-        width: $size / 2;
-        height: $size / 2;
-        border-radius: 50%;
-        border: 3px solid $color-primary;
-      }
-    }
+    .dataContainer
+      flex: 1
+      display: flex
+      justify-content: center
+      flex-direction: column
+      overflow: hidden
+      margin-left: 0.5em
 
-    .dataContainer {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      overflow: hidden;
-      margin-left: 0.5em;
+      .champion-title
+      .champion-name
+        white-space: nowrap
+        text-overflow: ellipsis
+        overflow: hidden
+        font-size: 1em
 
-      .champion-title,
-      .champion-name {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        font-size: 1em;
-      }
-
-      .champion-title {
-        font-size: 0.9em;
-      }
-    }
-  }
+      .champion-title
+        font-size: 0.8em
 </style>

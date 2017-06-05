@@ -54,120 +54,107 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../assets/scss/colors';
-  @import '../../assets/scss/mixins';
+<style lang="stylus" scoped>
+  @require '../../assets/stylus/colors'
+  @require '../../assets/stylus/mixins'
 
-  .ChampionMastery {
-    display: flex;
-    width: calc(50% - 1em);
-    margin-bottom: 1em;
-    padding: 0.5em;
-    position: relative;
+  .ChampionMastery
+    display: flex
+    width: calc(50% - 1em)
+    margin-bottom: 1em
+    padding: 0.5em
+    position: relative
 
-    @include media-breakpoint-down(md) {
-      width: 100%;
-    }
+    +media-breakpoint-down(md)
+      width: 100%
 
-    .avatarContainer {
-      position: relative;
-      $champion-image-size: 4.2em;
+    .avatarContainer
+      position: relative
+      championImageSize = 4.2em
 
-      .ChampionImage {
-        border-radius: 50%;
-        min-width: $champion-image-size;
-        min-height: $champion-image-size;
-        height: $champion-image-size;
-        width: $champion-image-size;
-        border: 3px solid #8e6e1a;
-        display: block;
-      }
+      .ChampionImage
+        border-radius: 50%
+        min-width: championImageSize
+        min-height: championImageSize
+        height: championImageSize
+        width: championImageSize
+        border: 3px solid #8e6e1a
+        display: block
 
-      .MasteryTierImage {
-        width: 2.5em;
-        height: 2.5em;
-        margin: -0.30em auto 0.4em auto;
-        display: block;
-      }
+      .MasteryTierImage
+        width: 2.5em
+        height: 2.5em
+        margin: -0.30em auto 0.4em auto
+        display: block
 
-      .flag {
-        $flag-size: 3em;
-        background: red;
-        position: relative;
-        background-color: #8e6e1a;
-        width: $flag-size;
-        height: 3.5em;
-        position: absolute;
-        top: $champion-image-size * 0.75;
-        left: ($champion-image-size - $flag-size) / 2;
-        z-index: -1;
+      .flag
+        flagSize = 3em
+        background: red
+        position: relative
+        background-color: #8e6e1a
+        width: flagSize
+        height: 3.5em
+        position: absolute
+        top: championImageSize * 0.75
+        left: ((championImageSize - flagSize) / 2)
+        z-index: -1
 
-        &:after {
-          content: "";
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          width: 0;
-          height: 0;
-          border-bottom: 0.3em solid white;
-          border-left: $flag-size / 2 solid transparent;
-          border-right: $flag-size / 2 solid transparent;
-        }
+        &:after
+          content: ""
+          position: absolute
+          left: 0
+          bottom: 0
+          width: 0
+          height: 0
+          border-bottom: 0.3em solid white
+          border-left: (flagSize / 2) solid transparent
+          border-right: (flagSize / 2) solid transparent
 
-      }
+      &.level-6
+        flagColor = #791670
 
-      &.level-6 {
-        $flag-color: #791670;
-
-        .flag { background-color: $flag-color }
-        .ChampionImage { border-color: $flag-color }
-      }
-
-      &.level-7 {
-        $flag-color: #129b92;
-
-        .flag { background-color: $flag-color }
-        .ChampionImage { border-color: $flag-color }
-      }
-    }
+        .flag
+          background-color: flagColor
+        .ChampionImage
+          border-color: flagColor
 
 
-    .dataContainer {
-      margin-left: 1em;
-      font-size: 0.9em;
-      overflow: hidden;
-      flex: 1;
+      &.level-7
+        flagColor = #129b92
 
-      .championTitle {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-      }
-    }
+        .flag
+          background-color: flagColor
+        .ChampionImage
+          border-color: flagColor
 
-    .masteryPieces {
-      position: absolute;
-      top: .3em;
-      right: .3em;
-    }
-  }
+    .dataContainer
+      margin-left: 1em
+      font-size: 0.9em
+      overflow: hidden
+      flex: 1
+
+      .championTitle
+        text-overflow: ellipsis
+        overflow: hidden
+        white-space: nowrap
+
+    .masteryPieces
+      position: absolute
+      top: .3em
+      right: .3em
 </style>
 
-<style lang="scss">
-  .progress-gold {
-    margin: .25em 0;
-    height: .4em !important;
+<style lang="stylus">
+  .progress-gold
+    margin: .25em 0
+    height: .4em !important
 
-    .progress-linear__bar__determinate {
-      background-color: #8e6e1a !important;
-    }
-  }
+    .progress-linear__bar__determinate
+      background-color: #8e6e1a !important
 
-  .masteryPieces {
-    font-size: 0.6em;
+  .masteryPieces
+    font-size: 0.6em
 
-    i {
-      font-size: 1.7em !important;
-    }
-  }
+    i
+      font-size: 1.7em !important
 </style>

@@ -45,99 +45,85 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../assets/scss/colors';
-  @import '../assets/scss/mixins';
+<style lang="stylus" scoped>
+  @require '../assets/stylus/colors'
+  @require '../assets/stylus/mixins'
 
-  .SummonerInput {
-    background-color: white;
-    display: flex;
-    align-items: center;
-    border-radius: 0.3em;
-    width: 100%;
-    height: 2.5em;
-    padding-left: .75em;
+  .SummonerInput
+    background-color: white
+    display: flex
+    align-items: center
+    border-radius: 0.3em
+    width: 100%
+    height: 2.5em
+    padding-left: .75em
 
-    .RegionSelector {
-      flex: 0;
-      width: 6em;
-      margin-top: 2.5em; // Centrar debido a margin del vendor
-      min-width: 6em;
+    .RegionSelector
+      flex: 0
+      width: 6em
+      margin-top: 2.5em // Centrar debido a margin del vendor
+      min-width: 6em
 
-      @include media-breakpoint-down(xs) {
-        width: 5.5em;
-        min-width: 5.5em;
-      }
-    }
+      +media-breakpoint-down(xs)
+        width: 5.5em
+        min-width: 5.5em
 
-    .searchButton {
-      color: white;
-    }
+    .searchButton
+      color: white
 
-    .vertical-separator {
-      background-color: rgba(0,0,0,0.2);
-      width: 0.1em;
-      height: 90%;
-      margin-left: 1em;
+    .vertical-separator
+      background-color: rgba(0,0,0,0.2)
+      width: 0.1em
+      height: 90%
+      margin-left: 1em
 
-      @include media-breakpoint-down(xs) {
-        display: none;
-      }
-    }
+      +media-breakpoint-down(xs)
+        display: none
 
-    .summoner-input-container {
-      padding: 0 1em;
-      font-size: 1.2em;
-      flex: 1;
+    .summoner-input-container
+      padding: 0 1em
+      font-size: 1.2em
+      flex: 1
 
-      .summoner-input {
-        width: 100%;
-        color: rgba(0,0,0,0.7);
-        border: none;
-        margin: none;
-        padding: none;
+      .summoner-input
+        width: 100%
+        color: rgba(0,0,0,0.7)
+        border: none
+        margin: none
+        padding: none
 
-        &:focus { outline: none; }
-      }
-    }
+        &:focus
+          outline: none
 
-    .searchIconButton {
-      cursor: pointer;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 0.5em;
-      background-color: $color-accent;
-      border-radius: 0.3em;
+    .searchIconButton
+      cursor: pointer
+      height: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+      padding: 0 0.5em
+      background-color: colors.accent
+      border-radius: 0.3em
 
-      i { color: white !important }
-    }
-  }
+      i
+        color: white !important
 
-  .SummonerInput.small {
-    font-size: 0.8em;
+  .SummonerInput.small
+    font-size: 0.8em
 
-    .RegionSelector {
-      margin-top: 2.9em;
-      margin-left: .25em;
-    }
+    .RegionSelector
+      margin-top: 2.9em
+      margin-left: .25em
 
-    .searchButton {
-      display: none;
-    }
-  }
+    .searchButton
+      display: none
 
-  .SummonerInput.big {
-    .searchIconButton {
-      display: none;
-    }
+  .SummonerInput.big
+    .searchIconButton
+      display: none
 
-    @include media-breakpoint-down(xs) {
+    +media-breakpoint-down(xs)
       .searchIconButton,
-      .searchButton {
-        display: none;
-      }
-    }
-  }
+      .searchButton
+        display: none
 </style>

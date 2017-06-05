@@ -28,45 +28,41 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../assets/scss/colors';
+<style lang="stylus" scoped>
+  @require '../../assets/stylus/colors'
 
-  .ChampionSkill {
-    position: relative;
+  .ChampionSkill
+    position: relative
 
-    .skillLetter {
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      left: 50%;
-      font-size: 1.25em;
-      color: white;
-      text-shadow: 0px 0px 2px black;
-    }
+    .skillLetter
+      position: absolute
+      top: 50%
+      transform: translate(-50%, -50%)
+      left: 50%
+      font-size: 1.25em
+      color: white
+      text-shadow: 0px 0px 2px black
 
-    .priority {
-      $size: 1.8em;
+    .priority
+      size = 1.8em
 
-      position: absolute;
-      background-color: $color-accent;
-      color: white;
-      border-radius: 50%;
-      width: $size;
-      height: $size;
-      text-align: center;
-      line-height: $size;
-      font-size: 0.7em;
-      font-weight: bold;
-      bottom: 0;
-      right: -0.4em;
-    }
+      position: absolute
+      background-color: colors.accent
+      color: white
+      border-radius: 50%
+      width: size
+      height: size
+      text-align: center
+      line-height: size
+      font-size: 0.7em
+      font-weight: bold
+      bottom: 0
+      right: -0.4em
 
-    .imageContainer {
-      width: 3em;
-      height: 3em;
-      border: 4px solid $color-primary;
-      border-radius: 50%;
-      overflow: hidden;
-    }
-  }
+    .imageContainer
+      width: 3em
+      height: 3em
+      border: 4px solid colors.primary
+      border-radius: 50%
+      overflow: hidden
 </style>

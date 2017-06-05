@@ -16,9 +16,8 @@
   };
 </script>
 
-<style lang="scss">
-  .ChampionImage {
-    width: 4em;
-    height: 4em;
-  }
+<style lang="stylus">
+  .ChampionImage
+    width: 4em
+    height: 4em
 </style>

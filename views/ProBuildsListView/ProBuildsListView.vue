@@ -139,14 +139,10 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../assets/scss/mixins';
+<style lang="stylus" scoped>
+  .selector
+    width: 300px !important
 
-  .selector {
-    width: 300px !important;
-
-    &:first-child {
-      margin-bottom: 8px;
-    }
-  }
+    &:first-child
+      margin-bottom: 8px
 </style>

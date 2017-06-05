@@ -22,11 +22,10 @@
   };
 </script>
 
-<style lang="scss">
-  .ItemImage {
-    width: 2em;
-    height: 2em;
-    min-width: 2em;
-    min-height: 2em;
-  }
+<style lang="stylus">
+  .ItemImage
+    width: 2em
+    height: 2em
+    min-width: 2em
+    min-height: 2em
 </style>

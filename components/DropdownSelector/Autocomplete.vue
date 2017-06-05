@@ -27,8 +27,7 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .autocomplete {
+<style lang="stylus" scoped>
+  .autocomplete
     overflow-y: scroll;
-  }
 </style>

@@ -16,9 +16,8 @@
   };
 </script>
 
-<style lang="scss">
-  .MasteryTierImage {
-    width: 2em;
-    height: 2em;
-  }
+<style lang="stylus">
+  .MasteryTierImage
+    width: 2em
+    height: 2em
 </style>

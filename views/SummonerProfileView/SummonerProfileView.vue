@@ -3,7 +3,7 @@
     loading-indicator(v-if="summonerState.fetching")
     error-view(v-else-if="summonerState.fetchError" :message="summonerState.errorMessage" @retry="handleOnRetryFetchAll")
     div(v-else-if="summonerState.fetched" class="row")
-      div(class="col-md-5 col-lg-4")
+      div(class="col-12 col-md-5 col-lg-4")
         v-card(class="mb-4 animated fadeIn")
           v-card-text
             summoner-data(:summoner="summoner", :playing="summonerState.gameCurrentStatus.playing", @click-game-current="goToCurrentGame")
@@ -22,7 +22,7 @@
           ad-format="rectangle,horizontal"
         )
 
-      div(class="col-md-7 col-lg-8")
+      div(class="col-12 col-md-7 col-lg-8")
         v-card.animated.fadeIn.overflow-x-hidden
           v-tabs#summoner-tabs(v-model="activeTab", :light="true")
             v-tabs-bar(slot="activators")
@@ -211,6 +211,3 @@
     },
   };
 </script>
-
-<style lang="scss" scoped>
-</style>

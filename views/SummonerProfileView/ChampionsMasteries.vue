@@ -21,12 +21,11 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .masteriesContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    max-height: 80vh;
-    overflow-y: auto;
-  }
+<style lang="stylus" scoped>
+  .masteriesContainer
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-around
+    max-height: 80vh
+    overflow-y: auto
 </style>

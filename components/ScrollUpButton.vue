@@ -55,20 +55,19 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .ScrollUpButton {
-    position: fixed;
-    bottom: 1em;
-    right: 1.2em;
-    z-index: 2;
-    border-radius: 50%;
+<style lang="stylus" scoped>
+  .ScrollUpButton
+    position: fixed
+    bottom: 1em
+    right: 1.2em
+    z-index: 2
+    border-radius: 50%
 
-  }
-
-  .fade-enter-active, .fade-leave-active {
+  .fade-enter-active
+  .fade-leave-active
     transition: opacity .5s
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+
+  .fade-enter
+  .fade-leave-to
     opacity: 0
-  }
 </style>

@@ -40,43 +40,42 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../assets/scss/mixins';
+<style lang="stylus" scoped>
+  @require '../../assets/stylus/mixins'
 
-  .masteryContainer {
-    display: flex;
-    align-items: center;
+  .masteryContainer
+    display: flex
+    align-items: center
 
-    .MasteryTierImage {
-      width: 2.5em;
-      height: 2.5em;
-      z-index: 5;
-      position: relative;
-    }
+    .MasteryTierImage
+      width: 2.5em
+      height: 2.5em
+      z-index: 5
+      position: relative
 
-    .countContainer {
-      background-color: rgba(0,0,0,0.7);
-      display: inline-block;
-      width: 3em;
-      margin-left: -1em;
-      z-index: 0;
-      position: relative;
-      border-radius: 0.25em;
-      color: white;
-      padding-left: 0.75em;
-      text-align: center;
-      line-height: 1.4em;
-      font-size: 0.9em;
-    }
+    .countContainer
+      background-color: rgba(0,0,0,0.7)
+      display: inline-block
+      width: 3em
+      margin-left: -1em
+      z-index: 0
+      position: relative
+      border-radius: 0.25em
+      color: white
+      padding-left: 0.75em
+      text-align: center
+      line-height: 1.4em
+      font-size: 0.9em
 
-    @include media-breakpoint-down(md) {
-      &:last-child { display: none }
-      &:nth-last-child(2) { display: none }
-      &:nth-last-child(3) { display: none }
-    }
+    +media-breakpoint-down(md)
+      &:last-child
+        display: none
+      &:nth-last-child(2)
+        display: none
+      &:nth-last-child(3)
+        display: none
 
-    @include media-breakpoint-down(sm) {
-      &:nth-last-child(4) { display: none }
-    }
-  }
+    +media-breakpoint-down(sm)
+      &:nth-last-child(4)
+        display: none
 </style>

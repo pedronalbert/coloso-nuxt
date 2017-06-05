@@ -26,14 +26,12 @@
   };
 </script>
 
-<style lang="scss">
-  .RankedMiniseries {
-    &> i {
-      font-size: 1.3em !important;
-      width: 1em !important;
-      min-width: 1em !important;
-      height: 1em !important;
-      min-height: 1em !important;
-    }
-  }
+<style lang="stylus">
+  .RankedMiniseries
+    &> i
+      font-size: 1.3em !important
+      width: 1em !important
+      min-width: 1em !important
+      height: 1em !important
+      min-height: 1em !important
 </style>

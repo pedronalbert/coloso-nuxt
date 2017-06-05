@@ -21,30 +21,25 @@
   };
 </script>
 
-<style lang="scss">
-  .ProPlayerChip {
-    display: flex;
-    align-items: center;
+<style lang="stylus">
+  .ProPlayerChip
+    display: flex
+    align-items: center
 
-    .dataContainer {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      overflow: hidden;
-      margin-left: 12px;
+    .dataContainer
+      flex: 1
+      display: flex
+      justify-content: center
+      flex-direction: column
+      overflow: hidden
+      margin-left: 12px
 
       .name,
-      .realName {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-      }
+      .realName
+        white-space: nowrap
+        text-overflow: ellipsis
+        overflow: hidden
 
-      .realName {
-        font-size: 12px;
-      }
-    }
-  }
-
+      .realName
+        font-size: 12px
 </style>

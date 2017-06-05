@@ -15,18 +15,15 @@
   };
 </script>
 
-<style lang="scss">
-  .FinalItems {
-    height: 2em;
-    display: flex;
-    justify-content: space-around;
+<style lang="stylus">
+  .FinalItems
+    height: 2em
+    display: flex
+    justify-content: space-around
 
-    .ItemImage {
-      margin-right: 0.25em;
+    .ItemImage
+      margin-right: 0.25em
 
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
+      &:last-child
+        margin-right: 0
 </style>

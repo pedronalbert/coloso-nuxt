@@ -47,17 +47,14 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .ErrorView {
-    .message {
-      font-size: 0.9em;
-      text-align: center;
-      font-style: italic;
-    }
+<style lang="stylus" scoped>
+  .ErrorView
+    .message
+      font-size: 0.9em
+      text-align: center
+      font-style: italic
 
-    .PoroSticker {
-      width: 7em;
-      height: 7em;
-    }
-  }
+    .PoroSticker
+      width: 7em
+      height: 7em
 </style>

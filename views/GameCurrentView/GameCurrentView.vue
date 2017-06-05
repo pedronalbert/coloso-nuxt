@@ -11,7 +11,7 @@
         v-tabs-content#game(:key="1")
           v-card-text
             div.d-flex.flex-column.flex-sm-row
-              map-image.rounded.mr-3.mb-3(:map-id='gameCurrent.mapId')
+              map-image.hidden-xs-down.mr-3(:map-id='gameCurrent.mapId')
               div.text-nowrap
                 .row
                   .col-4
@@ -55,7 +55,7 @@
               load-more-button(v-else-if="hasMorePages" @click.native="loadMore")
     v-dialog(v-model="showDialog", :scrollable="true", width="auto")
       v-card
-        v-card-row.p-3
+        v-card-row.p-4
           rune-page(v-if="runesSelected != null", :runes='runesSelected')
           mastery-page(v-if='masteriesSelected != null', :masteries='masteriesSelected')
     scroll-up-button
@@ -206,18 +206,17 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .GameCurrentView {
-    .gameInfoTable {
-      margin-top: -0.25em;
+<style lang="stylus" scoped>
+  .GameCurrentView
+    .gameInfoTable
+      margin-top: -0.25em
 
-      tr:first-child {
-        td, th { border-top: none }
-      }
-    }
-    .bannedChampionImage {
-      width: 2em !important;
-      height: 2em !important;
-    }
-  }
+      tr:first-child
+        td
+        th
+          border-top: none
+
+    .bannedChampionImage
+      width: 2em !important
+      height: 2em !important
 </style>

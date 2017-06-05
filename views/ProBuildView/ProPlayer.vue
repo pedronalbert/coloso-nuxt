@@ -36,13 +36,12 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .ProPlayer {
-    .dataTable {
-      font-size: 0.9em;
-      margin-bottom: 0px;
+<style lang="stylus" scoped>
+  .ProPlayer
+    .dataTable
+      font-size: 0.9em
+      margin-bottom: 0px
 
-      th { width: 80px }
-    }
-  }
+      th
+        width: 80px
 </style>

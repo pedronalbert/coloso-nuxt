@@ -102,76 +102,66 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../../assets/scss/colors';
+<style lang="stylus" scoped>
+  @require '../../assets/stylus/colors'
 
-  .drop-down-selector {
-    $avatar-size: 70px;
-    $input-height: 36px;
-    $bg-color: #EEEEEE;
-    $autocomplete-height: 400px;
-    $autocomplete-offset: 4px;
+  .drop-down-selector
+    avatarSize = 70px
+    inputHeight = 36px
+    bgColor = #EEEEEE
+    autocompleteHeight = 400px
+    autocompleteOffset = 4px
 
-    position: relative;
-    width: 100%;
+    position: relative
+    width: 100%
 
-    .selectedImage {
-      width: $avatar-size;
-      height: $avatar-size;
-      border-radius: 50%;
-      border: 3px solid $color-primary;
-      z-index: 1;
-    }
+    .selectedImage
+      width: avatarSize
+      height: avatarSize
+      border-radius: 50%
+      border: 3px solid colors.primary
+      z-index: 1
 
-    .no-selected-avatar {
-      width: $avatar-size;
-      height: $avatar-size;
-      background-color: $bg-color;
-      border-radius: 50%;
-      z-index: 1;
-    }
+    .no-selected-avatar
+      width: avatarSize
+      height: avatarSize
+      background-color: bgColor
+      border-radius: 50%
+      z-index: 1
 
-    .input-container {
-      margin-left: -12px;
-      font-size: 16px;
-      background-color: $bg-color;
-      padding: 8px 12px 8px 26px;
-      flex: 1;
-      height: $input-height;
-      position: relative;
-      border-radius: 4px;
+    .input-container
+      margin-left: -12px
+      font-size: 16px
+      background-color: bgColor
+      padding: 8px 12px 8px 26px
+      flex: 1
+      height: inputHeight
+      position: relative
+      border-radius: 4px
 
-      input {
-        width: 100%;
-        border: none;
-        background-color: inherit;
-        color: red;
+      input
+        width: 100%
+        border: none
+        background-color: inherit
+        color: red
 
-        &:focus {
-          outline: none;
-          color: red;
-        }
-      }
+        &:focus
+          outline: none
+          color: red
 
-      .icon-container {
-        cursor: pointer;
-        margin-left: 12px;
-      }
-    }
+      .icon-container
+        cursor: pointer
+        margin-left: 12px
 
-    .selected-text {
-      flex: 1;
+    .selected-text
+      flex: 1
 
-    }
-
-    .autocomplete {
-      background-color: white;
-      max-height: $autocomplete-height;
-      position: absolute;
-      top: $input-height;
-      z-index: 100;
-      left: $autocomplete-offset;
-      right: 0;
-    }
-  }
+    .autocomplete
+      background-color: white
+      max-height: autocompleteHeight
+      position: absolute
+      top: inputHeight
+      z-index: 100
+      left: autocompleteOffset
+      right: 0
 </style>

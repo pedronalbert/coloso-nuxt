@@ -9,20 +9,17 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  @import '../assets/scss/colors';
-  @import '../assets/scss/mixins';
+<style lang="stylus" scoped>
+  @require '../assets/stylus/colors';
 
-  .load-more-button {
-    height: 36px;
-    width: 100%;
-    background-color: white;
-    border-radius: 3px;
-    border: 1.5px solid $color-accent;
-    color: $color-accent;
-    font-weight: bold;
-    cursor: pointer;
-
-    &:active { @include active-shadow() }
-  }
+  .load-more-button
+    height: 36px
+    width: 100%
+    background-color: white
+    border-radius: 3px
+    border: 1.5px solid colors.accent
+    color: colors.accent
+    font-weight: bold
+    cursor: pointer
+    font-size: 1rem
 </style>

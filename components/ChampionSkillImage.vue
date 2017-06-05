@@ -16,8 +16,7 @@
   };
 </script>
 
-<style lang="scss">
-  .ChampionSkillImage {
-    width: 100%;
-  }
+<style lang="stylus">
+  .ChampionSkillImage
+    width: 100%
 </style>

@@ -16,8 +16,7 @@
   };
 </script>
 
-<style lang="scss">
-  .RuneImage {
-    width: 100%;
-  }
+<style lang="stylus">
+  .RuneImage
+    width: 100%
 </style>

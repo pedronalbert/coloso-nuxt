@@ -19,28 +19,24 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .autocomplete-row {
-    padding: 8px 16px;
-    cursor: pointer;
-    border-bottom: 1px solid #EEEEEE;
+<style lang="stylus" scoped>
+  .autocomplete-row
+    padding: 8px 16px
+    cursor: pointer
+    border-bottom: 1px solid #EEEEEE
 
-    .avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 12px;
-    }
+    .avatar
+      width: 40px
+      height: 40px
+      border-radius: 50%
+      margin-right: 12px
 
-    .name {
-      font-size: 14px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+    .name
+      font-size: 14px
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
 
-    &:hover {
-      background-color: #EEEEEE;
-    }
-  }
+    &:hover
+      background-color: #EEEEEE
 </style>
