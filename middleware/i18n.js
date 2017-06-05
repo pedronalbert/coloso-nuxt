@@ -1,6 +1,5 @@
 import moment from 'moment';
 import langParser from 'accept-language-parser';
-import ColosoClient from '../utils/ColosoClient';
 
 function getDomainLocale(hostname) {
   const subdomainRegexLocale = /^[a-z]{2}\./g;
@@ -31,5 +30,4 @@ export default ({ app, req, isServer, store }) => {
   /* eslint-disable no-param-reassign */
   app.i18n.locale = store.state.locale;
   moment.locale(store.state.locale);
-  ColosoClient.defaults.headers.common['Accept-Language'] = store.state.locale;
 };

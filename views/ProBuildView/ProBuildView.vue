@@ -1,8 +1,6 @@
 <template lang="pug">
   .ProBuildView.container
-    loading-view(v-if='buildState.fetching')
-    error-view(v-else-if='buildState.fetchError', @retry='fetchBuild', :message='buildState.errorMessage')
-    .row(v-else)
+    .row
       .col-12.col-md-4.col-xl-3
         v-card.mb-4.animated.fadeIn
           v-card-text
@@ -16,10 +14,10 @@
           v-tabs#probuild-tabs(v-model="activeTab", :light="true")
             v-tabs-bar(slot="activators")
               v-tabs-slider
-              v-tabs-item(href="#build" ripple) {{ $t('build') }}
-              v-tabs-item(href="#runes" ripple) {{ $t('runes') }}
-              v-tabs-item(href="#masteries" ripple) {{ $t('masteries') }}
-              v-tabs-item(href="#game" ripple) {{ $t('game') }}
+              v-tabs-item(href="#build", :ripple="true") {{ $t('build') }}
+              v-tabs-item(href="#runes", :ripple="true") {{ $t('runes') }}
+              v-tabs-item(href="#masteries", :ripple="true") {{ $t('masteries') }}
+              v-tabs-item(href="#game", :ripple="true") {{ $t('game') }}
             v-tabs-content#build
               v-card-text
                 h6
@@ -46,6 +44,7 @@
   import { get, assign } from 'lodash';
   import { mapActions, mapGetters, mapState } from 'vuex';
   import { LoadingIndicator, MasteryPage, RunePage, CircularRunePage, ErrorView, Adsense, LoadingView } from '../../components';
+  import PreloadPage from '../../components/PreloadPage.vue';
   import ProPlayer from './ProPlayer.vue';
   import BuildSummary from './BuildSummary.vue';
   import SkillsOrder from './SkillsOrder.vue';
@@ -55,17 +54,31 @@
   export default {
     name: 'ProBuildView',
 
-    fetch({ store, params }) {
-      return new Promise((resolve) => {
-        store.dispatch('proBuild/fetchById', params.buildId)
-          .then(() => {
-            const proBuild = store.getters['proBuild/data'];
+    components: {
+      LoadingIndicator,
+      ProPlayer,
+      BuildSummary,
+      SkillsOrder,
+      ItemsOrder,
+      MasteryPage,
+      RunePage,
+      CircularRunePage,
+      Game,
+      ErrorView,
+      Adsense,
+      LoadingView,
+      PreloadPage,
+    },
 
-            return store.dispatch('game/fetchById', proBuild.gameId);
-          })
-          .then(resolve)
-          .catch(resolve);
-      });
+    asyncData({ store, params }, cb) {
+      store.dispatch('proBuild/fetchById', params.buildId)
+        .then(() => cb(null, {}))
+        .catch((err) => {
+          cb({
+            statusCode: err.code,
+            message: err.message,
+          });
+        });
     },
 
     head() {
@@ -100,6 +113,7 @@
 
     mounted() {
       this.setTabByHash();
+      this.fetchGame();
     },
 
     computed: {
@@ -146,21 +160,6 @@
           this.activeTab = hash;
         }
       },
-    },
-
-    components: {
-      LoadingIndicator,
-      ProPlayer,
-      BuildSummary,
-      SkillsOrder,
-      ItemsOrder,
-      MasteryPage,
-      RunePage,
-      CircularRunePage,
-      Game,
-      ErrorView,
-      Adsense,
-      LoadingView,
     },
   };
 </script>

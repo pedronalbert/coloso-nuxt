@@ -20,9 +20,7 @@
                 v-radio.radioButton(:light="true" v-model="searchType", :hide-details="true" value="GAME")
                 | {{ $t('currentGame') }}
     .contentContainer.container
-      loading-view(v-if='proBuildsState.fetching')
-      error-view(v-else-if='proBuildsState.fetchError', :message='proBuildsState.errorMessage', :retry-button='false')
-      v-card.animated.fadeIn(v-else)
+      v-card.animated.fadeIn
         v-card-text
           .title.text-primary.mb-3
             | {{ $t('lastProBuilds') }}
@@ -33,7 +31,7 @@
   import { mapActions, mapGetters, mapState } from 'vuex';
 
   import { AppNav, SummonerInput, ErrorView, LoadingView, ProBuildsList, LoadingIndicator } from '../../components';
-  import { getRiotRegionByUserIp, promiseReflector } from '../../utils';
+  import { getRiotRegionByUserIp } from '../../utils';
 
   function showModal(message) {
     window.swal({
@@ -48,8 +46,24 @@
   export default {
     name: 'HomeView',
 
-    fetch({ store }) {
-      return promiseReflector(store.dispatch('proBuilds/fetchBuilds', { pageNumber: 1 }));
+    components: {
+      AppNav,
+      SummonerInput,
+      ErrorView,
+      LoadingView,
+      ProBuildsList,
+      LoadingIndicator,
+    },
+
+    asyncData({ store }, cb) {
+      store.dispatch('proBuilds/fetchBuilds', { pageNumber: 1 })
+        .then(() => cb(null, {}))
+        .catch((err) => {
+          cb({
+            statusCode: err.code,
+            message: err.message,
+          });
+        });
     },
 
     head() {
@@ -135,15 +149,6 @@
         this.searchType = value;
       },
     },
-
-    components: {
-      AppNav,
-      SummonerInput,
-      ErrorView,
-      LoadingView,
-      ProBuildsList,
-      LoadingIndicator,
-    },
   };
 </script>
 
@@ -215,6 +220,8 @@
 
   .contentContainer
     padding: 2em 0
+    position: relative
+    min-height: 18em
 
     .title
       font-size: 1.4em

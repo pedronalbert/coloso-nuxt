@@ -1,8 +1,14 @@
 <template lang="pug">
-  .GameCurrentView.container
+  preload-page(
+    v-if="gameCurrentState.fetching || gameCurrentState.fetchError"
+    :fetching="gameCurrentState.fetching"
+    :fetchError="gameCurrentState.fetchError"
+    :message="gameCurrentState.errorMessage"
+    :retryButton="false"
+  )
+  .GameCurrentView.container(v-else-if="gameCurrentState.fetched")
     adsense.googleAd.mx-auto.mb-4(ad-style='display:block', ad-client='ca-pub-9850680385333731', ad-slot='3550650408', ad-format='horizontal')
-    error-view(v-if='gameCurrentState.fetchError', :message='gameCurrentState.errorMessage', :retry-button='false')
-    v-card.animated.fadeIn(v-else)
+    v-card.animated.fadeIn
       v-tabs#gamecurrent-tabs(v-model="activeTab", :light="true")
         v-tabs-bar(slot="activators")
           v-tabs-slider
@@ -79,6 +85,7 @@
     LoadingView,
     Adsense,
   } from '../../components';
+  import PreloadPage from '../../components/PreloadPage.vue';
   import Participant from './Participant.vue';
   import TeamHeader from './TeamHeader.vue';
 
@@ -101,6 +108,7 @@
       LoadMoreButton,
       LoadingView,
       Adsense,
+      PreloadPage,
     },
 
     fetch({ params, store }) {

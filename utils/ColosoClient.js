@@ -10,13 +10,21 @@ if (process.env.NODE_ENV === 'development') {
 
 const TIMEOUT = 25000;
 
+function getLocale() {
+  if (process.BROWSER_BUILD) {
+    return window.i18n;
+  }
+
+  return global.i18n;
+}
+
 const axiosClient = axios.create({
   baseURL: ENDPOINT,
   timeout: TIMEOUT,
   responseType: 'json',
   headers: {
     common: {
-      'Accept-Language': 'en',
+      'Accept-Language': getLocale(),
       Accept: 'application/vnd.coloso.net; version=2',
     },
   },

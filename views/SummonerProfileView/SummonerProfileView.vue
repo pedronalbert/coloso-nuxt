@@ -1,8 +1,6 @@
 <template lang="pug">
   div.container
-    loading-indicator(v-if="summonerState.fetching")
-    error-view(v-else-if="summonerState.fetchError" :message="summonerState.errorMessage" @retry="handleOnRetryFetchAll")
-    div(v-else-if="summonerState.fetched" class="row")
+    div.row
       div(class="col-12 col-md-5 col-lg-4")
         v-card(class="mb-4 animated fadeIn")
           v-card-text
@@ -59,7 +57,7 @@
 <script>
   import { mapState, mapGetters, mapActions } from 'vuex';
   import { LoadingIndicator, Adsense, LoadingView, ErrorView } from '../../components';
-  import { promiseReflector } from '../../utils';
+  import PreloadPage from '../../components/PreloadPage.vue';
 
   import SummonerData from './SummonerData.vue';
   import LeagueEntries from './LeagueEntries.vue';
@@ -71,14 +69,34 @@
   export default {
     name: 'SummonerProfileview',
 
-    fetch({ params, store }) {
+    components: {
+      LoadingIndicator,
+      SummonerData,
+      LeagueEntries,
+      ChampionsMasteries,
+      Runes,
+      Masteries,
+      GamesRecent,
+      Adsense,
+      LoadingView,
+      ErrorView,
+      PreloadPage,
+    },
+
+    asyncData({ params, store }, cb) {
       const summonerId = params.summonerId;
 
       return Promise.all([
-        promiseReflector(store.dispatch('summoner/fetchById', summonerId)),
-        promiseReflector(store.dispatch('summoner/gamesRecent/fetchById', summonerId)),
-        promiseReflector(store.dispatch('summoner/leagueEntries/fetchById', summonerId)),
-      ]);
+        store.dispatch('summoner/fetchById', summonerId),
+        store.dispatch('summoner/gamesRecent/fetchById', summonerId),
+        store.dispatch('summoner/leagueEntries/fetchById', summonerId),
+      ]).then(() => cb(null, {}))
+        .catch((err) => {
+          cb({
+            statusCode: err.code,
+            message: err.message,
+          });
+        });
     },
 
     head() {
@@ -195,19 +213,6 @@
           this.fetchInClientData();
         }
       },
-    },
-
-    components: {
-      LoadingIndicator,
-      SummonerData,
-      LeagueEntries,
-      ChampionsMasteries,
-      Runes,
-      Masteries,
-      GamesRecent,
-      Adsense,
-      LoadingView,
-      ErrorView,
     },
   };
 </script>

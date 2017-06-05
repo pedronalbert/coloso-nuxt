@@ -115,6 +115,8 @@
 
       .masteryContainer
         position: relative
+        width: 3em
+        height: 3em
 
         .masteryImage
           width: 3em
@@ -135,7 +137,7 @@
           color: white
           background-color: black
           position: absolute
-          right: 0
-          bottom: 0
+          right: .25em
+          bottom: .25em
           text-align: center
 </style>

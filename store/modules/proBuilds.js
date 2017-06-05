@@ -102,7 +102,7 @@ export default {
         },
       });
 
-      return new Promise((resolve) => {
+      return new Promise((resolve, reject) => {
         ColosoApi.proBuilds.get(params)
           .then((response) => {
             const entities = normalize(response);
@@ -113,7 +113,7 @@ export default {
           })
           .catch((error) => {
             commit('fetchFailure', { message: error.message });
-            resolve();
+            reject(error);
           });
       });
     },

@@ -93,7 +93,7 @@
       },
 
       timeAgo() {
-        return moment(this.game.createDate).add(this.game.stats.timePlayed, 'seconds').fromNow();
+        return moment(this.game.createDate).fromNow();
       },
     },
 
