@@ -1,6 +1,12 @@
 <template lang="pug">
-  router-link.Participant.styless(:to="`/summoners/${participant.summoner.summonerId}`")
-    champion-avatar(:champion-id='participant.championId', :spell1-id='participant.spell1Id', :spell2-id='participant.spell2Id', :name='participant.summoner.summonerName', :title='participant.champion.name')
+  .Participant
+    champion-and-spells(:champion-id='participant.championId', :spell1-id='participant.spell1Id', :spell2-id='participant.spell2Id')
+    .championNameCol
+      div
+        router-link(:to="`/summoners/${participant.summoner.summonerId}`")
+          | {{ participant.summoner.summonerName }}
+      .text-secondary
+        small {{ participant.champion.name }}
     .statsCol
       score(:kills='participant.stats.kills', :deaths='participant.stats.deaths', :assists='participant.stats.assists')
       minions(:amount='participant.stats.totalMinionsKilled')
@@ -9,7 +15,7 @@
 </template>
 
 <script>
-  import { FinalItems, ChampionAvatar, Score, Gold, Minions } from '../../../components';
+  import { FinalItems, ChampionAndSpells, Score, Gold, Minions } from '../../../components';
 
   export default {
     name: 'Pariticpant',
@@ -30,7 +36,7 @@
 
     components: {
       FinalItems,
-      ChampionAvatar,
+      ChampionAndSpells,
       Score,
       Gold,
       Minions,
@@ -42,30 +48,24 @@
   @require '../../../assets/stylus/mixins'
 
   .Participant
-    display: flex
-    align-items: center
     padding: 0.5em 0
     border-bottom: 1px solid rgba(0,0,0,0.2)
-    cursor: pointer
+    display: flex
+    align-items: center
+    flex-wrap: wrap
 
-    &:hover
-      background-color: #EEEEEE
-
-      +media-breakpoint-down(md)
-        flex-wrap: wrap
-
-    .ChampionAvatar
-      width: 17em
+    .championNameCol
+      width: 11em
+      display: flex
+      flex-direction: column
+      justify-content: center
+      margin-left: .75em
 
       +media-breakpoint-down(lg)
-        width: 14em
-        font-size: 0.9em
+        width: 7em
 
       +media-breakpoint-down(md)
-        width: 50%
-
-      +media-breakpoint-down(xs)
-        width: 100%
+        width: 5em
 
     .FinalItems
       font-size: 1.2em
