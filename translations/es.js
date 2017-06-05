@@ -130,7 +130,7 @@ export default {
     home: 'Coloso es una herramienta para jugadores de League of Legends, busca perfiles de invocador, juegos en tiempo real, estadísticas y builds profesionales.',
     proBuildsList: 'Encuentra la build profesional definitiva para tu campeón favorito de League of Legends en Coloso.net.',
     proBuild: 'Build definitva para {championName} usada por {proPlayerName} jugador profesional de League of Legends, disponible en Coloso.net.',
-    summonerProfile: 'Perfil de Invocador de {summonerName} en League of Legends({regionName}), runas, maestrías, campeones y más en Coloso.net.',
+    summonerProfile: 'Perfil de Invocador de {summonerName} en League of Legends({region}), runas, maestrías, campeones y más en Coloso.net.',
   },
   viewsTitles: {
     proBuild: 'Build para {championName} de {proPlayerName} | Coloso.net.',
