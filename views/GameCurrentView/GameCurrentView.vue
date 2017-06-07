@@ -139,6 +139,9 @@
     head() {
       return {
         title: `${this.$t('currentGame')} | Coloso.net`,
+        meta: [
+          { hid: 'robots', name: 'robots', content: 'noindex' },
+        ],
       };
     },
 
