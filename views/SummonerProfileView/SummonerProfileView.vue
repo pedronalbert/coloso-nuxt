@@ -25,10 +25,10 @@
           v-tabs#summoner-tabs(v-model="activeTab", :light="true")
             v-tabs-bar(slot="activators")
               v-tabs-slider
-              v-tabs-item(href="#history" ripple) {{ $t('history') }}
-              v-tabs-item(href="#champions" ripple) {{ $t('champions') }}
-              v-tabs-item(href="#runes" ripple) {{ $t('runes') }}
-              v-tabs-item(href="#masteries" ripple) {{ $t('masteries') }}
+              v-tabs-item(href="#history", key="history", ripple) {{ $t('history') }}
+              v-tabs-item(href="#champions", key="champions", ripple) {{ $t('champions') }}
+              v-tabs-item(href="#runes", key="runes", ripple) {{ $t('runes') }}
+              v-tabs-item(href="#masteries", key="masteries", ripple) {{ $t('masteries') }}
             v-tabs-content#history
               v-card-text
                 games-recent(v-if="summonerState.gamesRecent.fetched" :games="gamesRecent.games")
