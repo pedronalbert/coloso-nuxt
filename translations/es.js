@@ -118,7 +118,7 @@ export default {
     LAN: 'Latinoamérica Norte',
     LAS: 'Latinoamérica Sur',
     OCE: 'Oceanía',
-    EUNE: 'Euroca Nórdica y Este',
+    EUNE: 'Europa Nórdica y Este',
     EUW: 'Europa Oeste',
     JP: 'Japón',
     KR: 'Corea',
