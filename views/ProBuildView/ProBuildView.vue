@@ -14,10 +14,10 @@
           v-tabs#probuild-tabs(v-model="activeTab", :light="true")
             v-tabs-bar(slot="activators")
               v-tabs-slider
-              v-tabs-item(href="#build", :ripple="true") {{ $t('build') }}
-              v-tabs-item(href="#runes", :ripple="true") {{ $t('runes') }}
-              v-tabs-item(href="#masteries", :ripple="true") {{ $t('masteries') }}
-              v-tabs-item(href="#game", :ripple="true") {{ $t('game') }}
+              v-tabs-item(href="#build", key="build", :ripple="true") {{ $t('build') }}
+              v-tabs-item(href="#runes", key="runes", :ripple="true") {{ $t('runes') }}
+              v-tabs-item(href="#masteries", key="masteries", :ripple="true") {{ $t('masteries') }}
+              v-tabs-item(href="#game", key="game", :ripple="true") {{ $t('game') }}
             v-tabs-content#build
               v-card-text
                 h6

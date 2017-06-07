@@ -12,8 +12,8 @@
       v-tabs#gamecurrent-tabs(v-model="activeTab", :light="true")
         v-tabs-bar(slot="activators")
           v-tabs-slider
-          v-tabs-item(:key="1" href="#game" ripple) {{ $t('game') }}
-          v-tabs-item(:key="2" href="#pro-builds" ripple) {{ $t('proBuilds') }}
+          v-tabs-item(:key="game" href="#game" ripple) {{ $t('game') }}
+          v-tabs-item(:key="pro-builds" href="#pro-builds" ripple) {{ $t('proBuilds') }}
         v-tabs-content#game(:key="1")
           v-card-text
             div.d-flex.flex-column.flex-sm-row
@@ -139,6 +139,9 @@
     head() {
       return {
         title: `${this.$t('currentGame')} | Coloso.net`,
+        meta: [
+          { hid: 'robots', name: 'robots', content: 'noindex' },
+        ],
       };
     },
 
