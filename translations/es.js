@@ -133,6 +133,6 @@ export default {
     summonerProfile: 'Perfil de Invocador de {summonerName} en League of Legends({region}), runas, maestrías, campeones y más en Coloso.net.',
   },
   viewsTitles: {
-    proBuild: 'Build para {championName} de {proPlayerName} | Coloso.net.',
+    proBuild: 'Build de {championName} por {proPlayerName} | Coloso.net.',
   },
 };
